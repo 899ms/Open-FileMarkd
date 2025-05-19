@@ -1,0 +1,123 @@
+/* 确保文本在所有浏览器中可见的背景修复 */
+
+/* 确保所有文本内容有合适的对比度 */
+body, p, h1, h2, h3, h4, h5, h6, span, div, a {
+  color: inherit;
+  background-color: transparent;
+  -webkit-text-size-adjust: 100%; /* 防止iOS浏览器自动调整文本大小 */
+  -webkit-font-smoothing: antialiased; /* 文字渲染优化 */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 修复某些浏览器中可能出现的文本可见性问题 */
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
+/* 确保markdown内容正确显示 */
+.markdown-content {
+  background-color: inherit;
+  position: relative;
+  z-index: 1; /* 确保内容在最上层 */
+}
+
+/* 确保对话框内容清晰可见 */
+[data-radix-dialog-content] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  z-index: 100 !important;
+  opacity: 1 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* 对话框标题和描述文本增强 */
+[data-radix-dialog-title] {
+  color: hsl(var(--foreground)) !important;
+  opacity: 1 !important;
+}
+
+[data-radix-dialog-description] {
+  color: hsl(var(--muted-foreground)) !important;
+  opacity: 1 !important;
+}
+
+/* 确保对话框遮罩层的不透明度 */
+[data-radix-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* bg-dialog-content类的增强样式 */
+.bg-dialog-content {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* 修复iOS Safari中的透明度问题 */
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--background);
+  }
+  
+  .backdrop-blur {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  
+  /* 修复iOS中的对话框 */
+  [data-radix-dialog-content] {
+    opacity: 1 !important;
+    background-color: rgba(var(--background-rgb), 0.95) !important;
+  }
+  
+  /* 确保iOS中的文本可见 */
+  [data-radix-dialog-content] * {
+    opacity: 1 !important;
+  }
+}
+
+/* 确保表单元素在iOS上有正确的颜色 */
+.form-control, input, textarea, select {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* 修复对话框透明度问题 */
+.bg-dialog-content {
+  background-color: var(--background) !important;
+  opacity: 1 !important;
+  box-shadow: 0 10px 25px -5px rgba(var(--background-rgb), 0.1), 
+              0 8px 10px -6px rgba(var(--background-rgb), 0.1);
+  border: 1px solid var(--border);
+}
+
+.bg-dialog-content .text-foreground {
+  color: var(--foreground) !important;
+  opacity: 1 !important;
+}
+
+.bg-dialog-content .text-muted-foreground {
+  color: var(--muted-foreground) !important;
+  opacity: 0.9 !important;
+}
+
+/* 增强对话框覆盖层的可见度 */
+[role="dialog"] [data-state="open"] {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* 针对iOS Safari的特殊修复 */
+@supports (-webkit-touch-callout: none) {
+  .bg-dialog-content {
+    background-color: rgba(var(--background-rgb), 0.98) !important;
+  }
+} 
