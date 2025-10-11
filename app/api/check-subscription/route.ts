@@ -97,7 +97,28 @@ export async function GET(request: NextRequest) {
     }
     
     // 确定用户当前是否有有效订阅
-    const hasActiveSubscription = !!syncedUser.hasActiveSubscription;
+    let hasActiveSubscription = !!syncedUser.hasActiveSubscription;
+    
+    // 检查订阅是否已过期
+    if (hasActiveSubscription && syncedUser.stripeCurrentPeriodEnd && syncedUser.stripeCurrentPeriodEnd <= new Date()) {
+      // 订阅已过期，更新状态
+      syncedUser = await prisma.user.update({
+        where: { id: userId },
+        data: { hasActiveSubscription: false },
+        select: {
+          id: true,
+          email: true,
+          stripeCustomerId: true,
+          stripeSubscriptionId: true,
+          stripePriceId: true,
+          stripeCurrentPeriodEnd: true,
+          hasActiveSubscription: true,
+          subscriptionPlan: true
+        }
+      });
+      hasActiveSubscription = false;
+      console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
+    }
     
     // 确定用户的文件大小限制
     const maxFileSizeMB = hasActiveSubscription ? 30 : 5;

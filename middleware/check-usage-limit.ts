@@ -27,9 +27,19 @@ export async function checkUserUsageLimitMiddleware(userId: string) {
       };
     }
 
-    // 如果是付费用户，不受限制
-    if (user.hasActiveSubscription) {
+    // 如果是付费用户且订阅未过期，不受限制
+    if (user.hasActiveSubscription && user.stripeCurrentPeriodEnd && user.stripeCurrentPeriodEnd > new Date()) {
       return { allowed: true };
+    }
+
+    // 如果订阅已过期但hasActiveSubscription仍为true，需要更新状态
+    if (user.hasActiveSubscription && (!user.stripeCurrentPeriodEnd || user.stripeCurrentPeriodEnd <= new Date())) {
+      // 更新过期订阅状态
+      await prisma.user.update({
+        where: { id: userId },
+        data: { hasActiveSubscription: false }
+      });
+      console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
     }
 
     // 检查是否需要重置使用次数

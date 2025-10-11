@@ -105,16 +105,36 @@ export async function GET(req: NextRequest) {
     
     // 如果是付费用户，不受限制
     if (updatedUser.hasActiveSubscription) {
-      return NextResponse.json({
-        success: true,
-        canUse: true,
-        usageCount: 0, // 付费用户显示0使用次数
-        hasActiveSubscription: true,
-        usageLimit: "无限制",
-        usageResetDate: updatedUser.usageResetDate,
-        unlimited: true,
-        stripeChecked
-      });
+      // 但首先检查订阅是否已过期
+      if (updatedUser.stripeCurrentPeriodEnd && updatedUser.stripeCurrentPeriodEnd <= new Date()) {
+        // 订阅已过期，更新状态
+        updatedUser = await prisma.user.update({
+          where: { id: userId },
+          data: { hasActiveSubscription: false },
+          select: {
+            id: true,
+            email: true,
+            usageCount: true,
+            usageResetDate: true,
+            hasActiveSubscription: true,
+            stripeCurrentPeriodEnd: true,
+            stripeSubscriptionId: true
+          }
+        });
+        console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
+      } else {
+        // 订阅仍然有效
+        return NextResponse.json({
+          success: true,
+          canUse: true,
+          usageCount: 0, // 付费用户显示0使用次数
+          hasActiveSubscription: true,
+          usageLimit: "无限制",
+          usageResetDate: updatedUser.usageResetDate,
+          unlimited: true,
+          stripeChecked
+        });
+      }
     }
     
     const now = new Date();

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/components/language-provider"
 import { useAuth } from "@/components/auth-provider"
@@ -10,6 +10,8 @@ import { Check, X, BadgeCheck, Loader2 } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useToast } from "@/components/ui/use-toast"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
+import { PRICING } from "@/lib/stripe"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 export function PricingSection() {
   const { t } = useLanguage()
@@ -21,6 +23,7 @@ export function PricingSection() {
   const [showLoginDialog, setShowLoginDialog] = useState(false)
   const [subscriptionError, setSubscriptionError] = useState<string | null>(null)
   const [remainingDays, setRemainingDays] = useState<number | null>(null)
+  const analytics = useAnalytics()
 
   // 计算年度节省的百分比和金额
   const monthlyPrice = 4.99
@@ -29,15 +32,18 @@ export function PricingSection() {
   const savingsAmount = (monthlyPrice * 12 - yearlyPrice).toFixed(2)
 
   const handleSubscription = async (plan: "monthly" | "yearly") => {
-    // 检查用户是否已登录
-    if (!isAuthenticated) {
-      setShowLoginDialog(true)
-      return
-    }
-
     try {
+      if (!isAuthenticated) {
+        setShowLoginDialog(true)
+        analytics.trackEvent('subscription_login_required', 'subscription', plan)
+        return
+      }
+
       setIsLoading(true)
       setSubscriptionError(null)
+      
+      // 跟踪订阅开始事件
+      analytics.trackSubscription('subscription_start', plan)
       
       // 调用API创建结账会话
       // 注意：服务端接口强制使用用户注册邮箱，禁止在Stripe页面修改
@@ -67,12 +73,18 @@ export function PricingSection() {
       
       // 重定向到Stripe结账页面
       if (data.url) {
+        // 跟踪订阅重定向事件
+        analytics.trackSubscription('subscription_redirect', plan)
         window.location.href = data.url
       } else {
         throw new Error('未返回支付URL')
       }
     } catch (error: any) {
       console.error('订阅处理错误:', error)
+      // 跟踪订阅错误事件
+      analytics.trackSubscription('subscription_error', plan, 0)
+      analytics.trackEvent('subscription_error', 'subscription', error.message || 'unknown_error')
+      
       toast({
         title: t('subscription.failTitle'),
         description: error.message || t('subscription.failDescription'),

@@ -15,7 +15,8 @@ export async function checkUserUsageLimit(userId: string) {
     select: {
       usageCount: true,
       usageResetDate: true,
-      hasActiveSubscription: true
+      hasActiveSubscription: true,
+      stripeCurrentPeriodEnd: true
     }
   });
 
@@ -23,8 +24,8 @@ export async function checkUserUsageLimit(userId: string) {
     throw new Error("用户不存在");
   }
 
-  // 如果是付费用户，不受限制
-  if (user.hasActiveSubscription) {
+  // 如果是付费用户且订阅未过期，不受限制
+  if (user.hasActiveSubscription && user.stripeCurrentPeriodEnd && user.stripeCurrentPeriodEnd > new Date()) {
     return {
       canUse: true,
       usageCount: user.usageCount,
@@ -32,6 +33,16 @@ export async function checkUserUsageLimit(userId: string) {
       usageResetDate: user.usageResetDate,
       unlimited: true
     };
+  }
+
+  // 如果订阅已过期但hasActiveSubscription仍为true，需要更新状态
+  if (user.hasActiveSubscription && (!user.stripeCurrentPeriodEnd || user.stripeCurrentPeriodEnd <= new Date())) {
+    // 更新过期订阅状态
+    await prisma.user.update({
+      where: { id: userId },
+      data: { hasActiveSubscription: false }
+    });
+    console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
   }
 
   const now = new Date();
@@ -72,12 +83,22 @@ export async function incrementUserUsage(userId: string) {
     select: {
       usageCount: true,
       usageResetDate: true,
-      hasActiveSubscription: true
+      hasActiveSubscription: true,
+      stripeCurrentPeriodEnd: true
     }
   });
 
   if (!user) {
     throw new Error("用户不存在");
+  }
+
+  // 检查订阅是否过期并更新状态
+  if (user.hasActiveSubscription && (!user.stripeCurrentPeriodEnd || user.stripeCurrentPeriodEnd <= new Date())) {
+    await prisma.user.update({
+      where: { id: userId },
+      data: { hasActiveSubscription: false }
+    });
+    console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
   }
 
   // 如果是付费用户，仍然记录使用次数，但不限制使用

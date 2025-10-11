@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
 import { SimpleUsageStatus } from "@/components/simple-usage-status"
 import { useSession } from "next-auth/react"
+import { useAnalytics } from "@/hooks/use-analytics"
 
 // 定义文件大小限制
 const FREE_USER_MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
@@ -26,6 +27,7 @@ export function ConverterSection() {
   const { isAuthenticated, user } = useAuth()
   const { data: session } = useSession() // 直接使用session以确保获取最新状态
   const router = useRouter()
+  const analytics = useAnalytics() // 使用Analytics钩子
   const [file, setFile] = useState<File | null>(null)
   const [isDragging, setIsDragging] = useState(false)
   const [isConverting, setIsConverting] = useState(false)
@@ -147,6 +149,73 @@ export function ConverterSection() {
     return true;
   }
 
+  // 从文件名中提取文件类型
+  const getFileExtension = (filename: string): string => {
+    return filename.split('.').pop()?.toLowerCase() || '';
+  }
+
+  // 文件上传事件跟踪
+  const trackFileUpload = (file: File) => {
+    if (!file) return;
+    
+    const fileSize = Math.round(file.size / 1024); // KB
+    const fileType = getFileExtension(file.name);
+    
+    analytics.trackFileOperation(
+      'upload',
+      fileType, 
+      fileSize
+    );
+    
+    analytics.trackEvent(
+      'file_upload',
+      'pdf_conversion',
+      `size_${fileSize < 1024 ? 'small' : fileSize < 5120 ? 'medium' : 'large'}`,
+      fileSize
+    );
+  }
+
+  // 转换完成事件跟踪
+  const trackConversionComplete = (fileSize: number, duration: number) => {
+    analytics.trackFileOperation(
+      'convert',
+      'pdf_to_markdown', 
+      fileSize
+    );
+    
+    analytics.trackEvent(
+      'conversion_complete',
+      'pdf_conversion',
+      `duration_${duration < 2000 ? 'fast' : duration < 5000 ? 'medium' : 'slow'}`,
+      duration
+    );
+  }
+
+  // 下载事件跟踪
+  const trackDownload = (fileSize: number) => {
+    analytics.trackFileOperation(
+      'download',
+      'markdown', 
+      fileSize
+    );
+    
+    analytics.trackEvent(
+      'markdown_download',
+      'pdf_conversion',
+      'result_download',
+      fileSize
+    );
+  }
+
+  // 错误事件跟踪
+  const trackError = (errorMessage: string) => {
+    analytics.trackEvent(
+      'conversion_error',
+      'pdf_conversion',
+      errorMessage
+    );
+  }
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!isAuthenticated) {
       setShowLoginDialog(true);
@@ -159,11 +228,13 @@ export function ConverterSection() {
       // 验证文件类型
       if (selectedFile.type !== 'application/pdf') {
         setError(t("converter.error.pdfOnly"));
+        trackError('invalid_file_type');
         return;
       }
       
       // 验证文件大小
       if (!checkFileSize(selectedFile)) {
+        trackError('file_size_exceeded');
         return;
       }
       
@@ -171,6 +242,9 @@ export function ConverterSection() {
       setIsConverted(false)
       setError(null)
       setMarkdown("")
+      
+      // 跟踪文件上传
+      trackFileUpload(selectedFile);
     }
   }
 
@@ -242,6 +316,8 @@ export function ConverterSection() {
     setIsConverting(true)
     setError(null)
 
+    const startTime = Date.now();
+
     try {
       // 创建FormData对象
       const formData = new FormData()
@@ -290,6 +366,10 @@ export function ConverterSection() {
         setMarkdown(responseData.markdown);
         setIsConverted(true);
         console.log('转换成功，获取到Markdown内容');
+        
+        // 跟踪转换完成
+        const duration = Date.now() - startTime;
+        trackConversionComplete(file.size, duration);
       } else {
         console.error('API响应缺少markdown数据:', responseData);
         throw new Error('API响应缺少markdown数据');
@@ -320,6 +400,7 @@ export function ConverterSection() {
       }
       
       setError(errorMessage);
+      trackError(errorMessage);
     } finally {
       setIsConverting(false)
     }
@@ -327,7 +408,11 @@ export function ConverterSection() {
 
   const handleDownload = () => {
     if (file && markdown) {
-      downloadMarkdown(markdown, file.name)
+      const fileName = file.name.replace(".pdf", ".md");
+      downloadMarkdown(markdown, fileName);
+      
+      // 跟踪下载事件
+      trackDownload(markdown.length);
     }
   }
 

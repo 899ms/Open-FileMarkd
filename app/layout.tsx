@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import { Header } from "@/components/header"
 import { SubscriptionSyncProvider } from "@/components/subscription-sync-provider"
+import { AnalyticsProvider } from "@/components/analytics/analytics-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -121,6 +122,7 @@ export default function RootLayout({
                   {children}
                 </main>
                 <Toaster />
+                <AnalyticsProvider />
               </SubscriptionSyncProvider>
             </LanguageProvider>
           </AuthProvider>

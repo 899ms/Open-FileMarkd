@@ -11,6 +11,8 @@ try {
   }
 }
 
+import withPWA from 'next-pwa';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -37,6 +39,9 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  analytics: {
+    googleAnalyticsId: process.env.NEXT_PUBLIC_GA_ID,
+  },
 }
 
 if (userConfig) {
@@ -58,4 +63,11 @@ if (userConfig) {
   }
 }
 
-export default nextConfig
+const pwaConfig = withPWA({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  register: true,
+  skipWaiting: true,
+});
+
+export default pwaConfig(nextConfig);

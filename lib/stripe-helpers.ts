@@ -2,6 +2,45 @@ import { prisma } from '@/lib/prisma';
 import { stripe } from '@/lib/stripe-server';
 import { PRICING } from '@/lib/stripe';
 
+/**
+ * 检查并更新用户订阅的有效性
+ * @param userId 用户ID
+ * @returns 用户是否有有效的订阅
+ */
+export async function checkAndUpdateSubscriptionValidity(userId: string): Promise<boolean> {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      hasActiveSubscription: true,
+      stripeCurrentPeriodEnd: true,
+      stripeSubscriptionId: true
+    }
+  });
+
+  if (!user) {
+    return false;
+  }
+
+  // 如果用户没有激活订阅，直接返回false
+  if (!user.hasActiveSubscription) {
+    return false;
+  }
+
+  // 检查订阅是否已过期
+  if (!user.stripeCurrentPeriodEnd || user.stripeCurrentPeriodEnd <= new Date()) {
+    // 订阅已过期，更新状态
+    await prisma.user.update({
+      where: { id: userId },
+      data: { hasActiveSubscription: false }
+    });
+    console.log(`用户 ${userId} 的订阅已过期，已更新状态`);
+    return false;
+  }
+
+  // 订阅仍然有效
+  return true;
+}
+
 // 更新用户的Stripe订阅信息
 export async function updateUserSubscription(
   userId: string,
@@ -34,6 +73,11 @@ export async function updateUserSubscription(
     // 则自动将hasActiveSubscription设为true
     if (data.stripeCurrentPeriodEnd && data.stripeCurrentPeriodEnd > new Date() && data.hasActiveSubscription === undefined) {
       data.hasActiveSubscription = true;
+    }
+    
+    // 如果提供了结束时间且小于等于当前时间，自动设置hasActiveSubscription为false
+    if (data.stripeCurrentPeriodEnd && data.stripeCurrentPeriodEnd <= new Date() && data.hasActiveSubscription === undefined) {
+      data.hasActiveSubscription = false;
     }
 
     // 如果需要，根据价格ID判断订阅计划类型
