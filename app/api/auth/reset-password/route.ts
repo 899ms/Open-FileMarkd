@@ -1,68 +1,62 @@
-import { prisma } from "@/lib/prisma"
-import { hash } from "bcryptjs"
-import { NextRequest, NextResponse } from "next/server"
-import { z } from "zod"
+import { NextRequest, NextResponse } from 'next/server'
+import { db } from '@/lib/db'
+import { users } from '@/lib/schema'
+import { eq, and, gt } from 'drizzle-orm'
+import bcrypt from 'bcryptjs'
 
-// 定义重置密码表单验证schema
-const resetPasswordSchema = z.object({
-  token: z.string().min(1, "令牌是必填项"),
-  password: z.string().min(6, "密码至少需要6个字符"),
-})
-
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    // 解析请求体
-    const body = await req.json()
-    
-    // 验证输入数据
-    const validationResult = resetPasswordSchema.safeParse(body)
-    if (!validationResult.success) {
+    const { token, password } = await request.json()
+
+    if (!token || !password) {
       return NextResponse.json(
-        { error: validationResult.error.errors[0].message },
+        { errorKey: 'token_invalid' },
         { status: 400 }
       )
     }
-    
-    const { token, password } = validationResult.data
-    
-    // 查找有效的重置令牌
-    const user = await prisma.user.findFirst({
-      where: {
-        verificationToken: token,
-        verificationTokenExpires: {
-          gt: new Date() // 确保令牌未过期
-        }
-      }
-    })
-    
-    if (!user) {
+
+    if (password.length < 6) {
       return NextResponse.json(
-        { error: "无效或已过期的重置令牌" },
+        { errorKey: 'password_min_length' },
         { status: 400 }
       )
     }
-    
-    // 哈希处理新密码
-    const hashedPassword = await hash(password, 12)
-    
-    // 更新用户密码并清除令牌
-    await prisma.user.update({
-      where: { id: user.id },
-      data: {
+
+    // 查找具有有效重置令牌的用户
+    const user = await db.select().from(users).where(
+      and(
+        eq(users.resetToken, token),
+        gt(users.resetTokenExpiry, new Date())
+      )
+    ).limit(1)
+
+    if (user.length === 0) {
+      return NextResponse.json(
+        { errorKey: 'token_invalid' },
+        { status: 400 }
+      )
+    }
+
+    // 哈希新密码
+    const hashedPassword = await bcrypt.hash(password, 12)
+
+    // 更新用户密码并清除重置令牌
+    await db.update(users)
+      .set({
         password: hashedPassword,
-        verificationToken: null,
-        verificationTokenExpires: null
-      }
-    })
-    
-    return NextResponse.json({
-      message: "密码重置成功，请使用新密码登录"
-    })
-    
-  } catch (error) {
-    console.error("重置密码失败:", error)
+        resetToken: null,
+        resetTokenExpiry: null
+      })
+      .where(eq(users.id, user[0].id))
+
     return NextResponse.json(
-      { error: "重置密码过程中出现错误" },
+      { messageKey: 'success_message' },
+      { status: 200 }
+    )
+  } catch (error) {
+    console.error('Reset password error:', error)
+    return NextResponse.json(
+      { errorKey: 'reset_failed' },
       { status: 500 }
     )
   }

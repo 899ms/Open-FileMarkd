@@ -1,71 +1,87 @@
-import { prisma } from "@/lib/prisma"
-import { NextRequest, NextResponse } from "next/server"
-import { z } from "zod"
-import { generateVerificationToken, sendPasswordResetEmail } from "@/lib/email"
+import { NextRequest, NextResponse } from 'next/server'
+import { db } from '@/lib/db'
+import { users } from '@/lib/schema'
+import { sendPasswordResetEmail } from '@/lib/email'
+import { eq } from 'drizzle-orm'
+import crypto from 'crypto'
 
-// 定义忘记密码表单验证schema
-const forgotPasswordSchema = z.object({
-  email: z.string().email("请输入有效的电子邮件地址"),
-})
+// 获取客户端IP地址
+function getClientIP(request: NextRequest): string | undefined {
+  const forwarded = request.headers.get('x-forwarded-for')
+  const realIP = request.headers.get('x-real-ip')
+  const cfConnectingIP = request.headers.get('cf-connecting-ip') // Cloudflare
+  
+  if (cfConnectingIP) return cfConnectingIP
+  if (realIP) return realIP
+  if (forwarded) return forwarded.split(',')[0].trim()
+  
+  return undefined
+}
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    // 解析请求体
-    const body = await req.json()
-    
-    // 验证输入数据
-    const validationResult = forgotPasswordSchema.safeParse(body)
-    if (!validationResult.success) {
+    const { email, locale } = await request.json()
+
+    // 从请求中获取语言信息，默认为英文
+    const language = locale || 'en'
+
+    if (!email) {
       return NextResponse.json(
-        { error: validationResult.error.errors[0].message },
+        { errorKey: 'email_required' },
         { status: 400 }
       )
     }
-    
-    const { email } = validationResult.data
-    
+
     // 查找用户
-    const user = await prisma.user.findUnique({
-      where: { email },
-    })
-    
-    // 为了安全起见，即使用户不存在也返回成功
-    // 这样不会泄露有关用户存在与否的信息
-    if (!user) {
-      return NextResponse.json({
-        message: "如果您的邮箱在我们的系统中，您将收到重置密码的邮件"
+    const user = await db.select().from(users).where(eq(users.email, email)).limit(1)
+
+    if (user.length === 0) {
+      return NextResponse.json(
+        { errorKey: 'user_not_found' },
+        { status: 404 }
+      )
+    }
+
+    // 生成重置令牌
+    const resetToken = crypto.randomBytes(32).toString('hex')
+    const resetTokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000) // 24小时后过期
+
+    // 保存重置令牌到数据库
+    await db.update(users)
+      .set({
+        resetToken,
+        resetTokenExpiry
       })
+      .where(eq(users.email, email))
+
+    // 获取客户端IP地址
+    const clientIP = getClientIP(request)
+
+    // 发送重置密码邮件（根据语言）
+    const emailResult = await sendPasswordResetEmail(email, resetToken, language as 'en' | 'zh-CN' | 'ja' | 'ko' | 'zh-TW', clientIP)
+
+    if (!emailResult.success) {
+      // 如果是频率限制错误，返回429状态码
+      if (emailResult.error?.includes('频繁') || emailResult.error?.includes('Too many')) {
+        return NextResponse.json(
+          { errorKey: 'rate_limit' },
+          { status: 429 }
+        )
+      }
+      return NextResponse.json(
+        { errorKey: 'send_failed' },
+        { status: 500 }
+      )
     }
-    
-    // 生成重置令牌与过期时间（1小时后）
-    const resetToken = generateVerificationToken()
-    const resetTokenExpires = new Date(Date.now() + 60 * 60 * 1000) // 1小时后
-    
-    // 更新用户记录添加重置令牌
-    await prisma.user.update({
-      where: { id: user.id },
-      data: {
-        verificationToken: resetToken,
-        verificationTokenExpires: resetTokenExpires,
-      },
-    })
-    
-    // 发送重置密码邮件
-    try {
-      await sendPasswordResetEmail(email, user.name, resetToken)
-    } catch (emailError) {
-      console.error('发送重置密码邮件失败:', emailError)
-      // 即使邮件发送失败，我们仍然返回成功以不泄露信息
-    }
-    
-    return NextResponse.json({
-      message: "如果您的邮箱在我们的系统中，您将收到重置密码的邮件"
-    })
-    
-  } catch (error) {
-    console.error("忘记密码处理失败:", error)
+
     return NextResponse.json(
-      { error: "处理请求时出现错误" },
+      { messageKey: 'success_message' },
+      { status: 200 }
+    )
+  } catch (error) {
+    console.error('Forgot password error:', error)
+    return NextResponse.json(
+      { errorKey: 'send_failed' },
       { status: 500 }
     )
   }

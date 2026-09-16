@@ -1,0 +1,2352 @@
+{
+  "metadata": {
+    "title": "Convert PDF, Images & Documents to Markdown — AI-Powered | FileMarkd",
+    "description": "Turn PDFs, images, Word, PowerPoint and Excel into clean Markdown in seconds. FileMarkd supports 40+ formats with table, formula and layout preservation, multi-language OCR, confidence scoring and smart header/footer extraction.",
+    "shortTitle": "FileMarkd",
+    "keywords": "FileMarkd, PDF to Markdown, image to Markdown, Word to Markdown, PPT to Markdown, Excel to Markdown, document converter, OCR, AI document extraction, table extraction, formula recognition, multi-language OCR, markdown editor, 40+ formats, file converter, Markdown workspace, subscription plans, affiliate program",
+    "terms": {
+      "title": "Terms of Service - FileMarkd",
+      "description": "Read the terms governing your use of FileMarkd — the AI-powered PDF, image and document to Markdown converter."
+    },
+    "privacy": {
+      "title": "Privacy Policy - FileMarkd",
+      "description": "Learn how FileMarkd handles your data and protects your privacy when converting PDFs, images and documents to Markdown."
+    },
+    "cookies": {
+      "title": "Cookie Policy - FileMarkd",
+      "description": "How FileMarkd uses cookies and related technologies to optimize document conversion performance and user experience."
+    }
+  },
+  "navbar": {
+    "home": "Home",
+    "features": "Features",
+    "featuresArchitecture": "Features Architecture",
+    "faq": "FAQ",
+    "demo": "Live Demo",
+    "pricing": "Pricing",
+    "signUp": "Get Started",
+    "signIn": "Sign In",
+    "profile": "Dashboard",
+    "affiliate": "Affiliate",
+    "referral": "Referral",
+    "accountSettings": "Account Settings",
+    "signOut": "Sign Out",
+    "language": "Switch Language",
+    "switchLanguage": "Switch Language",
+    "chinese": "Chinese",
+    "english": "English",
+    "japanese": "Japanese",
+    "korean": "Korean",
+    "traditionalChinese": "Traditional Chinese",
+    "currentLocale": "ZH",
+    "currentLocaleTw": "TW",
+    "currentLocaleEn": "EN",
+    "currentLocaleJa": "JP",
+    "currentLocaleKo": "KR",
+    "switchToLight": "Switch to Light Mode",
+    "switchToDark": "Switch to Dark Mode",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "hero": {
+    "titleBefore": "PDF, Images, Documents — Instantly Convert to ",
+    "titleHighlight": "Markdown",
+    "titleAfter": "",
+    "subtitle": "Support for 40+ formats. Accurately extract text, tables, and structure with this AI-powered, high-performance document conversion tool.",
+    "documentsTitle": "Documents",
+    "imagesTitle": "Images",
+    "badge": "AI Powered Engine",
+    "primaryCta": "Start Converting Now",
+    "secondaryCta": "View Demo"
+  },
+  "bentoFeatures": {
+    "sectionTitle": "Redefining Conversion Quality",
+    "sectionSubtitle": "We use the most advanced visual recognition algorithms to ensure every converted output delivers exceptional readability and structural fidelity in any editor.",
+    "card1Title": "Text Extraction & Hierarchy Preservation",
+    "card1Desc": "Preserve the original document's heading hierarchy, paragraph structure, and semantic meaning. Combined with block-level content analysis, we accurately extract paragraph bounding boxes and the correct reading order.",
+    "card2Title": "Advanced Table Formatting",
+    "card2Desc": "Complex tables are perfectly parsed into Markdown, HTML, or inline rendering — seamlessly handling multi-row, multi-column layouts and nested cells.",
+    "card3Title": "Confidence Scoring",
+    "card3Desc": "Granular reliability indicators at the page, block, and word level let you pinpoint exactly where a human review is needed.",
+    "card4Title": "Multilingual Mastery",
+    "card4Desc": "Comprehensive high-precision recognition and parsing across 40+ languages, breaking down document language barriers worldwide.",
+    "card5Title": "Smart Header, Footer & Metadata Extraction",
+    "card5Desc": "Deeply identify and isolate page headers, footers, page numbers, and ancillary metadata to keep the body output clean and consistent.",
+    "terminalTab": "Markdown Engine Preview"
+  },
+  "conversionZone": {
+    "header": {
+      "title": "FileMarkd Converter Pro",
+      "status": "Ready"
+    },
+    "dropzone": {
+      "title": "Drop your file here",
+      "subtitle": "You can upload up to 10MB · Auto-detects math formulas and complex tables",
+      "subtitle_registered": "You can upload up to 10MB · Auto-detects math formulas and complex tables",
+      "subtitle_trial": "You can upload up to 20MB · Auto-detects math formulas and complex tables",
+      "subtitle_subscribed": "You can upload up to 50MB · Auto-detects math formulas and complex tables",
+      "subtitle_suffix": " · Auto-detects math formulas and complex tables",
+      "selectFile": "Select File & Start Conversion",
+      "urlPlaceholder": "Or paste a document/image URL...",
+      "import": "Import",
+      "presetHint": "No local file? Load a test sample with one click:",
+      "securityNotice": "Your files are end-to-end encrypted, automatically deleted after conversion — never stored or leaked."
+    },
+    "processing": {
+      "title": "Parsing and converting...",
+      "stageLabel": "AI Semantic Analysis & Layout Restoration",
+      "running": "Running"
+    },
+    "toast": {
+      "fileTooLarge": "File exceeds 50MB limit",
+      "fileTooLargeForPlan": "Your current plan allows files up to {size} MB",
+      "unsupportedFileType": "This file format is not supported",
+      "loginRequired": "Please sign in before uploading",
+      "uploadFailed": "File upload failed. Please try again.",
+      "pointsInsufficient": "Insufficient points. OCR costs 1 point per page.",
+      "conversionFailed": "Document conversion failed. Please try again.",
+      "conversionComplete": "{name} conversion complete!",
+      "urlSuccess": "Remote URL document imported successfully!",
+      "sampleLoaded": "Sample {name} loaded!",
+      "urlInvalidFormat": "URL must start with http:// or https://",
+      "urlBlocked": "This URL points to an internal address and cannot be fetched.",
+      "urlUnreachable": "The remote URL is unreachable. Please check the link and try again.",
+      "urlUnsupportedFormat": "Remote file type is not supported for OCR conversion.",
+      "urlTooLarge": "Remote file exceeds the {size} MB limit for inline imports.",
+      "inlineTooLarge": "File is too large to process inline (max ~35 MB after encoding)."
+    },
+    "url": {
+      "heading": "Remote URL Parsing: {name}",
+      "sourceLabel": "Data Source",
+      "body": "Successfully fetched from remote server and converted to high-precision Markdown.",
+      "fieldCol": "Field",
+      "valueCol": "Value",
+      "statusCol": "Status",
+      "protocol": "Protocol",
+      "encrypted": "Encrypted & Authenticated",
+      "encoding": "Encoding",
+      "noGarbled": "No Garbling",
+      "confidence": "Confidence",
+      "veryHigh": "Very High"
+    },
+    "fallback": {
+      "heading": "Conversion Result: {name}",
+      "parsedBy": "Parsed by FileMarkd AI",
+      "body": "## Structured Content\n\nSuccessfully identified document text, paragraph hierarchy, and structure."
+    },
+    "categories": {
+      "sampleAcademic": "Academic Paper",
+      "sampleFinancial": "Financial Sheet",
+      "sampleInvoice": "Receipt/Invoice"
+    },
+    "sampleAcademicDesc": "Multi-level headings, LaTeX math formulas, multi-line matrices and multi-language references high-precision academic paper",
+    "sampleFinancialDesc": "Complex multi-dimensional financial tables, cross-column merged cells and hierarchical summary calculations",
+    "sampleInvoiceDesc": "Scanned image receipt recognition: invoice codes, tax item details and signature watermark filtering"
+  },
+  "demoVideoModal": {
+    "title": "FileMarkd Engine Workflow Demo",
+    "subtitle": "AI-driven high-performance multimodal document parsing architecture",
+    "nextStep": "View Next Step →",
+    "cta": "Try It Yourself",
+    "stepLabel": "Step {n}",
+    "steps": [
+      {
+        "title": "1. Multimodal Optical Scan & Boundary Segmentation",
+        "desc": "AI-powered visual perception network automatically removes background noise and creases, precisely locking heading hierarchy and multi-column layout boundaries.",
+        "phaseLabel": "// Phase 1: Spatial Bounding & Segmentation",
+        "line1": "✓ Detected 4 Column Layout",
+        "line2": "✓ Discarded 2 Header elements & 1 Footer pagination",
+        "line3": "✓ Optical Confidence: 99.8%"
+      },
+      {
+        "title": "2. Advanced Table & Formula LaTeX Topology Restoration",
+        "desc": "Supports merged-cell alignment across rows and columns while converting complex calculus and matrix formulas into standard MathJax / KaTeX syntax.",
+        "phaseLabel": "// Phase 2: LaTeX & Table Synthesis",
+        "line1": "✓ Native KaTeX equation extraction",
+        "line2": "✓ GFM Standard Table output",
+        "line3": "✓ Confidence: 98.7%"
+      },
+      {
+        "title": "3. Export Standard GitHub Flavored Markdown",
+        "desc": "The generated Markdown can be pasted directly into Notion, Obsidian, Typora, or used for LLM (RAG) knowledge base construction.",
+        "phaseLabel": "// Phase 3: Ready for Output & Export",
+        "line1": "✓ GFM Compatible",
+        "line2": "✓ Ready for RAG Vectorization & Knowledge Base",
+        "line3": "100% Structural Precision"
+      }
+    ]
+  },
+  "testimonials": {
+    "sectionTitle": "User Testimonials",
+    "sectionSubtitle": "Real feedback from leading global enterprises and research institutions."
+  },
+  "faq": {
+    "sectionTitle": "Frequently Asked Questions",
+    "sectionSubtitle": "Everything you might want to know about FileMarkd.",
+    "contactSupport": "Contact Support",
+    "items": [
+      {
+        "question": "Which file formats are supported?",
+        "answer": "Supports converting multiple document and image formats to Markdown.\nDocument formats: PDF, Word (DOC/DOCX), PowerPoint (PPT/PPTX), Excel (XLSX/CSV), TXT, EPUB, XML/DocBook, RTF, OpenDocument (ODT), LaTeX (.tex), Jupyter Notebooks (.ipynb), Troff, OPML, and more.\nImage formats: JPEG (.jpg, .jpeg), PNG, AVIF, TIFF, GIF, HEIC/HEIF, BMP, WebP."
+      },
+      {
+        "question": "Does the converted Markdown preserve the original content?",
+        "answer": "We use advanced visual recognition algorithms that perfectly preserve the original document's heading hierarchy, paragraph structure, tables (including merged cells), images, LaTeX math formulas and semantic information, while automatically removing distracting headers, footers, and orphan page numbers."
+      },
+      {
+        "question": "How are credits calculated?",
+        "answer": "Charged per page — each processed page consumes 1 credit. Single-image recognition consumes 1 credit. New users get a free trial quota by default."
+      },
+      {
+        "question": "What's the difference between plans?",
+        "answer": "Trial is for temporary experience at a low price; Monthly is for short-term high-frequency usage; Annual offers the best value with the most conversions, largest single-file support (50MB), and priority conversion core features."
+      },
+      {
+        "question": "Is my file secure?",
+        "answer": "Your files are processed with secure encryption. Files are used only to complete the conversion task and are automatically cleaned up afterward per system policy — we never store, view, or use them for any other commercial purpose."
+      }
+    ]
+  },
+  "conversionWorkspace": {
+    "tabs": {
+      "preview": "Rich Preview",
+      "raw": "Raw Markdown (Editable)"
+    },
+    "viewMode": {
+      "split": "Split View",
+      "markdownOnly": "Markdown Only"
+    },
+    "actions": {
+      "copyMarkdown": "Copy Markdown",
+      "copied": "Copied",
+      "downloadMd": "Download .md",
+      "downloadTitle": "Download .md file",
+      "exportTxt": "Download .txt",
+      "exportTitle": "Download as .txt file",
+      "reset": "Try Another File"
+    },
+    "sourcePanel": {
+      "title": "Source File",
+      "meta": "Size: {size} · Time: {time}ms · Words: {words}",
+      "confidence": "Confidence {pct}%",
+      "encrypted": "End-to-end encrypted channel",
+      "engine": "AI Engine"
+    },
+    "editor": {
+      "directEditHint": "Directly edit or append content — all exports sync instantly",
+      "chars": "{count} characters",
+      "searchPlaceholder": "Search text...",
+      "searchTitle": "Search",
+      "copyAll": "Copy All",
+      "sequence": "Item #{order} · {type}"
+    },
+    "statusBar": {
+      "utf8": "UTF-8",
+      "markdownGfm": "Markdown (GFM)",
+      "katexSupport": "KaTeX Support"
+    },
+    "toast": {
+      "copySuccess": "Markdown content copied to clipboard!",
+      "copyFailed": "Copy failed, please select manually",
+      "txtExported": ".txt file downloaded",
+      "downloadSuccess": "Downloaded {name}.md"
+    }
+  },
+  "pricingNewHome": {
+    "sectionTitle": "Choose the Plan That's Right for You",
+    "sectionSubtitle": "Whether you're an individual user or a professional team, we have a tailored processing solution.",
+    "creditNote": "1 credit ≈ 1 page document processed",
+    "loading": "Loading...",
+    "alreadySubscribedAnnual": "Already subscribed to Annual",
+    "annualMemberAlready": "You're already an Annual member",
+    "isProMember": "Pro Member",
+    "upgradeToAnnual": "Upgrade to Annual",
+    "trialOnlyOnce": "Trial available once only",
+    "loginFirst": "Please log in before subscribing",
+    "startTrial": "Start Trial",
+    "subscribeNow": "Subscribe Now",
+    "trial": {
+      "name": "Trial",
+      "subtitle": "Perfect for first-time experience",
+      "validity": "One-time payment · 7 days valid",
+      "credits": "200 credits",
+      "maxDaily": "Up to 200 pages",
+      "maxFileSize": "Max 20 MB per file",
+      "features": [
+        "PDF / Image / Word / PPT to Markdown",
+        "Auto-recognize text and document structure",
+        "Table, image, and formula recognition",
+        "Markdown file download",
+        "Max 20 MB per file",
+        "Up to 200 pages"
+      ]
+    },
+    "annual": {
+      "name": "Annual",
+      "subtitle": "Best for long-term use",
+      "popularBadge": "Most Popular",
+      "saveBadge": "Save $80.88",
+      "effectiveMonthly": "Equivalent to $8.25 / month",
+      "validity": "Auto-renew annually · Cancel anytime",
+      "credits": "12,000 credits / year",
+      "maxDaily": "Up to 12,000 pages",
+      "maxFileSize": "Max 50 MB per file",
+      "period": "/ year",
+      "features": [
+        "PDF / Image / Word / PPT to Markdown",
+        "Auto-recognize text and document structure",
+        "Table, image, and formula recognition",
+        "Markdown file download",
+        "Max 50 MB per file",
+        "Up to 12,000 pages"
+      ]
+    },
+    "monthly": {
+      "name": "Monthly",
+      "subtitle": "Best for daily use",
+      "validity": "Auto-renew · Cancel anytime",
+      "credits": "1,500 credits / month",
+      "maxDaily": "Up to 1,500 pages",
+      "maxFileSize": "Max 50 MB per file",
+      "period": "/ month",
+      "features": [
+        "PDF / Image / Word / PPT to Markdown",
+        "Auto-recognize text and document structure",
+        "Table, image, and formula recognition",
+        "Markdown file download",
+        "Max 50 MB per file",
+        "Up to 1,500 pages"
+      ]
+    }
+  },
+  "orchestration": {
+    "sectionBadge": "Full-Stack Tech · Modern SaaS Infrastructure",
+    "sectionTitle": "Full-Stack Open Source Tech",
+    "sectionHighlight": "Architecture Stack.",
+    "sectionSubtitle": "Production-grade modern dev frameworks, zero-config out of the box, so you can focus on your core business logic.",
+    "left1": {
+      "title": "Next.js 16 App Router",
+      "meta": "Stack:",
+      "metaValue": "React 19 + TS",
+      "desc": "Built on the latest Next.js App Router, with server-side rendering (SSR) and edge rendering optimizations for ultra-fast first paint."
+    },
+    "left2": {
+      "title": "Neon + Drizzle",
+      "meta": "Status:",
+      "metaValue": "Type-safe ORM",
+      "desc": "High-performance Neon Serverless Postgres with the lightweight Drizzle ORM for fully type-safe database interactions."
+    },
+    "node1": {
+      "label": "NEXT_JS_16"
+    },
+    "node2": {
+      "label": "NEON_POSTGRES"
+    },
+    "node3": {
+      "label": "STRIPE_BILLING"
+    },
+    "floatingBadge1": {
+      "label": "Dev Time Saved",
+      "value": "200+ Hours"
+    },
+    "floatingBadge2": {
+      "label": "License",
+      "value": "MIT Open Source"
+    },
+    "terminal": {
+      "title": "Framework Live Test Status",
+      "simulateBtn": "Simulate API Request Flow",
+      "log1": "> [04:22:11] Next.js 16 App Router route loaded... OK",
+      "log2": "> [04:22:15] Neon Postgres Serverless pool init succeeded (12ms)",
+      "log3": "> [04:22:19] Stripe SDK & Webhook received event: checkout.session.completed",
+      "simulateLog": "Simulating new user signup & Stripe auto-charge invoice..."
+    },
+    "right1": {
+      "title": "Stripe Subscription Integration",
+      "meta": "Integration:",
+      "metaValue": "Webhook + Portal",
+      "desc": "Built-in Stripe Checkout, monthly/annual subscriptions, webhook endpoints and a self-service customer billing portal."
+    },
+    "right2": {
+      "title": "100% Open & Free",
+      "meta": "Deploy:",
+      "metaValue": "Vercel / Docker",
+      "desc": "No cloud vendor lock-in. One-click deploy to Vercel, Cloud Run or any Node.js / Docker compatible server."
+    },
+    "metrics": {
+      "1": {
+        "label": "Dev Efficiency Boost",
+        "value": "10X+"
+      },
+      "2": {
+        "label": "Core Components",
+        "value": "40+ Ready-to-use"
+      },
+      "3": {
+        "label": "DB Compatible",
+        "value": "Full Neon Postgres"
+      },
+      "4": {
+        "label": "Open Source License",
+        "value": "MIT License"
+      }
+    }
+  },
+  "engineeringValidation": {
+    "sectionBadge": "Real Developer Reviews",
+    "sectionTitlePrefix": "Trusted by developers & ",
+    "sectionTitleHighlight": "creators.",
+    "testimonials": [
+      {
+        "name": "Zhang Ming",
+        "title": "Indie Developer · Founder @ AI Writing Assistant",
+        "badge": "Verified",
+        "quote": "FileMarkd saved me tons of repetitive setup work on Next.js App Router and Stripe subscriptions. I shipped in 3 days and received my first overseas subscription payment!",
+        "icon": "star"
+      },
+      {
+        "name": "Alex Chen",
+        "title": "CTO @ CloudScale Engineering",
+        "badge": "Verified",
+        "quote": "The out-of-the-box PostgreSQL and Drizzle ORM schema config is super elegant. Clean codebase, second development is a breeze.",
+        "icon": "cloud"
+      },
+      {
+        "name": "Wang Xiaolei",
+        "title": "Full-Stack Engineer @ Global SaaS Geek",
+        "badge": "Verified",
+        "quote": "The cleanest Next.js open source template I've seen. No bloated third-party dependencies, focuses on auth, database and Stripe subscriptions—highly recommended!",
+        "icon": "terminal"
+      }
+    ]
+  },
+  "technicalFAQ": {
+    "sectionBadge": "FAQ",
+    "sectionTitlePrefix": "Technical & Deployment ",
+    "sectionTitleHighlight": "FAQ.",
+    "sectionSubtitle": "Answers to common questions indie developers and startups have about using the template, choosing the architecture, and shipping to production.",
+    "faqs": [
+      {
+        "question": "What tech stack and frameworks are included?",
+        "answer": "The template is built on full-stack Next.js 16 (App Router), NextAuth.js authentication, Resend email service, Neon Serverless Postgres (Drizzle ORM), and the Stripe subscription SDK."
+      },
+      {
+        "question": "Is this FileMarkd plan fully open source and free?",
+        "answer": "Yes! The base version is 100% MIT licensed. You are free to use it for commercial projects, personal development, or client delivery—no royalty or licensing fees required."
+      },
+      {
+        "question": "How do I quickly deploy and ship the project?",
+        "answer": "Just fork the repo, clone it locally, configure environment variables (e.g. Neon Postgres connection string and Stripe API keys), then deploy to Vercel, Cloud Run, or your own Docker server with a single command."
+      },
+      {
+        "question": "How do I configure and test Stripe payments?",
+        "answer": "We provide pre-built API routes and webhook event handlers. Just grab your Test/Live API keys and Webhook Secret from the Stripe dashboard, drop them into .env, and the monthly/annual subscription flow lights up automatically."
+      }
+    ]
+  },
+  "missionControl": {
+    "sectionBadge": "All-in-One Open Source SaaS Solution",
+    "sectionTitlePrefix": "Out-of-the-box",
+    "sectionTitleHighlight": "core business modules.",
+    "sectionSubtitle": "Admin console, user workspace, Stripe multi-tier subscriptions and affiliate rewards—all ready, no reinventing the wheel.",
+    "moduleCounter": "Module {current} / {total}",
+    "nextButton": "Next Module",
+    "readyBadge": "Module Ready",
+    "metrics": {
+      "savedTime": {
+        "label": "Avg. Dev Time Saved",
+        "value": "200+ Hours",
+        "caption": "Ship your core business"
+      },
+      "commission": {
+        "label": "Referral Commission",
+        "value": "30% Rate",
+        "caption": "Auto-settled & withdrawable"
+      }
+    },
+    "tabs": {
+      "admin": {
+        "tabTitle": "Admin Console",
+        "title": "Admin Console",
+        "highlight": "Total Control of Your SaaS.",
+        "description": "A powerful admin system with user management, role-based access, analytics and points adjustment—so you can run the whole platform with confidence.",
+        "items": [
+          "User management with granular roles (Admin / Member)",
+          "Track active users, MRR revenue and subscription conversion",
+          "Manual/auto points adjustment with full audit logs"
+        ]
+      },
+      "dashboard": {
+        "tabTitle": "User Dashboard",
+        "title": "User Dashboard",
+        "highlight": "An Intuitive Workspace.",
+        "description": "A clean user dashboard showing subscription status, points balance, referral stats and account settings—everything at a glance.",
+        "items": [
+          "Live subscription status, monthly usage and remaining credits",
+          "Personal referral performance, referral code and invited users",
+          "Email verification, connected accounts and session security status"
+        ]
+      },
+      "subscriptions": {
+        "tabTitle": "Subscription Plans",
+        "title": "Subscription Plans",
+        "highlight": "Automated Billing Engine.",
+        "description": "Flexible subscription management supporting Trial, Pro and Annual plans with automated renewals, cancellations and renewal reminders.",
+        "items": [
+          "Trial, Pro monthly and Annual yearly plans out of the box",
+          "Auto renewals, expiry reminders and upgrade/downgrade logic",
+          "Stripe Customer Portal for self-service cancel & invoices"
+        ]
+      },
+      "affiliate": {
+        "tabTitle": "Affiliate Program",
+        "title": "Affiliate Program",
+        "highlight": "Viral Growth & Rewards.",
+        "description": "A complete affiliate system with custom codes, commission analytics and withdrawal management—earn 30% on every first paid order.",
+        "items": [
+          "Custom referral links and discount codes",
+          "Real-time 30% first-order commission and earnings panel",
+          "Withdrawal requests, ledger history and status tracking"
+        ]
+      }
+    },
+    "previews": {
+      "admin": {
+        "title": "Super Admin Panel (Admin Console)",
+        "subtitle": "Site-wide users, roles, points activity and financial analytics",
+        "badge": "SUPER_ADMIN",
+        "imageAlt": "Admin Console Preview",
+        "imageCaption": "Dashboard + user management + role permissions"
+      },
+      "dashboard": {
+        "title": "User Workspace",
+        "subtitle": "Purchase credits, referral rewards, billing history and subscriptions in one place",
+        "badge": "Pro Member Active",
+        "imageAlt": "User Workspace Preview",
+        "imageCaption": "Top-up · referral link · billing · connected accounts"
+      },
+      "subscriptions": {
+        "title": "Stripe Subscription & Billing",
+        "subtitle": "Supports Trial, Pro monthly and Annual discounted yearly subscriptions",
+        "badge": "Stripe Payment",
+        "imageAlt": "Stripe Plans Preview",
+        "imageCaption": "Trial / Pro / Annual three-tier plans"
+      },
+      "affiliate": {
+        "title": "Affiliate Program",
+        "subtitle": "Build your distribution network and earn up to 30% first-order cash commission",
+        "badge": "30% First-Order Rule",
+        "imageAlt": "Affiliate Program Preview",
+        "imageCaption": "Affiliate code · commission stats · withdrawals"
+      }
+    }
+  },
+  "pricing": {
+    "title": "Choose the SaaS Template Plan That's Right for You",
+    "recommended": "Recommended",
+    "header": {
+      "badge": "100% Transparent Commercial License",
+      "titlePrefix": "Flexible plans for ",
+      "titleHighlight": "indie developers and growing teams",
+      "subtitle": "Open-source version is free forever. Upgrade to a commercial license or deep customization support to get your SaaS shipped and monetized faster.",
+      "fetchStatusError": "Failed to fetch subscription status:"
+    },
+    "trial": {
+      "name": "Trial",
+      "price": "$4.99",
+      "periodUnit": "/ 7-day trial",
+      "description": "7-day trial to experience full features",
+      "features": {
+        "period": "Duration: 7 days",
+        "points": "Credits: 1,000 included",
+        "template": "Complete FileMarkd plan + advanced features",
+        "auth": "Complete user authentication system"
+      },
+      "cta": "Start Trial",
+      "trial_only_once": "Trial available once only",
+      "not_available_for_pro": "Trial not available for Pro users",
+      "not_available_for_annual": "Trial not available for Annual users"
+    },
+    "pro": {
+      "name": "Professional",
+      "price": "$15.9",
+      "periodUnit": "/ month",
+      "originalPrice": "$19.9",
+      "discountPercent": "20",
+      "savings": "$4",
+      "discountBadge": "Limited Time 20% OFF",
+      "description": "Ideal for startups and SMEs, includes advanced features",
+      "features": {
+        "period": "Duration: 30 days",
+        "points": "Credits: 1,000 included",
+        "template": "Complete FileMarkd plan + advanced features",
+        "payment": "Stripe payment integration",
+        "support": "1-year technical support"
+      },
+      "cta": "Buy Now",
+      "renew": "Renew Pro",
+      "cannot_downgrade": "Annual subscription cannot be downgraded"
+    },
+    "annual": {
+      "name": "Annual",
+      "price": "$159",
+      "periodUnit": "/ year",
+      "originalPrice": "$240",
+      "discountPercent": "34",
+      "savings": "$81",
+      "discountBadge": "Limited Time 34% OFF",
+      "description": "Annual subscription, best value option",
+      "features": {
+        "period": "Duration: 365 days",
+        "template": "Complete FileMarkd plan + advanced features",
+        "points": "15,000 credits included",
+        "payment": "Stripe payment integration",
+        "support": "1-year technical support",
+        "value": "Best value - Save 34%"
+      },
+      "cta": "Buy Now",
+      "upgrade": "Upgrade to Annual",
+      "renew": "Renew Annual",
+      "cannot_downgrade": "Annual subscription cannot be downgraded"
+    },
+    "discount": {
+      "was": "Was",
+      "now": "Now",
+      "save": "Save",
+      "off": "OFF"
+    },
+    "enterprise": {
+      "name": "Enterprise",
+      "price": "Contact Us",
+      "description": "For large enterprises, provides customized services",
+      "features": {
+        "custom": "Customized development services",
+        "deployment": "Private deployment support",
+        "support": "7×24 technical support",
+        "training": "Team training and consulting"
+      },
+      "cta": "Contact Sales"
+    }
+  },
+  "footer": {
+    "subscribeError": "Subscription failed. Please try again.",
+    "subscribeSuccess": "Thanks for subscribing!",
+    "networkError": "Network error. Please check your connection.",
+    "newsletterTitle": "Stay Updated",
+    "newsletterDesc": "Get the latest updates on FileMarkd and AI document conversion.",
+    "emailPlaceholder": "Enter your email address",
+    "subscribing": "Subscribing...",
+    "subscribed": "Subscribed",
+    "subscribe": "Subscribe",
+    "products": "Products",
+    "features": "Features",
+    "pricing": "Pricing",
+    "conversionExamples": "Conversion Examples",
+    "resources": "Friends",
+    "allRightsReserved": "All rights reserved.",
+    "copyrightNote": "Dedicated to delivering the highest quality document and image processing services for the modern web.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "newsletter": {
+      "unsubscribe": {
+        "title": "Unsubscribe from Newsletter",
+        "description": "We're sorry to see you go, but we respect your choice",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email address",
+        "button": "Unsubscribe",
+        "processing": "Processing...",
+        "loadingText": "Processing...",
+        "successMessage": "If you change your mind, you can always resubscribe to our newsletter.",
+        "backToHome": "Back to Home",
+        "networkError": "Network error, please try again later",
+        "unsubscribeError": "Failed to unsubscribe"
+      }
+    },
+    "home": {
+      "brand": {
+        "name": "FileMarkd",
+        "description": "A full-stack, monetizable SaaS starter built on Next.js 16, Neon Postgres and Stripe—ship your product, wire up subscriptions, and start acquiring customers faster.",
+        "statusBadge": "All systems & APIs operational"
+      },
+      "products": {
+        "title": "Product",
+        "items": {
+          "orchestration": "Full-Stack Architecture",
+          "missionControl": "Feature Demos",
+          "pricing": "Pricing & License"
+        }
+      },
+      "productsColumn": {
+        "title": "Products",
+        "items": {
+          "magiviz": "Magiviz",
+          "editf": "Editf",
+          "voiceCanvas": "VoiceCanvas"
+        }
+      },
+      "newsletter": {
+        "title": "Newsletter & Template Updates",
+        "heading": "Get the latest Next.js & SaaS monetization playbooks",
+        "subtitle": "Weekly digest on full-stack architecture best practices, Stripe payment configuration tips, and FileMarkd template updates.",
+        "emailPlaceholder": "Enter your email address...",
+        "subscribeButton": "Subscribe",
+        "loadingButton": "Subscribing…",
+        "subscribedBadge": "Subscribed",
+        "successMessage": "✓ Thanks for subscribing! We've sent the first issue to your inbox.",
+        "errorMessage": "Subscription failed. Please try again later.",
+        "serverError": "Server error. Please try again later.",
+        "networkError": "Network error. Please check your connection and retry."
+      },
+      "bottomBar": {
+        "copyright": "© {year} FileMarkd. Built with Next.js 16, Neon Postgres & Stripe.",
+        "social": {
+          "github": "GitHub Repository",
+          "twitter": "X / Twitter"
+        },
+        "legal": {
+          "terms": "Terms",
+          "privacy": "Privacy",
+          "cookies": "Cookies"
+        }
+      }
+    },
+    "linkFileMarkd": "FileMarkd",
+    "linkGetMoneyWang": "GetMoney.Wang"
+  },
+  "verify": {
+    "title": "Email Verification",
+    "description": "Verify your email address to complete account registration",
+    "meta_title": "Email Verification",
+    "meta_description": "Verify your FileMarkd account email to complete account activation",
+    "verifying": "Verifying your email...",
+    "success": "Email verification successful!",
+    "failed": "Email verification failed",
+    "token_missing": "Verification token is missing",
+    "token_invalid": "Verification token is invalid or expired",
+    "failed_retry": "Verification failed, please try again later",
+    "please_wait": "Please wait, verifying your email address...",
+    "login_now": "Login Now",
+    "register_again": "Register Again",
+    "or": "or",
+    "back_to_login": "Back to Login"
+  },
+  "auth": {
+    "meta_title": "Authentication - FileMarkd",
+    "signin_title": "Sign In",
+    "signin_description": "Sign in to your FileMarkd account to start using modern FileMarkd plans",
+    "signup_title": "Sign Up",
+    "signup_description": "Create your FileMarkd account and start your your AI conversion journey",
+    "error_title": "Authentication Error",
+    "error_description": "An error occurred during authentication, please try again or contact technical support",
+    "error_page_title": "Sign In Failed",
+    "error_page_description": "An error occurred during authentication",
+    "error_back_to_signin": "Back to Sign In",
+    "error_back_to_home": "Back to Home",
+    "error_contact_support": "If the problem persists, please contact",
+    "error_technical_support": "technical support",
+    "errors": {
+      "Configuration": "Server configuration error, please contact administrator",
+      "AccessDenied": "Access denied, you may not have permission to access this application",
+      "Verification": "Verification failed, please try again",
+      "OAuthSignin": "Third-party sign in failed, please try again",
+      "OAuthCallback": "Third-party sign in callback failed",
+      "OAuthCreateAccount": "Cannot create account, this email may already be in use",
+      "EmailCreateAccount": "Cannot create account, please check email address",
+      "Callback": "Callback error, please try again",
+      "OAuthAccountNotLinked": "This third-party account is not linked to an existing account, please use other sign in methods",
+      "EmailSignin": "Email sign in failed, please check email address",
+      "CredentialsSignin": "Invalid credentials, please check email and password",
+      "SessionRequired": "Login required to access this page",
+      "OAuthTokenError": "Failed to get authorization token, please try logging in again",
+      "OAuthUserInfoError": "Failed to get user information, please check authorization permissions",
+      "default": "Unknown error occurred during authentication, please try again",
+      "contact_admin": "Please contact administrator",
+      "error_type_label": "Error type:"
+    },
+    "welcome_back": "Welcome Back",
+    "login_description": "Sign in to your FileMarkd account",
+    "email": "Email Address",
+    "password": "Password",
+    "email_placeholder": "Enter your email address",
+    "or_continue_with_email": "Or continue with email",
+    "password_placeholder": "Enter your password",
+    "login": "Sign In",
+    "logging_in": "Signing in...",
+    "login_error": "Invalid email or password",
+    "login_failed": "Sign in failed, please try again later",
+    "no_account": "Don't have an account?",
+    "signup_now": "Sign up now",
+    "forgot_password": "Forgot password?",
+    "create_account": "Create Account",
+    "name": "Username",
+    "name_placeholder": "Enter your username",
+    "password_signup_placeholder": "Enter password (at least 6 characters)",
+    "confirm_password": "Confirm Password",
+    "confirm_password_placeholder": "Enter password again",
+    "password_mismatch": "Passwords do not match",
+    "password_too_short": "Password must be at least 6 characters",
+    "register_failed": "Registration failed",
+    "register_retry": "Registration failed, please try again later",
+    "registering": "Creating account...",
+    "register_success": "Registration successful",
+    "register_success_check_email": "Registration successful! Please check your email and click the verification link to complete activation.",
+    "missing_fields": "Please fill in all required fields",
+    "email_exists": "This email is already registered",
+    "invalid_referral_code": "Invalid referral code",
+    "verification_email_failed": "Registration succeeded but sending verification email failed, please try again later",
+    "rate_limit": "Too many requests, please try again later",
+    "has_account": "Already have an account?",
+    "login_now": "Sign in now",
+    "terms_agreement": "By registering, you agree to our",
+    "terms_of_service": "Terms of Service",
+    "and": "and",
+    "privacy_policy": "Privacy Policy",
+    "loginRequiredMessage": "Please log in first to use the audio summary feature.",
+    "loginNow": "Sign In Now",
+    "or_register_with_email": "Or register with email",
+    "referral_code": "Referral Code (Optional)",
+    "referral_code_placeholder": "Enter referral code",
+    "affiliate_code": "Affiliate Code (Optional)",
+    "affiliate_code_placeholder": "Enter affiliate code",
+    "signin_meta_title": "Sign In - FileMarkd",
+    "signup_meta_title": "Sign Up - FileMarkd",
+    "error_meta_title": "Authentication Error - FileMarkd",
+    "meta_description": "Sign in to FileMarkd to convert PDFs, images and documents to clean Markdown."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "login": "Sign In Now"
+  },
+  "forgot_password": {
+    "title": "Forgot Password",
+    "description": "Enter your email address and we'll send you a link to reset your password",
+    "meta_title": "Forgot Password",
+    "meta_description": "Recover your FileMarkd account password by resetting it via email",
+    "email_label": "Email Address",
+    "email_placeholder": "Enter your email address",
+    "send_reset_link": "Send Reset Link",
+    "sending": "Sending...",
+    "success_message": "Password reset link has been sent to your email",
+    "check_email": "Please check your email and click the link to reset your password",
+    "back_to_login": "Back to Login",
+    "email_required": "Please enter your email address",
+    "email_invalid": "Please enter a valid email address",
+    "send_failed": "Failed to send, please try again later",
+    "user_not_found": "This email address is not registered",
+    "rate_limit": "Too many requests, please try again later"
+  },
+  "reset_password": {
+    "title": "Reset Password",
+    "description": "Enter your new password",
+    "meta_title": "Reset Password",
+    "meta_description": "Reset your FileMarkd account password and set a new secure password",
+    "password_label": "New Password",
+    "password_placeholder": "Enter your new password",
+    "confirm_password_label": "Confirm Password",
+    "confirm_password_placeholder": "Enter your new password again",
+    "reset_password": "Reset Password",
+    "resetting": "Resetting...",
+    "success_message": "Password reset successful!",
+    "login_now": "Login Now",
+    "password_required": "Please enter password",
+    "password_min_length": "Password must be at least 6 characters",
+    "password_mismatch": "Passwords do not match",
+    "token_invalid": "Reset link is invalid or expired",
+    "token_expired": "Reset link has expired, please request a new one",
+    "reset_failed": "Reset failed, please try again later",
+    "back_to_forgot": "Back to Forgot Password"
+  },
+  "profile": {
+    "title": "Dashboard",
+    "description": "View and manage your account information",
+    "menu": "Menu",
+    "please_login": "Please login to view your profile",
+    "login_required": "Please login first",
+    "no_name_set": "No username set",
+    "not_set": "Not set",
+    "verified": "Verified",
+    "unverified": "Unverified",
+    "resend_verification": "Resend Verification",
+    "sending": "Sending...",
+    "verification_email_sent": "Verification email sent, please check your inbox",
+    "verification_email_failed": "Failed to send verification email, please try again later",
+    "loading": "Loading...",
+    "points": "Credits",
+    "points_history": "Credits History",
+    "points_history_description": "View your credits earning and usage history",
+    "no_points_history": "No credits history yet",
+    "register_bonus": "Registration Gift Credits",
+    "email_verify_bonus": "Email Verification Gift Credits",
+    "daily_login_bonus": "Daily Login Gift Credits",
+    "referral_bonus": "Referral Gift Credits",
+    "manual_operation": "Admin Operation",
+    "points_operation": "Credits Operation",
+    "pagination": {
+      "page_info": "Page {current} of {total}",
+      "total_records": "{total} records in total",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "points_actions": {
+      "register": "Registration Gift Credits",
+      "email_verify": "Email Verification Gift Credits",
+      "daily_login": "Daily Login Gift Credits",
+      "referral": "Referral Gift Credits",
+      "manual": "Admin Operation",
+      "purchase": "Purchase Credits",
+      "subscription_gift": "{plan} Gift Credits",
+      "subscription_renewal_gift": "{plan} Renewal Gift Credits",
+      "subscription_upgrade_gift": "Upgrade to {plan} Gift Credits",
+      "subscription_reward": "Referral Subscription Reward Credits",
+      "subscription_expired": "Credits Expired",
+      "ai_conversion": "AI Smart Conversion",
+      "deduct": "Credits Deduction",
+      "unknown": "Unknown Operation",
+      "pay_amount": "Pay {amount}"
+    },
+    "account_info": "Account Info",
+    "registration_date": "Registration Date",
+    "last_login": "Last Login",
+    "account_status": "Account Status",
+    "email_verified": "Email Verified",
+    "account_secure": "Account Secure",
+    "profile_complete": "Profile Complete",
+    "personal_info": "Personal Information",
+    "account_settings": "Account Settings",
+    "connected_accounts": "Connected Accounts",
+    "security": "Security Settings",
+    "name": "Username",
+    "name_placeholder": "Enter your username",
+    "email": "Email Address",
+    "email_unverified": "Unverified",
+    "verify_email": "Verify Email",
+    "avatar": "Avatar",
+    "change_avatar": "Change Avatar",
+    "current_password": "Current Password",
+    "current_password_placeholder": "Enter your current password",
+    "new_password": "New Password",
+    "new_password_placeholder": "Enter your new password",
+    "confirm_new_password": "Confirm New Password",
+    "confirm_new_password_placeholder": "Enter your new password again",
+    "change_password": "Change Password",
+    "save_changes": "Save Changes",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "cancel": "Cancel",
+    "connect": "Connect",
+    "connecting": "Connecting...",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "not_connected": "Not Connected",
+    "github_account": "GitHub Account",
+    "google_account": "Google Account",
+    "delete_account": "Delete Account",
+    "delete_account_warning": "Deleting your account will permanently remove all your data. This action cannot be undone!",
+    "delete_account_confirm": "I confirm that I want to delete my account",
+    "delete_account_button": "Permanently Delete Account",
+    "member_since": "Member Since",
+    "success_message": "Updated successfully!",
+    "error_message": "Update failed, please try again later",
+    "password_changed": "Password changed successfully!",
+    "password_change_failed": "Password change failed",
+    "account_connected": "Account connected successfully!",
+    "account_disconnected": "Account disconnected successfully!",
+    "account_connection_failed": "Account connection failed",
+    "email_verification_sent": "Verification email sent",
+    "name_required": "Please enter your username",
+    "current_password_required": "Please enter your current password",
+    "new_password_required": "Please enter your new password",
+    "password_min_length": "Password must be at least 6 characters",
+    "password_mismatch": "Passwords do not match",
+    "current_password_incorrect": "Current password is incorrect",
+    "subscription_info": "Subscription Plan",
+    "subscription_info_description": "View and manage your subscription plan",
+    "subscription_status": "Subscription Status",
+    "subscription_active": "Active",
+    "subscription_cancelled": "Cancelled",
+    "subscription_past_due": "Past Due",
+    "subscription_free": "Free User",
+    "subscription_expires": "Expires",
+    "points_purchase_success_toast": "Points purchase successful! Points have been added to your account",
+    "payment_cancelled_toast": "Payment cancelled",
+    "stripe_load_failed": "Failed to load Stripe",
+    "subscription_expiring_soon": "Expiring Soon",
+    "subscription_expired": "Expired",
+    "plan_free": "Free Plan",
+    "plan_trial": "Trial",
+    "plan_pro": "Pro",
+    "plan_annual": "Annual",
+    "plan_enterprise": "Enterprise Plan",
+    "plan_free_description": "Basic template for individual developers",
+    "plan_trial_description": "7-day trial to experience full features",
+    "plan_pro_description": "Full features for professional development",
+    "plan_annual_description": "Annual subscription, best value option, includes 15,000 credits",
+    "plan_enterprise_description": "Custom services for enterprise teams",
+    "manage_subscription": "Manage Subscription",
+    "upgrade_to_pro": "Upgrade to Pro",
+    "upgrade_benefits_title": "Upgrade for More Credits",
+    "upgrade_benefits_1": "Complete FileMarkd plan source code",
+    "upgrade_benefits_2": "Priority technical support",
+    "upgrade_benefits_3": "Advanced feature components",
+    "upgrade_benefits_4": "Custom development services",
+    "upgrade_benefits_description": "Upgrade to Pro to get bonus credits and unlock all features.",
+    "view_pricing": "View Pricing",
+    "points_purchase": "Credits Purchase",
+    "points_purchase_description": "Need more points? Select a package and get them instantly",
+    "points_package_starter": "Starter Package",
+    "points_package_popular": "Popular Package",
+    "points_package_premium": "Premium Package",
+    "points_usage_title": "Credits Usage",
+    "points_usage_ai_service": "FileMarkd plan feature usage",
+    "points_usage_premium_features": "Advanced feature components",
+    "points_usage_priority_support": "Priority technical support",
+    "purchase_now": "Buy Now",
+    "processing_payment": "Processing...",
+    "payment_success": "Payment Successful",
+    "payment_failed": "Payment Failed",
+    "order_details": "Order Details",
+    "complete_payment": "Complete Payment",
+    "cancel_payment": "Cancel",
+    "card_info": "Card Information",
+    "pay_amount": "Pay",
+    "purchase_success": "Purchase Successful!",
+    "points_added": "Credits added",
+    "current_points": "Current Credits",
+    "purchased_points_label": "Purchased Credits (Permanent)",
+    "gifted_points_label": "Bonus Credits (With Subscription)",
+    "subscription_gift_notice": "You have an active subscription and received 1,000 bonus credits",
+    "purchased_points": "Purchased Credits",
+    "purchased_points_description": "Credits purchased through payment, never expire",
+    "gifted_points": "Bonus Credits",
+    "gifted_points_description": "Credits included with subscription, cleared when subscription expires",
+    "usage_priority": "Usage Priority",
+    "usage_priority_description": "System will prioritize using gifted points first, then purchased points",
+    "recommended": "Recommended",
+    "processing": "Processing...",
+    "payment_history": "Payment History",
+    "referral": {
+      "title": "Referral Program",
+      "description": "Invite friends to register and both of you will receive rewards",
+      "total_referrals": "Total Referrals",
+      "subscribed_referrals": "Subscribed Referrals",
+      "referral_code": "Referral Code",
+      "referral_link": "Referral Link",
+      "history": "Referral History",
+      "no_history": "No referral history yet",
+      "code_copied": "Referral code copied",
+      "link_copied": "Referral link copied",
+      "copy_failed": "Copy failed",
+      "action_register_bonus": "Registration Bonus",
+      "action_referrer_bonus": "Referrer Bonus",
+      "action_subscription_reward": "Referral Subscription Reward",
+      "days": "days",
+      "records": "Referral Records",
+      "no_records": "No referral records yet",
+      "subscribed": "Subscribed",
+      "not_subscribed": "Not Subscribed",
+      "anonymous_user": "Anonymous User"
+    },
+    "payment_history_details": {
+      "title": "Payment History",
+      "stats": {
+        "title": "Payment Statistics",
+        "total_payments": "Total Payments",
+        "total_amount": "Total Amount",
+        "total_points_purchased": "Total Points Purchased",
+        "total_points_gifted": "Points Gained from Subscription",
+        "successful_payments": "Successful Payments"
+      },
+      "payment_types": {
+        "subscription": "Subscription",
+        "points_purchase": "Points Purchase",
+        "other": "Other"
+      },
+      "payment_statuses": {
+        "succeeded": "Succeeded",
+        "failed": "Failed",
+        "pending": "Pending",
+        "refunded": "Refunded",
+        "cancelled": "Cancelled"
+      },
+      "table": {
+        "type": "Type",
+        "product": "Product",
+        "amount": "Amount",
+        "points": "Points",
+        "status": "Status",
+        "time": "Time"
+      },
+      "filters": {
+        "type_placeholder": "Filter by Type",
+        "status_placeholder": "Filter by Status",
+        "all_types": "All Types",
+        "all_statuses": "All Statuses"
+      },
+      "empty_state": {
+        "title": "No Payment Records"
+      },
+      "errors": {
+        "fetch_failed": "Failed to fetch payment records"
+      }
+    },
+    "payment_history_description": "View all your payment records and transaction details"
+  },
+  "referral_page": {
+    "title": "Referral Program",
+    "subtitle": "Invite friends and earn rewards together",
+    "keywords": "Referral Program,Invite Rewards,Partner Promotion,SaaS Referral,FileMarkd",
+    "custom_code": {
+      "title": "Custom Referral Code",
+      "description": "Set a unique referral code that's easy for friends to remember",
+      "current_code": "Current Code",
+      "placeholder": "Enter custom code (4-20 characters)",
+      "button": "Set Code",
+      "button_updating": "Setting...",
+      "success": "Referral code set successfully",
+      "error": "Failed to set referral code",
+      "already_set": "Code already set and cannot be changed",
+      "invalid_format": "Invalid format (4-20 characters, letters and numbers only)",
+      "already_taken": "This code is already taken",
+      "note": "Note: Referral code can only be set once and cannot be changed"
+    },
+    "stats": {
+      "title": "Referral Statistics",
+      "total_invites": "Total Invites",
+      "people": "people",
+      "total_rewards": "Total Rewards",
+      "points": "points",
+      "subscribed_users": "Subscribed Users",
+      "pending_users": "Pending Users"
+    },
+    "share": {
+      "title": "Share Referral",
+      "copy_code": "Copy Code",
+      "copy_link": "Copy Link",
+      "share_text": "Share with friends"
+    },
+    "rules": {
+      "title": "Reward Rules",
+      "rule1_title": "Registration Bonus",
+      "rule1_desc": "When friends register with your code, both get 100 credits (permanent)",
+      "rule2_title": "Subscription Reward",
+      "rule2_desc": "When friends subscribe to any plan, you get equal subscription extension + plan's gifted credits",
+      "rule3_title": "Multiple Rewards",
+      "rule3_desc": "Every time friends renew or upgrade, you get rewards (unlimited times)",
+      "rule4_title": "Time Limit",
+      "rule4_desc": "Referral relationship is valid for 30 days, no rewards after expiration",
+      "note": "Note: All rewards are automatically granted after friends complete registration or subscription, no manual action required"
+    },
+    "recent_referrals": {
+      "title": "Recent Referrals",
+      "view_all": "View All",
+      "registered_at": "Registered at"
+    },
+    "records": {
+      "title": "Referral Records",
+      "description": "View users who registered through your referral code",
+      "loading": "Loading...",
+      "empty": "No referral records",
+      "unknown_user": "Unknown User",
+      "subscribed": "Subscribed",
+      "pending": "Pending",
+      "filter_all": "All",
+      "table": {
+        "user": "User",
+        "email": "Email",
+        "register_time": "Register Time",
+        "status": "Status"
+      }
+    },
+    "rewards": {
+      "title": "Reward Records",
+      "description": "View points and subscription extension records for each subscription",
+      "loading": "Loading...",
+      "empty": "No reward records",
+      "unknown_user": "Unknown User",
+      "points": "points",
+      "days": "days",
+      "filter_all": "All",
+      "action_register_bonus": "Registration Bonus",
+      "action_referrer_bonus": "Referrer Bonus",
+      "action_subscription_reward": "Subscription Reward",
+      "table": {
+        "action": "Action Type",
+        "from": "From",
+        "reward": "Reward",
+        "create_time": "Create Time"
+      }
+    }
+  },
+  "affiliate_page": {
+    "title": "Affiliate System",
+    "subtitle": "Earn commissions through referrals, 30% per order",
+    "keywords": "Affiliate Program,Affiliate Rewards,Commission Rewards,Partner Promotion,SaaS Affiliate,FileMarkd",
+    "loading": "Loading...",
+    "stats": {
+      "total_invites": "Total Invites",
+      "converted": "Converted",
+      "available_balance": "Available Balance",
+      "frozen_balance": "Frozen Balance"
+    },
+    "code_setting": {
+      "title": "Affiliate Code Settings",
+      "description": "Set your affiliate code, can only be changed once",
+      "current_code": "Current Code",
+      "placeholder": "Enter new code (8-20 letters or numbers)",
+      "placeholder_set": "Enter code (8-20 letters or numbers)",
+      "button_update": "Update Code",
+      "button_set": "Set Code",
+      "updating": "Updating...",
+      "setting": "Setting...",
+      "note": "Note: Affiliate code can only be changed once, please set carefully",
+      "already_changed": "Code has been changed and cannot be changed again",
+      "enter_code": "Please enter affiliate code",
+      "invalid_format": "Invalid format, must be 8-20 letters or numbers",
+      "update_success": "Code updated successfully",
+      "update_failed": "Failed to update code",
+      "already_taken": "This code is already taken",
+      "code_copied": "Code copied",
+      "link_copied": "Link copied",
+      "copy_failed": "Copy failed",
+      "set_first": "Please set affiliate code first"
+    },
+    "share": {
+      "title": "Share Affiliate",
+      "link_label": "Affiliate Link",
+      "copy_code": "Copy Code",
+      "copy_link": "Copy Link"
+    },
+    "relations": {
+      "title": "Invite Data",
+      "description": "View users who registered through your affiliate code",
+      "loading": "Loading...",
+      "empty": "No invite data",
+      "unknown_user": "Unknown User",
+      "register_time": "Register Time",
+      "converted": "Converted",
+      "expired": "Expired",
+      "pending": "Pending",
+      "filter_all": "All",
+      "table": {
+        "user": "User",
+        "email": "Email",
+        "register_time": "Register Time",
+        "status": "Status"
+      }
+    },
+    "earnings": {
+      "title": "Earnings Records",
+      "description": "View your commission income and status",
+      "loading": "Loading...",
+      "empty": "No earnings records",
+      "from": "From",
+      "create_time": "Create Time",
+      "release_time": "Release Time",
+      "frozen": "Frozen",
+      "released": "Released",
+      "cancelled": "Cancelled",
+      "unknown_user": "Unknown User",
+      "filter_all": "All",
+      "table": {
+        "amount": "Amount",
+        "from": "From",
+        "status": "Status",
+        "create_time": "Create Time",
+        "release_time": "Release Time"
+      }
+    },
+    "withdraw": {
+      "title": "Withdrawal Request",
+      "description": "Withdraw available balance to your account",
+      "button": "Withdraw",
+      "amount": "Withdrawal Amount",
+      "amount_placeholder": "Enter withdrawal amount",
+      "min_amount": "Minimum Amount",
+      "min_amount_error": "Minimum withdrawal amount is $10",
+      "payment_method": "Payment Method",
+      "alipay": "Alipay",
+      "paypal": "PayPal",
+      "account_name": "Account Name",
+      "account_name_placeholder": "Enter account name",
+      "alipay_account": "Alipay Account",
+      "alipay_placeholder": "Enter Alipay account or phone number",
+      "paypal_email": "PayPal Email",
+      "paypal_placeholder": "Enter PayPal email",
+      "available_balance": "Available Balance",
+      "exceeds_balance": "Withdrawal amount exceeds available balance",
+      "submit": "Submit Request",
+      "processing": "Processing...",
+      "success": "Withdrawal request submitted",
+      "failed": "Withdrawal request failed",
+      "invalid_amount": "Invalid withdrawal amount",
+      "invalid_payment_method": "Invalid payment method",
+      "invalid_account_info": "Invalid account information",
+      "insufficient_balance": "Insufficient balance",
+      "account_info_required": "Please enter account information"
+    },
+    "withdrawals": {
+      "title": "Withdrawal Records",
+      "description": "View your withdrawal request records",
+      "loading": "Loading...",
+      "empty": "No withdrawal records",
+      "pending": "Pending",
+      "processing": "Processing",
+      "completed": "Completed",
+      "failed": "Failed",
+      "cancelled": "Cancelled",
+      "failure_reason": "Failure Reason",
+      "create_time": "Request Time",
+      "processed_time": "Processed Time",
+      "filter_all": "All",
+      "table": {
+        "amount": "Amount",
+        "payment_method": "Payment Method",
+        "account": "Account",
+        "status": "Status",
+        "create_time": "Request Time",
+        "processed_time": "Processed Time"
+      }
+    }
+  },
+  "dashboard": {
+    "payment_success": {
+      "title": "Purchase Successful!",
+      "subtitle": "Welcome to FileMarkd",
+      "subtitle_with_plan": "Welcome to FileMarkd {plan}",
+      "processing_title": "Processing Payment Result",
+      "processing_description": "Please wait while we confirm your purchase status...",
+      "verifying_title": "Verifying Purchase Status",
+      "verifying_description": "Confirming your purchase...",
+      "success_toast": "🎉 Purchase successful! You have received complete FileMarkd plan and technical support",
+      "success_toast_with_plan": "🎉 {plan} purchase successful! You have received complete FileMarkd plan and technical support",
+      "no_session_toast": "💡 You have reached the purchase success page, please use the navigation buttons below"
+    },
+    "subscription_info": {
+      "title": "Subscription Info",
+      "title_with_plan": "{plan} Subscription",
+      "status_label": "Subscription Status:",
+      "status_active": "Active",
+      "status_processing": "Processing",
+      "plan_label": "Subscription Type:",
+      "plan_pro": "Pro",
+      "expires_label": "Support Expires:"
+    },
+    "points_reward": {
+      "title": "Credits Rewards",
+      "total_points": "Total Credits",
+      "purchased_points": "Purchased Credits",
+      "gifted_points": "Bonus Credits",
+      "gift_notice": "🎁 You have received subscription bonus credits for using template features!"
+    },
+    "actions": {
+      "view_profile": "View Profile",
+      "back_home": "Back to Home"
+    },
+    "loading": "Loading...",
+    "error": {
+      "fetch_failed": "Failed to fetch subscription information, please refresh and try again",
+      "manage_subscription_failed": "Unable to open subscription management page, please try again later"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "meta_title": "Admin Dashboard - FileMarkd",
+      "meta_description": "Admin dashboard for unified management of users, newsletter subscriptions, system settings, and more.",
+      "title": "Admin Dashboard",
+      "sidebar": {
+        "title": "Management Functions"
+      },
+      "menu": {
+        "overview": "Overview",
+        "overview_desc": "Real-time view of core system data statistics and trend analysis",
+        "users": "User Management",
+        "users_desc": "Manage registered users and permissions",
+        "referral": "Referral Management",
+        "referral_desc": "Manage all user referral records and rewards",
+        "affiliate": "Affiliate Management",
+        "affiliate_desc": "Manage all user affiliate records and commissions",
+        "newsletter": "Newsletter",
+        "newsletter_desc": "Manage newsletter subscribers",
+        "traffic": "Traffic Analytics",
+        "traffic_desc": "View website traffic statistics and visitor insights",
+        "reminders": "Reminder Emails",
+        "reminders_desc": "Query subscription expiration reminder email logs",
+        "reengagement": "Dormant Users",
+        "reengagement_desc": "View and analyze dormant/churned users, filter by inactivity buckets",
+        "reengagement_campaigns": "Reengagement",
+        "reengagement_campaigns_desc": "Create and send reengagement email campaigns for dormant users"
+      },
+      "overview": {
+        "title": "System Overview",
+        "description": "Real-time view of core system data statistics and trend analysis",
+        "categories": {
+          "users_revenue": "Users & Revenue",
+          "referral_affiliate": "Referral & Affiliate"
+        },
+        "cards": {
+          "users": {
+            "title": "User Management",
+            "description": "Manage registered users, roles and permissions"
+          },
+          "newsletter": {
+            "title": "Newsletter",
+            "description": "Manage newsletter subscriptions and statistics"
+          }
+        },
+        "quick_actions": {
+          "title": "Quick Actions",
+          "manage_users": "Manage Users",
+          "manage_users_desc": "View and manage all registered users",
+          "manage_newsletter": "Manage Subscriptions",
+          "manage_newsletter_desc": "View and manage newsletter subscriptions"
+        },
+        "stats": {
+          "total_users": "Total Users",
+          "subscribed_users": "Subscribed Users",
+          "subscription_revenue": "Subscription Revenue",
+          "points_revenue": "Points Revenue",
+          "total_points": "Total Points",
+          "total_referrals": "Total Referrals",
+          "referral_subscribed": "Referral Subscribed",
+          "referral_reward_points": "Referral Reward Points",
+          "affiliate_count": "Affiliate Count",
+          "affiliate_earnings": "Affiliate Earnings",
+          "affiliate_withdrawals": "Total Withdrawals",
+          "newsletter_subscribers": "Newsletter Subscribers"
+        },
+        "trends": {
+          "title": "Trend Analysis",
+          "days_7": "7 Days",
+          "days_30": "30 Days",
+          "days_90": "90 Days",
+          "registration": "Registration Trends",
+          "registration_count": "Registrations",
+          "subscription": "Subscription & Revenue Trends",
+          "subscription_count": "Subscriptions",
+          "subscription_revenue": "Subscription Revenue",
+          "total_revenue": "Total Revenue Trends",
+          "revenue": "Revenue"
+        }
+      }
+    },
+    "traffic": {
+      "days_7": "7 Days",
+      "days_30": "30 Days",
+      "days_90": "90 Days",
+      "stats": {
+        "pageviews": "Page Views",
+        "visitors": "Unique Visitors",
+        "visits": "Visits",
+        "bounce_rate": "Bounce Rate",
+        "avg_time": "Avg. Time"
+      },
+      "charts": {
+        "pageviews_trend": "Page Views Trend",
+        "top_pages": "Top Pages",
+        "devices": "Devices",
+        "browsers": "Browsers",
+        "countries": "Top Countries",
+        "referrers": "Top Referrers"
+      },
+      "not_configured": {
+        "title": "Umami Analytics Not Configured",
+        "description": "To enable traffic analytics, please configure Umami in your environment variables:",
+        "frontend_tracking": "Frontend Tracking (Required)",
+        "backend_api": "Backend API (Required)",
+        "authentication": "Authentication (Choose One)",
+        "umami_cloud": "Option 1: Umami Cloud - Use API Key",
+        "self_hosted": "Option 2: Self-hosted Umami - Use Username & Password (Recommended)",
+        "learn_more": "Learn More About Umami"
+      },
+      "error_title": "Failed to Load Analytics",
+      "error_message": "Unable to fetch analytics data. Please try again later."
+    },
+    "newsletter": {
+      "meta_title": "Newsletter Statistics - FileMarkd",
+      "meta_description": "View and manage newsletter subscription statistics, including subscriber counts, language distribution, and more.",
+      "title": "Newsletter Statistics",
+      "stats": {
+        "total_subscriptions": "Total Subscriptions",
+        "active_subscribers": "Active Subscribers",
+        "chinese_subscriptions": "Chinese Subscriptions",
+        "chinese_users": "Chinese Users",
+        "english_subscriptions": "English Subscriptions",
+        "english_users": "English Users",
+        "total_registrations": "Total Registrations",
+        "including_unsubscribed": "Including unsubscribed",
+        "japanese_subscriptions": "Japanese Subscriptions",
+        "japanese_users": "Japanese Users",
+        "korean_subscriptions": "Korean Subscriptions",
+        "korean_users": "Korean Users",
+        "traditional_chinese_subscriptions": "Traditional Chinese Subscriptions",
+        "traditional_chinese_users": "Traditional Chinese Users"
+      },
+      "subscription_list": {
+        "title": "Subscription List",
+        "description": "Detailed information of all newsletter subscribers",
+        "export": "Export",
+        "export_success": "Export successful",
+        "export_failed": "Export failed",
+        "active_tab": "Active Subscriptions",
+        "inactive_tab": "Cancelled Subscriptions",
+        "no_data": "No data available",
+        "table": {
+          "email": "Email Address",
+          "language": "Language",
+          "status": "Status",
+          "subscribed_at": "Subscribed At",
+          "unsubscribed_at": "Unsubscribed At",
+          "chinese": "Chinese",
+          "english": "English",
+          "active": "Active",
+          "cancelled": "Cancelled"
+        },
+        "japanese": "Japanese",
+        "korean": "Korean",
+        "traditionalChinese": "Traditional Chinese"
+      },
+      "actions": {
+        "retry": "Retry",
+        "refresh": "Refresh",
+        "export": "Export"
+      },
+      "error": {
+        "fetch_stats_failed": "Failed to fetch statistics",
+        "fetch_subscriptions_failed": "Failed to fetch subscription list"
+      },
+      "japanese_subscriptions": "Japanese Subscriptions",
+      "japanese_users": "Japanese Users",
+      "korean_subscriptions": "Korean Subscriptions",
+      "korean_users": "Korean Users",
+      "traditional_chinese_subscriptions": "Traditional Chinese Subscriptions",
+      "traditional_chinese_users": "Traditional Chinese Users",
+      "page_size_10": "10 / page",
+      "page_size_20": "20 / page",
+      "page_size_50": "50 / page",
+      "page_size_100": "100 / page",
+      "pagination": {
+        "summary": "{from}-{to} of {total}",
+        "total": "{total} records",
+        "prev": "Previous",
+        "next": "Next"
+      }
+    },
+    "reminders": {
+      "meta_title": "Reminder Email Logs - FileMarkd",
+      "meta_description": "Query subscription expiration reminder email logs, filterable by type and language",
+      "title": "Reminder Emails",
+      "description": "Query subscription expiration reminder email logs. Search by user, filter by type and language.",
+      "stats": {
+        "total": "Total Sent",
+        "7d": "7-day Reminders",
+        "3d": "3-day Reminders",
+        "today": "Today Reminders"
+      },
+      "search_placeholder": "Search email or name",
+      "search_button": "Search",
+      "reset": "Reset",
+      "filter": {
+        "type": "Reminder Type",
+        "all_types": "All Types",
+        "type_7d": "7 days",
+        "type_3d": "3 days",
+        "type_today": "Today",
+        "language": "Email Language",
+        "all_languages": "All Languages",
+        "lang_zh": "Simplified Chinese",
+        "lang_en": "English",
+        "lang_ja": "Japanese",
+        "lang_ko": "Korean",
+        "lang_tw": "Traditional Chinese",
+        "page_size_10": "10 / page",
+        "page_size_20": "20 / page",
+        "page_size_50": "50 / page",
+        "page_size_100": "100 / page"
+      },
+      "type": {
+        "7d": "7 days",
+        "3d": "3 days",
+        "today": "Today"
+      },
+      "lang": {
+        "chinese": "Chinese",
+        "english": "English",
+        "japanese": "Japanese",
+        "korean": "Korean",
+        "traditionalChinese": "Traditional Chinese"
+      },
+      "table": {
+        "sent_at": "Sent At",
+        "type": "Type",
+        "user": "User",
+        "lang": "Language",
+        "period_end": "Period End",
+        "subject": "Subject",
+        "message_id": "Resend ID"
+      },
+      "labels": {
+        "email": "Email",
+        "subject": "Subject",
+        "message_id": "Message ID"
+      },
+      "no_data": "No reminder emails sent yet",
+      "copied": "Copied {value}",
+      "pagination": {
+        "prev": "Previous",
+        "next": "Next",
+        "summary": "{from}-{to} of {total}"
+      },
+      "error": {
+        "fetch_failed": "Failed to fetch reminder emails",
+        "copy_failed": "Copy failed"
+      }
+    },
+    "reengagement": {
+      "meta_title": "Dormant Users - FileMarkd",
+      "meta_description": "View dormant/churned users, filter by inactivity days, subscription status, and language",
+      "title": "Dormant Users",
+      "description": "Query and analyze dormant and churned users. Bucket by inactivity days, subscription status, and email language, with keyword search.",
+      "stats": {
+        "total_users": "Total Users",
+        "inactive_signups": "Inactive Signups",
+        "inactive_signups_hint": "Email unverified, never active",
+        "active": "Active (<7d)",
+        "active_hint": "Active in last 7 days",
+        "warm": "Warm (7-30d)",
+        "warm_hint": "Send gentle reminders",
+        "dormant": "Dormant (31-90d)",
+        "inactive": "Inactive (91-180d)",
+        "churned": "Churned (>180d)",
+        "dormant_paid": "Dormant + Past Paid",
+        "dormant_paid_hint": "High-value win-back"
+      },
+      "click_to_view": "Click to view →",
+      "click_to_filter": "Click to filter →",
+      "filter_applied": "Filter applied: dormant users with past payment",
+      "export_csv": "Export CSV",
+      "exported": "Exported {count} rows",
+      "export_empty": "No data to export under the current filter",
+      "export_preparing": "Preparing export...",
+      "export_progress": "Exporting {fetched}/{total} rows",
+      "search_placeholder": "Search email or name",
+      "search_button": "Search",
+      "reset": "Reset",
+      "filter": {
+        "bucket": "Inactivity Bucket",
+        "all_buckets": "All Dormant",
+        "bucket_warm": "Warm (7-30d)",
+        "bucket_dormant": "Dormant (31-90d)",
+        "bucket_inactive": "Inactive (91-180d)",
+        "bucket_churned": "Churned (≥180d)",
+        "subscription": "Subscription",
+        "all_subscriptions": "All Subscriptions",
+        "sub_active": "Currently Active",
+        "sub_history": "Ever Paid",
+        "sub_never": "Never Paid",
+        "language": "Email Language",
+        "all_languages": "All Languages",
+        "lang_zh": "Simplified Chinese",
+        "lang_en": "English",
+        "lang_ja": "Japanese",
+        "lang_ko": "Korean",
+        "lang_tw": "Traditional Chinese",
+        "sort": "Sort",
+        "sort_inactive_desc": "Longest inactive first",
+        "sort_inactive_asc": "Recently silent first",
+        "sort_points_desc": "Most points first",
+        "sort_created_desc": "Newest registrations first",
+        "page_size_10": "10 / page",
+        "page_size_20": "20 / page",
+        "page_size_50": "50 / page",
+        "page_size_100": "100 / page"
+      },
+      "bucket": {
+        "active": "Active",
+        "warm": "Warm",
+        "dormant": "Dormant",
+        "inactive": "Inactive",
+        "churned": "Churned"
+      },
+      "table": {
+        "user": "User",
+        "inactive_days": "Inactive Days",
+        "bucket": "Bucket",
+        "subscription": "Subscription",
+        "points": "Points",
+        "lang": "Lang",
+        "last_active": "Last Active",
+        "created": "Created"
+      },
+      "labels": {
+        "email": "Email",
+        "unverified": "Email unverified",
+        "expires": "Expires:"
+      },
+      "no_data": "No dormant users match the current filters",
+      "copied": "Copied {value}",
+      "pagination": {
+        "prev": "Previous",
+        "next": "Next",
+        "summary": "{from}-{to} of {total}"
+      },
+      "dialog": {
+        "inactive_signups_title": "Inactive Signups",
+        "inactive_signups_desc": "Users with unverified email who never became active (updatedAt IS NULL). Cannot be reached by re-engagement emails.",
+        "total_count": "Total: {count}",
+        "no_inactive_signups": "No inactive signups"
+      },
+      "error": {
+        "fetch_failed": "Failed to fetch dormant users",
+        "copy_failed": "Copy failed",
+        "export_failed": "CSV export failed"
+      },
+      "campaigns": {
+        "no_data": "No campaigns yet",
+        "create": {
+          "title": "Create Campaign",
+          "description": "Create a reengagement email campaign targeting a specific dormant user bucket"
+        },
+        "edit": {
+          "title": "Edit Campaign",
+          "template_note": "Email template uses built-in default template. Contact developer to modify."
+        },
+        "form": {
+          "name": "Campaign Name",
+          "name_placeholder": "e.g., Welcome Back - July 2026",
+          "bucket": "Target Bucket",
+          "template_note": "Email template uses built-in default template. Contact developer to modify."
+        },
+        "filter": {
+          "status": "Status",
+          "bucket": "Bucket",
+          "all_statuses": "All Statuses",
+          "all_buckets": "All Buckets",
+          "all_status": "All Statuses"
+        },
+        "status": {
+          "draft": "Draft",
+          "ready": "Ready",
+          "sending": "Sending",
+          "completed": "Completed",
+          "cancelled": "Cancelled"
+        },
+        "bucket": {
+          "warm": "Warm (7-30d)",
+          "dormant": "Dormant (31-90d)",
+          "inactive": "Inactive (91-180d)",
+          "churned": "Churned (180d+)",
+          "sleeping_paid": "Sleeping + Paid"
+        },
+        "table": {
+          "name": "Campaign",
+          "bucket": "Bucket",
+          "status": "Status",
+          "sent": "Sent",
+          "created": "Created",
+          "actions": "Actions",
+          "empty": "No campaigns yet"
+        },
+        "actions": {
+          "send": "Send Campaign",
+          "delete": "Delete",
+          "cancel": "Cancel",
+          "create": "Create Campaign",
+          "edit": "Edit",
+          "close": "Close",
+          "logs": "View Logs"
+        },
+        "send": {
+          "title": "Send Campaign",
+          "description": "Choose how to select recipients for this campaign",
+          "mode_bucket": "Auto-select by bucket",
+          "mode_specific": "Select specific users",
+          "bucket_count": "{count} users in this bucket",
+          "selected_users": "Selected Recipients",
+          "search_placeholder": "Search users...",
+          "confirm": "Send Now",
+          "select_all": "Select All",
+          "clear_all": "Clear All",
+          "no_users": "No users found"
+        },
+        "logs": {
+          "title": "Sending Logs",
+          "description": "Email sending records for this campaign"
+        },
+        "confirm": {
+          "send": "Send this campaign to all matching users? This cannot be undone.",
+          "delete": "Are you sure you want to delete this campaign?"
+        },
+        "success": {
+          "created": "Campaign created successfully",
+          "sent": "Sent {sent}/{total} emails ({failed} failed)",
+          "deleted": "Campaign deleted"
+        },
+        "error": {
+          "fetch_failed": "Failed to fetch campaigns",
+          "create_failed": "Failed to create campaign",
+          "send_failed": "Send failed",
+          "delete_failed": "Failed to delete campaign",
+          "fill_required": "Please fill in all required fields",
+          "select_users": "Please select at least one user"
+        }
+      },
+      "logs": {
+        "no_data": "No sending logs found",
+        "search_placeholder": "Search by email...",
+        "filter": {
+          "type": "Status",
+          "all_types": "All Statuses",
+          "bucket": "Bucket",
+          "all_buckets": "All Buckets"
+        },
+        "bucket": {
+          "warm": "Warm",
+          "dormant": "Dormant",
+          "inactive": "Inactive",
+          "churned": "Churned",
+          "sleeping_paid": "Sleeping + Paid"
+        },
+        "status": {
+          "pending": "Pending",
+          "sent": "Sent",
+          "failed": "Failed",
+          "bounced": "Bounced",
+          "unsubscribed": "Unsubscribed"
+        },
+        "table": {
+          "email": "Email",
+          "campaign": "Campaign",
+          "bucket": "Bucket",
+          "status": "Status",
+          "sent_at": "Sent At",
+          "error": "Error"
+        },
+        "copied": "Copied!",
+        "error": {
+          "fetch_failed": "Failed to fetch sending logs"
+        }
+      }
+    },
+    "users": {
+      "meta_title": "User Management - FileMarkd",
+      "meta_description": "View and manage all registered users' detailed information, including user statistics, role management, points adjustment, and more.",
+      "title": "User Management",
+      "stats": {
+        "total_users": "Total Users",
+        "total_users_desc": "Total registered users",
+        "verified_users": "Verified Users",
+        "verified_users_desc": "Email verified",
+        "admin_users": "Administrators",
+        "admin_users_desc": "Admin users",
+        "subscribed_users": "Subscribed Users",
+        "subscribed_users_desc": "Active subscriptions",
+        "total_points": "Total Points",
+        "total_points_desc": "Sum of user points",
+        "total_payments": "Total Revenue",
+        "total_payments_desc": "Total successful payments"
+      },
+      "user_list": {
+        "title": "User List",
+        "description": "Manage all registered users' detailed information",
+        "search_placeholder": "Search by email or username...",
+        "filter_role": "Filter by Role",
+        "filter_email_status": "Verification Status",
+        "all_roles": "All Roles",
+        "all_statuses": "All Email Statuses",
+        "role_user": "User",
+        "role_admin": "Administrator",
+        "email_verified": "Verified",
+        "email_unverified": "Unverified",
+        "filter_subscription_status": "Subscription Status",
+        "all_subscription_statuses": "All Subscription Statuses",
+        "subscription_active": "Active",
+        "subscription_cancelled": "Cancelled",
+        "subscription_past_due": "Past Due",
+        "subscription_paused": "Paused",
+        "subscription_none": "No Subscription",
+        "no_data": "No user data available",
+        "table": {
+          "user_info": "User Info",
+          "role": "Role",
+          "email_status": "Email Status",
+          "points": "Points",
+          "subscription": "Subscription",
+          "subscription_expiry": "Subscription Expiry",
+          "created_at": "Registration Date",
+          "actions": "Actions",
+          "edit_role": "Edit Role",
+          "adjust_points": "Adjust Points",
+          "manage_subscription": "Manage Subscription",
+          "no_name": "Not Set",
+          "role_admin": "Administrator",
+          "role_user": "User",
+          "email_verified": "Verified",
+          "email_unverified": "Unverified",
+          "points_total": "Total",
+          "points_purchased": "Purchased",
+          "points_gifted": "Gifted",
+          "no_subscription": "No Subscription",
+          "plan_trial": "Trial",
+          "plan_pro": "Pro",
+          "plan_annual": "Annual",
+          "status_active": "Active",
+          "status_cancelled": "Cancelled",
+          "status_past_due": "Past Due",
+          "status_paused": "Paused",
+          "status_expired": "Expired",
+          "expired": "Expired",
+          "expiring_soon": "Expiring Soon"
+        },
+        "pagination": {
+          "summary": "{from}-{to} of {total}",
+          "prev": "Previous",
+          "next": "Next"
+        },
+        "page_size_10": "10 / page",
+        "page_size_20": "20 / page",
+        "page_size_50": "50 / page",
+        "page_size_100": "100 / page"
+      },
+      "actions": {
+        "refresh": "Refresh",
+        "retry": "Retry",
+        "edit_role": "Edit Role",
+        "adjust_points": "Adjust Points",
+        "manage_subscription": "Manage Subscription",
+        "view_details": "View Details"
+      },
+      "dialogs": {
+        "user_info": "User: {name} ({email})",
+        "no_name": "Not Set",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "edit_role": {
+          "title": "Edit User Role",
+          "description": "Modify user's system role permissions",
+          "role_label": "User Role",
+          "role_placeholder": "Select Role",
+          "role_user": "User",
+          "role_admin": "Administrator"
+        },
+        "adjust_points": {
+          "title": "Adjust User Points",
+          "description": "Add or deduct user points",
+          "points_label": "Points Change",
+          "points_placeholder": "Enter points amount (positive to add, negative to deduct)",
+          "points_type_label": "Points Type",
+          "points_type_purchased": "Purchased Points",
+          "points_type_gifted": "Gifted Points",
+          "description_label": "Operation Description",
+          "description_placeholder": "Enter operation description (optional)",
+          "purchased_points_info": "Purchased points never expire and can be used at any time",
+          "gifted_points_expiry_label": "Linked Subscription Expiry",
+          "gifted_points_expiry_info": "Gifted points will be automatically cleared when the subscription expires. The expiry time is the same as the user's subscription expiry time",
+          "gifted_points_requires_subscription": "⚠️ Gifted Points Require Subscription Expiry",
+          "gifted_points_no_subscription": "This user has no subscription set up. Gifted points cannot be added. Please set up a subscription for the user first",
+          "subscription_expired_error": "User subscription has expired. Cannot add gifted points. Please update the subscription expiry time first"
+        },
+        "manage_subscription": {
+          "title": "Manage User Subscription",
+          "description": "Modify user's subscription status and plan",
+          "status_label": "Subscription Status",
+          "status_placeholder": "Select Subscription Status",
+          "status_active": "Active",
+          "status_cancelled": "Cancelled",
+          "status_past_due": "Past Due",
+          "status_paused": "Paused",
+          "plan_label": "Subscription Plan",
+          "plan_placeholder": "Select Subscription Plan",
+          "plan_trial": "Trial",
+          "plan_pro": "Pro",
+          "plan_annual": "Annual",
+          "end_date_label": "Subscription End Date",
+          "end_date_placeholder": "Select End Date",
+          "auto_calculated": "End date is automatically calculated based on subscription plan",
+          "cumulative_calculated": "Time is added cumulatively to existing subscription",
+          "select_plan_first": "Please select a subscription plan"
+        }
+      },
+      "pagination": {
+        "page_info": "Page {page} of {totalPages}",
+        "total_records": "Total {total} records",
+        "previous": "Previous",
+        "next": "Next",
+        "page_size_10": "10 / page",
+        "page_size_20": "20 / page",
+        "page_size_50": "50 / page",
+        "page_size_100": "100 / page"
+      },
+      "messages": {
+        "role_updated": "User role updated successfully",
+        "points_updated": "User points adjusted successfully",
+        "subscription_updated": "User subscription updated successfully",
+        "update_failed": "Update failed",
+        "fetch_stats_failed": "Failed to fetch statistics",
+        "fetch_users_failed": "Failed to fetch user list"
+      }
+    },
+    "referral": {
+      "stats": {
+        "total_referrals": "Total Referrals",
+        "subscribed_referrals": "Subscribed Referrals",
+        "total_points": "Total Points Awarded"
+      },
+      "tabs": {
+        "records": "Referral Records",
+        "rewards": "Reward Records"
+      },
+      "page_size_10": "10 / page",
+      "page_size_20": "20 / page",
+      "page_size_50": "50 / page",
+      "page_size_100": "100 / page",
+      "pagination": {
+        "summary": "{from}-{to} of {total}",
+        "prev": "Previous",
+        "next": "Next"
+      },
+      "records": {
+        "title": "Referral Records",
+        "description": "View all user referral relationships",
+        "empty": "No referral records",
+        "subscribed": "Subscribed",
+        "pending": "Pending",
+        "table": {
+          "referrer": "Referrer",
+          "referred": "Referred",
+          "code": "Code",
+          "status": "Status",
+          "created_at": "Created At"
+        }
+      },
+      "rewards": {
+        "title": "Reward Records",
+        "description": "View all referral reward records",
+        "empty": "No reward records",
+        "days": "days",
+        "table": {
+          "user": "User",
+          "from": "From",
+          "action": "Action Type",
+          "reward": "Reward",
+          "created_at": "Created At"
+        },
+        "actions": {
+          "register_bonus": "Registration Bonus",
+          "referrer_bonus": "Referrer Bonus",
+          "subscription_reward": "Subscription Reward",
+          "unknown": "Other ({action})"
+        },
+        "pagination": {
+          "summary": "{from}-{to} of {total}",
+          "prev": "Previous",
+          "next": "Next"
+        },
+        "page_size_10": "10 / page",
+        "page_size_20": "20 / page",
+        "page_size_50": "50 / page",
+        "page_size_100": "100 / page"
+      }
+    },
+    "affiliate": {
+      "stats": {
+        "total_profiles": "Total Affiliates",
+        "total_relations": "Total Relations",
+        "converted_relations": "Converted",
+        "total_earnings": "Total Earnings",
+        "total_withdrawals": "Total Withdrawals"
+      },
+      "tabs": {
+        "profiles": "Affiliates",
+        "relations": "Relations",
+        "earnings": "Earnings",
+        "withdrawals": "Withdrawals"
+      },
+      "profiles": {
+        "title": "Affiliate Profiles",
+        "description": "View all affiliate profiles",
+        "loading": "Loading...",
+        "empty": "No affiliate profiles",
+        "table": {
+          "user": "User",
+          "code": "Code",
+          "balance": "Balance",
+          "frozen_balance": "Frozen Balance",
+          "created_at": "Created At"
+        }
+      },
+      "relations": {
+        "title": "Affiliate Relations",
+        "description": "View all affiliate relations",
+        "loading": "Loading...",
+        "empty": "No affiliate relations",
+        "converted": "Converted",
+        "expired": "Expired",
+        "pending": "Pending",
+        "table": {
+          "referrer": "Affiliate",
+          "invitee": "Invitee",
+          "status": "Status",
+          "expires_at": "Expires At",
+          "created_at": "Created At"
+        }
+      },
+      "earnings": {
+        "title": "Earnings Records",
+        "description": "View all commission earnings",
+        "loading": "Loading...",
+        "empty": "No earnings records",
+        "frozen": "Frozen",
+        "released": "Released",
+        "cancelled": "Cancelled",
+        "table": {
+          "affiliate": "Affiliate",
+          "invitee": "Invitee",
+          "amount": "Amount",
+          "status": "Status",
+          "created_at": "Created At"
+        }
+      },
+      "withdrawals": {
+        "title": "Withdrawal Records",
+        "description": "View all withdrawal records",
+        "loading": "Loading...",
+        "empty": "No withdrawal records",
+        "pending": "Pending",
+        "processing": "Processing",
+        "completed": "Completed",
+        "failed": "Failed",
+        "cancelled": "Cancelled",
+        "table": {
+          "user": "User",
+          "amount": "Amount",
+          "payment_method": "Payment Method",
+          "account": "Account",
+          "status": "Status",
+          "created_at": "Created At",
+          "actions": "Actions"
+        },
+        "process": {
+          "title": "Process Withdrawal",
+          "description": "Update withdrawal request status",
+          "button": "Process",
+          "update": "Update",
+          "user": "User",
+          "amount": "Amount",
+          "payment_method": "Payment Method",
+          "account_info": "Account Information",
+          "status": "Status",
+          "select_status": "Select Status",
+          "transaction_id": "Transaction ID",
+          "transaction_id_placeholder": "Enter third-party transaction ID",
+          "failure_reason": "Failure Reason",
+          "failure_reason_placeholder": "Enter failure reason",
+          "status_required": "Please select a status",
+          "transaction_id_required": "Transaction ID is required for completed withdrawals",
+          "failure_reason_required": "Failure reason is required for failed withdrawals",
+          "success": "Withdrawal processed successfully",
+          "failed": "Failed to process withdrawal",
+          "processing": "Processing...",
+          "submit": "Submit",
+          "cancel": "Cancel"
+        }
+      },
+      "pagination": {
+        "summary": "{from}-{to} of {total}",
+        "prev": "Previous",
+        "next": "Next"
+      },
+      "page_size_10": "10 / page",
+      "page_size_20": "20 / page",
+      "page_size_50": "50 / page",
+      "page_size_100": "100 / page"
+    }
+  },
+  "legal": {
+    "title": "Legal Terms",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy"
+  },
+  "unauthorized": {
+    "title": "Access Denied",
+    "description": "You don't have permission to access this page. This page is restricted to administrators only.",
+    "errorMessage": "If you believe this is an error, please contact the system administrator.",
+    "backToHome": "Back to Home",
+    "signInAgain": "Sign In Again"
+  },
+  "apiErrors": {
+    "unauthorized": "Unauthorized",
+    "unauthorized_short": "Unauthorized",
+    "not_logged_in": "Not signed in",
+    "not_logged_in_alt": "User not signed in",
+    "user_not_found": "User not found",
+    "user_not_found_or_no_password": "User not found or no password set",
+    "verify": {
+      "success": "Email verified successfully. You can now sign in.",
+      "token_missing": "Invalid verification link: missing token",
+      "token_invalid": "Invalid or expired verification link. Please register again or request a new verification email.",
+      "token_expired": "Verification link has expired. Please request a new one.",
+      "already_verified": "Email already verified",
+      "failed": "Email verification failed. Please try again later.",
+      "failed_retry": "Email verification failed. Please try again later."
+    },
+    "register": {
+      "success_check_email": "Registration successful! Please check your email and click the verification link to activate your account.",
+      "missing_fields": "Please fill in all required fields",
+      "password_too_short": "Password must be at least 6 characters",
+      "email_exists": "This email is already registered. Please sign in or use a different email.",
+      "invalid_referral_code": "Invalid or expired referral code",
+      "verification_email_failed": "Failed to send verification email. Please try again later.",
+      "rate_limit": "Too many requests. Please try again later.",
+      "retry": "Registration failed. Please try again later."
+    },
+    "forgot_password": {
+      "success_message": "Password reset link has been sent to your email",
+      "email_required": "Please enter your email address",
+      "send_failed": "Failed to send. Please try again later."
+    },
+    "reset_password": {
+      "success_message": "Password reset successfully!",
+      "password_min_length": "Password must be at least 6 characters",
+      "token_invalid": "Reset link is invalid or has expired",
+      "reset_failed": "Reset failed. Please try again later."
+    },
+    "email_already_verified": "Email already verified",
+    "resend_verification_failed": "Failed to resend verification email, please try again later",
+    "name_required": "Name is required",
+    "current_and_new_password_required": "Please provide current and new password",
+    "new_password_min_length": "New password must be at least 6 characters",
+    "current_password_incorrect": "Current password is incorrect",
+    "points_invalid_amount": "Invalid points amount",
+    "points_missing_params": "Missing required parameters",
+    "points_insufficient": "Insufficient points",
+    "points_deduct_insufficient": "Points to deduct cannot exceed current gifted points",
+    "points_grant_needs_subscription": "Gifted points must be tied to subscription expiration. Please set the user's subscription first",
+    "points_grant_subscription_expired": "User subscription has expired. Cannot add gifted points. Please update subscription expiration first",
+    "fetch_points_failed": "Failed to fetch points",
+    "fetch_points_history_failed": "Failed to fetch points history",
+    "fetch_points_detail_failed": "Failed to fetch points detail",
+    "admin_required": "Admin access required",
+    "user_id_required": "User ID is required",
+    "invalid_role": "Invalid user role",
+    "invalid_subscription_status": "Invalid subscription status",
+    "invalid_subscription_plan": "Invalid subscription plan",
+    "invalid_operation_type": "Invalid operation type",
+    "invalid_type_param": "Invalid type parameter",
+    "fetch_statistics_failed": "Failed to fetch statistics",
+    "set_admin_email_required_query": "Please provide email parameter in the URL, e.g. ?email=your@email.com",
+    "set_admin_email_required_body": "Email address is required",
+    "set_admin_failed": "Failed to set admin",
+    "server_error": "Server error",
+    "server_internal_error": "Internal server error",
+    "webhook_failed": "Webhook processing failed",
+    "resend_verification_email_sent": "Verification email sent, please check your inbox",
+    "profile_updated": "Profile updated successfully",
+    "user_promoted_to_admin": "User {email} has been promoted to admin",
+    "role_updated": "User role updated successfully",
+    "points_adjusted": "Points adjusted successfully",
+    "subscription_updated": "Subscription information updated successfully",
+    "points_operation_success": "Points operation successful",
+    "points_operation_failed": "Points operation failed",
+    "points_deducted_successfully": "Points deducted successfully",
+    "password_changed": "Password changed successfully",
+    "referral_code_required": "Invalid referral code",
+    "referral_code_length": "Referral code must be 4-20 characters long",
+    "referral_code_invalid_chars": "Referral code can only contain letters and numbers",
+    "referral_code_already_changed": "Referral code can only be changed once",
+    "referral_code_already_taken": "This referral code is already taken",
+    "CODE_EMPTY": "Please enter an affiliate code",
+    "INVALID_FORMAT": "Invalid affiliate code format",
+    "CODE_ALREADY_TAKEN": "This affiliate code is already taken",
+    "CODE_ALREADY_CHANGED": "Affiliate code can only be changed once",
+    "UPDATE_FAILED": "Update failed",
+    "WITHDRAWAL_FAILED": "Withdrawal failed",
+    "INVALID_AMOUNT": "Invalid withdrawal amount",
+    "INVALID_PAYMENT_METHOD": "Invalid payment method",
+    "INVALID_ACCOUNT_NAME": "Please enter recipient name",
+    "INVALID_ACCOUNT_INFO": "Please enter account information",
+    "MIN_AMOUNT_NOT_MET": "Withdrawal amount is below the minimum",
+    "INSUFFICIENT_BALANCE": "Insufficient balance for withdrawal",
+    "affiliate_code_required": "Please enter an affiliate code",
+    "affiliate_code_invalid": "Invalid affiliate code",
+    "affiliate_code_self": "Cannot use your own affiliate code",
+    "affiliate_new_user_only": "Affiliate code can only be applied for new registrations",
+    "affiliate_relation_exists": "Affiliate relationship already exists",
+    "affiliate_relation_created": "Affiliate relationship created",
+    "referral_new_user_only": "Referral code can only be applied for new registrations",
+    "referral_already_referred": "User has already been referred",
+    "referral_code_invalid": "Invalid referral code",
+    "referral_code_self": "Cannot use your own referral code",
+    "referral_relation_created": "Referral relationship created successfully",
+    "unknown_error": "Unknown error",
+    "stripe_not_configured": "Stripe is not configured",
+    "enterprise_contact_sales": "Enterprise plan requires contacting sales",
+    "missing_price_id_for_plan": "Missing price ID for plan type",
+    "price_id_not_configured": "Price ID not configured for this plan",
+    "no_stripe_customer_found": "No Stripe customer found",
+    "failed_to_create_checkout_session": "Failed to create checkout session",
+    "failed_to_create_customer_portal_session": "Failed to create customer portal session",
+    "failed_to_fetch_payment_history": "Failed to fetch payment history",
+    "failed_to_get_affiliate_earnings": "Failed to get affiliate earnings",
+    "failed_to_get_affiliate_relations": "Failed to get affiliate relations",
+    "failed_to_get_affiliate_stats": "Failed to get affiliate stats",
+    "failed_to_get_withdrawals": "Failed to get withdrawals",
+    "failed_to_get_referral_records": "Failed to get referral records",
+    "failed_to_get_referral_rewards": "Failed to get referral rewards",
+    "failed_to_get_referral_stats": "Failed to get referral stats",
+    "affiliate_profile_not_found": "Profile not found",
+    "affiliate_stats_not_found": "Stats not found",
+    "missing_required_fields": "Missing required fields"
+  },
+  "newsletter": {
+    "invalid_email": "Please enter a valid email address",
+    "already_subscribed": "You are already subscribed to our newsletter",
+    "resubscribed": "Welcome back! You have successfully resubscribed",
+    "subscribed": "Successfully subscribed! Thank you for your interest",
+    "missing_input": "Please provide email address or unsubscribe token",
+    "not_found": "Subscription not found",
+    "already_unsubscribed": "You have already unsubscribed",
+    "unsubscribed": "Successfully unsubscribed",
+    "invalid_link": "Invalid unsubscribe link"
+  },
+  "subscription": {
+    "reminder": {
+      "unsubscribe": {
+        "title": "Cancel subscription reminders",
+        "description": "You will no longer receive subscription expiration reminder emails. Transactional emails (orders, verification codes, credit changes) are not affected.",
+        "loadingText": "Processing...",
+        "successMessage": "If you change your mind, you can re-subscribe to reminders at any time.",
+        "backToHome": "Back to home",
+        "networkError": "Network error, please try again later.",
+        "unsubscribeError": "Failed to unsubscribe, please try again later.",
+        "successFromEmail": "Successfully unsubscribed from subscription reminders",
+        "resubscribeButton": "Re-subscribe to reminders",
+        "api": {
+          "invalid_link": "Invalid unsubscribe link",
+          "not_found": "Subscription record not found",
+          "already_unsubscribed": "You have already unsubscribed",
+          "unsubscribed": "Successfully unsubscribed",
+          "resubscribed": "Successfully re-subscribed"
+        }
+      }
+    }
+  },
+  "stripe_checkout": {
+    "trial_already_used": "You have already subscribed to the trial plan. Each user can only subscribe once.",
+    "trial_blocked_for_paid": "You already have an active subscription. Trial subscription is not available for Pro/Annual users.",
+    "annual_no_downgrade": "You cannot downgrade from Annual to Pro. Annual subscription cannot be downgraded."
+  },
+  "homeClient": {
+    "planSelectedToast": "You selected the \"{plan}\" plan. All conversion features are unlocked in the trial build — just upload your file to start!",
+    "formatFilterToast": "Selected \"{fmt}\". You can now drop a file of this format below.",
+    "supportContactToast": "Support: support@filemarkd.com · Live chat 9:00–22:00"
+  }
+}

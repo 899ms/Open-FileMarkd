@@ -1,0 +1,2355 @@
+{
+  "metadata": {
+    "title": "PDF、图片、文档一键转 Markdown — AI 智能转换工具 | FileMarkd",
+    "description": "PDF、图片、Word、PPT、Excel 秒变干净 Markdown。FileMarkd 支持 40+ 种格式，精准保留表格、公式与文档层级，AI 驱动 OCR 多语言识别、置信度评分与智能页眉页脚提取。",
+    "shortTitle": "FileMarkd",
+    "keywords": "FileMarkd, PDF转Markdown, 图片转Markdown, Word转Markdown, PPT转Markdown, Excel转Markdown, 文档转换, OCR识别, AI文档提取, 表格识别, 公式识别, 多语言OCR, Markdown编辑器, 40+格式, 文件转换器, Markdown工作台, 订阅套餐, 推广返利",
+    "terms": {
+      "title": "服务条款 - FileMarkd",
+      "description": "查看使用 FileMarkd — AI 驱动的 PDF、图片与文档转 Markdown 工具的相关条款与许可说明。"
+    },
+    "privacy": {
+      "title": "隐私政策 - FileMarkd",
+      "description": "了解 FileMarkd 在 PDF、图片、文档转 Markdown 过程中如何保护你的数据与隐私。"
+    },
+    "cookies": {
+      "title": "Cookie 政策 - FileMarkd",
+      "description": "了解 FileMarkd 如何使用 Cookie 等技术来优化文档转换体验与服务性能。"
+    }
+  },
+  "navbar": {
+    "home": "首页",
+    "features": "功能特性",
+    "featuresArchitecture": "特性架构",
+    "faq": "常见问题",
+    "demo": "功能演示",
+    "pricing": "定价方案",
+    "signUp": "立即注册",
+    "signIn": "登录",
+    "profile": "仪表盘",
+    "affiliate": "推广计划",
+    "referral": "推荐计划",
+    "accountSettings": "账户设置",
+    "signOut": "退出登录",
+    "language": "切换语言",
+    "switchLanguage": "切换语言",
+    "chinese": "中文",
+    "english": "English",
+    "japanese": "日本語",
+    "korean": "한국어",
+    "traditionalChinese": "繁體中文",
+    "currentLocale": "中",
+    "currentLocaleTw": "繁",
+    "currentLocaleEn": "EN",
+    "currentLocaleJa": "JP",
+    "currentLocaleKo": "KR",
+    "switchToLight": "切换至亮色模式",
+    "switchToDark": "切换至暗色模式",
+    "theme": "主题",
+    "themeLight": "浅色",
+    "themeDark": "深色"
+  },
+  "hero": {
+    "titleBefore": "PDF、图片、文档，一键秒变 ",
+    "titleHighlight": "Markdown",
+    "titleAfter": "",
+    "subtitle": "支持 40+ 种格式，精准提取文字、表格与结构，AI 驱动的高性能文档转换工具。",
+    "documentsTitle": "Documents",
+    "imagesTitle": "Images",
+    "badge": "AI Powered Engine",
+    "primaryCta": "立即开始转换",
+    "secondaryCta": "查看演示"
+  },
+  "bentoFeatures": {
+    "sectionTitle": "重新定义转换质量",
+    "sectionSubtitle": "我们采用最先进的视觉识别算法，确保转换后的内容在任何编辑器中都具有极佳的可读性与结构保真度。",
+    "card1Title": "文本提取与层级保留",
+    "card1Desc": "完美保留原始文档的标题层级、段落结构和语义信息。结合块级内容分析，精确提取段落边界框与正确阅读顺序。",
+    "card2Title": "高级表格格式化",
+    "card2Desc": "支持将复杂表格完美解析为 Markdown、HTML 或内联渲染格式，无缝应对跨行跨列布局与嵌套单元格。",
+    "card3Title": "置信度评分",
+    "card3Desc": "提供页面、块级及词级的颗粒化可靠性指标，精准定位需人工核对区域。",
+    "card4Title": "多语言精通",
+    "card4Desc": "全面支持超过 40 种语言的高精度识别与解析，打破全球文档语言障碍。",
+    "card5Title": "智能页眉页脚与元数据提取",
+    "card5Desc": "深度识别并隔离文档的页眉、页脚、页码及附属元数据，确保正文内容输出的纯净与连贯性。",
+    "terminalTab": "Markdown 引擎预览"
+  },
+  "conversionZone": {
+    "header": {
+      "title": "FileMarkd Converter Pro",
+      "status": "Ready"
+    },
+    "dropzone": {
+      "title": "拖拽文档或图片至此",
+      "subtitle": "您可上传 10MB · 自动识别数学公式与复杂表格",
+      "subtitle_registered": "您可上传 10MB · 自动识别数学公式与复杂表格",
+      "subtitle_trial": "您可上传 20MB · 自动识别数学公式与复杂表格",
+      "subtitle_subscribed": "您可上传 50MB · 自动识别数学公式与复杂表格",
+      "subtitle_suffix": " · 自动识别数学公式与复杂表格",
+      "selectFile": "选择文件开始转换",
+      "urlPlaceholder": "或者粘贴文档/图片网络链接...",
+      "import": "导入",
+      "presetHint": "没有本地文件？一键加载测试示例：",
+      "securityNotice": "您的文件经过端到端加密处理，转换完成后将自动清理，绝不保留或泄露任何隐私内容。"
+    },
+    "processing": {
+      "title": "正在解析并转换...",
+      "stageLabel": "AI 语义分析与布局还原",
+      "running": "运行中"
+    },
+    "toast": {
+      "fileTooLarge": "文件大小超过 50MB 限制",
+      "fileTooLargeForPlan": "您当前的套餐单文件最多支持 {size} MB",
+      "unsupportedFileType": "不支持此文件格式",
+      "loginRequired": "请先登录后再上传文件",
+      "uploadFailed": "文件上传失败，请稍后重试。",
+      "pointsInsufficient": "积分不足：文档按每页 1 积分计费，请先购买或获取更多积分。",
+      "conversionFailed": "文档转换失败，请稍后重试。",
+      "conversionFailedUnauthorized": "OCR 服务授权失败，请在管理后台检查 MISTRAL_API_KEY 配置。",
+      "conversionFailedRateLimited": "OCR 服务调用过于频繁，请稍后再试。",
+      "conversionFailedUnavailable": "OCR 服务暂时不可用，请稍后再试。",
+      "conversionComplete": "「{name}」转换完成！",
+      "urlSuccess": "远程链接解析成功！",
+      "sampleLoaded": "已加载示例「{name}」",
+      "urlInvalidFormat": "URL 必须以 http:// 或 https:// 开头",
+      "urlBlocked": "该 URL 指向内网地址，无法获取。",
+      "urlUnreachable": "无法访问该远程链接，请检查后重试。",
+      "urlUnsupportedFormat": "远程文件类型不支持 OCR 转换。",
+      "urlTooLarge": "远程文件超过 {size} MB 内联导入限制。",
+      "inlineTooLarge": "文件过大，无法直接处理（编码后上限约 35 MB）。"
+    },
+    "url": {
+      "heading": "远程链接解析：{name}",
+      "sourceLabel": "数据来源",
+      "body": "已成功从远程服务器拉取并完成高精度 Markdown 转换。",
+      "fieldCol": "字段",
+      "valueCol": "值",
+      "statusCol": "状态",
+      "protocol": "传输协议",
+      "encrypted": "加密认证",
+      "encoding": "解析编码",
+      "noGarbled": "无乱码",
+      "confidence": "置信度",
+      "veryHigh": "极高"
+    },
+    "fallback": {
+      "heading": "转换结果：{name}",
+      "parsedBy": "经由 FileMarkd 智能引擎解析完成。",
+      "body": "## 结构化正文\n\n已成功识别文档文本、段落层级与结构。"
+    },
+    "categories": {
+      "sampleAcademic": "Academic Paper",
+      "sampleFinancial": "Financial Sheet",
+      "sampleInvoice": "Receipt/Invoice"
+    },
+    "sampleAcademicDesc": "含多级标题、LaTeX 数学公式、多行矩阵及多语言参考文献的高精度学术论文",
+    "sampleFinancialDesc": "复杂财务多维表格、跨列合并单元格与层级汇总计算",
+    "sampleInvoiceDesc": "扫描图片票据识别：发票代码、税额分项明细及签章水印过滤"
+  },
+  "demoVideoModal": {
+    "title": "FileMarkd 引擎工作流演示",
+    "subtitle": "AI 驱动的高性能多模态文档解析架构",
+    "nextStep": "查看下一步骤 →",
+    "cta": "亲自体验转换",
+    "stepLabel": "步骤 {n}",
+    "steps": [
+      {
+        "title": "1. 多模态光学扫描与边界切分",
+        "desc": "利用 AI 视觉感知网络，自动消除背景噪点与折痕，精准锁定标题层级与多栏版面边界。",
+        "phaseLabel": "// 阶段 1：空间边界与版面切分",
+        "line1": "✓ 检测到 4 栏版面布局",
+        "line2": "✓ 已剔除 2 处页眉元素与 1 处页脚页码",
+        "line3": "✓ 光学识别置信度：99.8%"
+      },
+      {
+        "title": "2. 高级表格与公式 LaTeX 拓扑还原",
+        "desc": "支持跨行跨列单元格对齐，同时将复杂微积分与矩阵算式转为标准 MathJax / KaTeX 语法。",
+        "phaseLabel": "// 阶段 2：LaTeX 与表格合成",
+        "line1": "✓ 原生 KaTeX 公式抽取",
+        "line2": "✓ 输出 GFM 标准表格",
+        "line3": "✓ 置信度：98.7%"
+      },
+      {
+        "title": "3. 导出标准 GitHub Flavored Markdown",
+        "desc": "生成的 Markdown 可直接粘贴至 Notion、Obsidian、Typora 或用于大型语言模型（RAG）知识库构建。",
+        "phaseLabel": "// 阶段 3：导出就绪",
+        "line1": "✓ 兼容 GFM",
+        "line2": "✓ 可直接用于 RAG 向量化与知识库",
+        "line3": "100% 结构还原精度"
+      }
+    ]
+  },
+  "testimonials": {
+    "sectionTitle": "用户评价",
+    "sectionSubtitle": "来自全球领先企业与研究机构的真实反馈。"
+  },
+  "faq": {
+    "sectionTitle": "常见问题解答",
+    "sectionSubtitle": "关于 FileMarkd，您可能想了解的一切。",
+    "contactSupport": "联系技术支持",
+    "items": [
+      {
+        "question": "支持哪些文件格式？",
+        "answer": "支持多种文档和图片格式转换为 Markdown。\n文档格式：PDF、Word（DOC/DOCX）、PowerPoint（PPT/PPTX）、Excel（XLSX/CSV）、TXT、EPUB、XML/DocBook、RTF、OpenDocument（ODT）、LaTeX（.tex）、Jupyter Notebooks（.ipynb）、Troff、OPML 等。\n图片格式：JPEG（.jpg, .jpeg）、PNG、AVIF、TIFF、GIF、HEIC/HEIF、BMP、WebP。"
+      },
+      {
+        "question": "转换后的 Markdown 会保留原始内容吗？",
+        "answer": "我们采用先进的视觉识别算法，能完美保留原始文档的标题层级、段落结构、表格（含跨行跨列）、图片、LaTeX 数学公式及语义信息，同时自动去除干扰性的页眉、页脚和孤立页码。"
+      },
+      {
+        "question": "积分如何计算？",
+        "answer": "按页扣费，每处理一页文档消耗 1 积分。单张图片识别消耗 1 积分。新注册用户默认享有免费试用体验额度。"
+      },
+      {
+        "question": "不同套餐有什么区别？",
+        "answer": "试用版适合临时体验，价格低廉；月度版适合短期高频使用；年度版提供最高性价比，包含最多的转换次数、最大的单文件支持（50MB）及优先转换核心功能。"
+      },
+      {
+        "question": "我的文件安全吗？",
+        "answer": "您的文件会经过安全加密处理。文件仅用于完成转换任务，转换完成后会按照系统策略自动清理，我们不会存储、查看或用于其他商业用途。"
+      }
+    ]
+  },
+  "conversionWorkspace": {
+    "tabs": {
+      "preview": "富文本预览",
+      "raw": "原生 Markdown (可编辑)"
+    },
+    "viewMode": {
+      "split": "左右分栏",
+      "markdownOnly": "仅 Markdown"
+    },
+    "actions": {
+      "copyMarkdown": "复制 Markdown",
+      "copied": "已复制",
+      "downloadMd": "下载 .md",
+      "downloadTitle": "下载 .md 文件",
+      "exportTxt": "下载 .txt",
+      "exportTitle": "下载为 .txt 文件",
+      "reset": "换个文件"
+    },
+    "sourcePanel": {
+      "title": "源文件",
+      "meta": "大小: {size} · 耗时: {time}ms · 字数: {words}",
+      "confidence": "置信度 {pct}%",
+      "encrypted": "端到端加密通道",
+      "engine": "AI 引擎"
+    },
+    "editor": {
+      "directEditHint": "支持直接修改或追加内容，所有导出即时同步生效",
+      "chars": "{count} 字符",
+      "searchPlaceholder": "搜索文本...",
+      "searchTitle": "搜索",
+      "copyAll": "一键拷贝全部",
+      "sequence": "序号 #{order} · {type}"
+    },
+    "statusBar": {
+      "utf8": "UTF-8",
+      "markdownGfm": "Markdown (GFM)",
+      "katexSupport": "KaTeX 支持"
+    },
+    "toast": {
+      "copySuccess": "Markdown 内容已成功复制到剪贴板！",
+      "copyFailed": "复制失败，请手动选取",
+      "txtExported": ".txt 文件已下载",
+      "downloadSuccess": "已下载 {name}.md"
+    }
+  },
+  "pricingNewHome": {
+    "sectionTitle": "选择适合您的方案",
+    "sectionSubtitle": "无论是个人用户还是专业团队，我们都有为您量身定制的处理方案。",
+    "creditNote": "1 积分 ≈ 1 页文档处理",
+    "loading": "加载中...",
+    "alreadySubscribedAnnual": "已订阅年度版",
+    "annualMemberAlready": "您已是年度会员",
+    "isProMember": "已是 Pro 会员",
+    "upgradeToAnnual": "升级到年度版",
+    "trialOnlyOnce": "试用仅限一次",
+    "loginFirst": "请先登录后再进行订阅",
+    "startTrial": "开始试用",
+    "subscribeNow": "立即订阅",
+    "trial": {
+      "name": "试用版",
+      "subtitle": "适合第一次体验",
+      "validity": "一次性支付 · 7 天有效",
+      "credits": "200 积分",
+      "maxDaily": "约可处理 200 页",
+      "maxFileSize": "单文件最大 20 MB",
+      "features": [
+        "PDF / 图片 / Word / PPT 转 Markdown",
+        "自动识别文字和文档结构",
+        "表格、图片、公式识别",
+        "Markdown 文件下载",
+        "单文件最大 20 MB",
+        "约可处理 200 页"
+      ]
+    },
+    "annual": {
+      "name": "年度版",
+      "subtitle": "适合长期使用",
+      "popularBadge": "最受欢迎",
+      "saveBadge": "Save $80.88",
+      "effectiveMonthly": "相当于 $8.25 / 月",
+      "validity": "按年自动续订 · 随时可退订",
+      "credits": "12,000 积分 / 年",
+      "maxDaily": "约可处理 12,000 页",
+      "maxFileSize": "单文件最大 50 MB",
+      "period": "/ 年",
+      "features": [
+        "PDF / 图片 / Word / PPT 转 Markdown",
+        "自动识别文字和文档结构",
+        "表格、图片、公式识别",
+        "Markdown 文件下载",
+        "单文件最大 50 MB",
+        "约可处理 12,000 页"
+      ]
+    },
+    "monthly": {
+      "name": "月度版",
+      "subtitle": "适合日常使用",
+      "validity": "自动续费 · 可随时取消",
+      "credits": "1,500 积分 / 月",
+      "maxDaily": "约可处理 1,500 页",
+      "maxFileSize": "单文件最大 50 MB",
+      "period": "/ 月",
+      "features": [
+        "PDF / 图片 / Word / PPT 转 Markdown",
+        "自动识别文字和文档结构",
+        "表格、图片、公式识别",
+        "Markdown 文件下载",
+        "单文件最大 50 MB",
+        "约可处理 1,500 页"
+      ]
+    }
+  },
+  "orchestration": {
+    "sectionBadge": "全栈技术栈 · 现代化 AI 文档转换架构",
+    "sectionTitle": "全栈开源技术",
+    "sectionHighlight": "架构体系.",
+    "sectionSubtitle": "生产级现代开发框架集成，零配置开箱即用，帮助您专注核心业务逻辑。",
+    "left1": {
+      "title": "Next.js 16 App Router",
+      "meta": "技术栈：",
+      "metaValue": "React 19 + TS",
+      "desc": "基于 Next.js 最新 App Router 规范，内置服务端渲染 SSR 与边缘 Edge 渲染优化，极速首屏加载。"
+    },
+    "left2": {
+      "title": "Neon + Drizzle",
+      "meta": "状态：",
+      "metaValue": "类型安全 ORM",
+      "desc": "高性能 Neon Serverless Postgres 数据库，配合轻量级 Drizzle ORM，提供完全类型安全的数据库交互。"
+    },
+    "node1": {
+      "label": "NEXT_JS_16"
+    },
+    "node2": {
+      "label": "NEON_POSTGRES"
+    },
+    "node3": {
+      "label": "STRIPE_BILLING"
+    },
+    "floatingBadge1": {
+      "label": "开发周期节省",
+      "value": "超过 200 小时"
+    },
+    "floatingBadge2": {
+      "label": "代码许可",
+      "value": "MIT 商业开源"
+    },
+    "terminal": {
+      "title": "框架实时测试状态",
+      "simulateBtn": "模拟 API 请求流程",
+      "log1": "> [04:22:11] Next.js 16 App Router 路由加载完成... OK",
+      "log2": "> [04:22:15] Neon Postgres 数据库 Serverless 连接池初始化成功（耗时 12ms）",
+      "log3": "> [04:22:19] Stripe SDK & Webhook 监听到事件: checkout.session.completed",
+      "simulateLog": "模拟处理新增用户注册 & Stripe 自动扣款生成账单..."
+    },
+    "right1": {
+      "title": "Stripe 订阅集成",
+      "meta": "集成：",
+      "metaValue": "Webhook + Portal",
+      "desc": "内置完善的 Stripe Checkout、按月/按年订阅、Webhook 接收端点与客户自助账单门户。"
+    },
+    "right2": {
+      "title": "100% 开源且自由",
+      "meta": "部署：",
+      "metaValue": "Vercel / Docker",
+      "desc": "没有云厂商绑定，可一键部署至 Vercel、Cloud Run 或任何支持 Node.js / Docker 的服务器。"
+    },
+    "metrics": {
+      "1": {
+        "label": "开发效率提升",
+        "value": "10 倍以上"
+      },
+      "2": {
+        "label": "包含核心组件",
+        "value": "40+ 开箱即用"
+      },
+      "3": {
+        "label": "数据库兼容",
+        "value": "Neon Postgres 全兼容"
+      },
+      "4": {
+        "label": "开源许可",
+        "value": "MIT License"
+      }
+    }
+  },
+  "engineeringValidation": {
+    "sectionBadge": "真实开发者评价",
+    "sectionTitlePrefix": "深受开发者与创作者 ",
+    "sectionTitleHighlight": "信赖.",
+    "testimonials": [
+      {
+        "name": "张明",
+        "title": "独立开发者 @ AI 写作助手创始人",
+        "badge": "已验证使用",
+        "quote": "FileMarkd 开源模板省去了我搭建 Next.js App Router 和 Stripe 订阅支付的大大量重复工作。项目 3 天就成功上线并收到了第一笔海外订阅支付！",
+        "icon": "star"
+      },
+      {
+        "name": "Alex Chen",
+        "title": "CTO @ CloudScale 全栈团队",
+        "badge": "已验证使用",
+        "quote": "开箱即用的 PostgreSQL 数据库与 Drizzle ORM Schema 配置非常优雅。代码结构干净利落，做二次开发极其顺手。",
+        "icon": "cloud"
+      },
+      {
+        "name": "王小蕾",
+        "title": "全栈工程师 @ 海外 SaaS 极客",
+        "badge": "已验证使用",
+        "quote": "这是目前见过最干净的 Next.js 开源模板。去除了臃肿的第三方依赖，专注于核心鉴权、数据库与 Stripe 订阅，非常值得推荐！",
+        "icon": "terminal"
+      }
+    ]
+  },
+  "technicalFAQ": {
+    "sectionBadge": "常见问题解答",
+    "sectionTitlePrefix": "技术与部署 ",
+    "sectionTitleHighlight": "FAQ.",
+    "sectionSubtitle": "为独立开发者与创业团队解答关于模板使用、架构选型与部署上线的常见疑问。",
+    "faqs": [
+      {
+        "question": "模板包含哪些技术栈和框架？",
+        "answer": "模板基于全栈 Next.js 16 (App Router)、NextAuth.js 鉴权系统、Resend 邮件服务、Neon Serverless Postgres 数据库 (Drizzle ORM) 以及 Stripe 订阅支付 SDK。"
+      },
+      {
+        "question": "这个 FileMarkd 文档转换工具是完全开源免费的吗？",
+        "answer": "是的！基础版 100% 采用 MIT 开源许可协议，您可以自由地将其用于商业项目、个人开发或客户端交付，无需支付版权或许可费用。"
+      },
+      {
+        "question": "如何快速部署并上线项目？",
+        "answer": "只需要 Fork 代码仓库，克隆到本地配置环境变量（如 Neon Postgres 数据库连接串和 Stripe API Key），即可一键部署到 Vercel、Cloud Run 或自己的 Docker 服务器。"
+      },
+      {
+        "question": "Stripe 支付如何配置和测试？",
+        "answer": "我们提供了预设的 API Route 与 Webhook 事件处理程序。您只需在 Stripe 控制台获取 Test/Live API Key 与 Webhook Secret，填入 .env 即可自动开启按月/按年订阅流程。"
+      }
+    ]
+  },
+  "missionControl": {
+    "sectionBadge": "全功能 SaaS 开源解决方案",
+    "sectionTitlePrefix": "开箱即用的",
+    "sectionTitleHighlight": "核心商业功能模块.",
+    "sectionSubtitle": "涵盖后台管理、用户工作台、Stripe 多方案订阅与推广返利体系，无需重复造轮子。",
+    "moduleCounter": "模块 {current} / {total}",
+    "nextButton": "下一个功能模块",
+    "readyBadge": "模块已就绪",
+    "metrics": {
+      "savedTime": {
+        "label": "平均开发省时",
+        "value": "200+ 小时",
+        "caption": "即刻投入业务研发"
+      },
+      "commission": {
+        "label": "裂变推荐佣金",
+        "value": "30% 比例",
+        "caption": "自动结算与提现"
+      }
+    },
+    "tabs": {
+      "admin": {
+        "tabTitle": "后台管理中心",
+        "title": "后台管理中心",
+        "highlight": "全盘掌舵企业运营.",
+        "description": "强大的后台管理系统，支持用户管理、角色权限控制、数据统计、积分调整等功能，让您轻松管理整个平台。",
+        "items": [
+          "用户管理与角色权限 (Admin / Member) 细粒度划分",
+          "全平台活跃用户数、MRR 营收与订阅转化率统计",
+          "用户积分余额人工/自动调整与异动审计日志"
+        ]
+      },
+      "dashboard": {
+        "tabTitle": "用户仪表盘",
+        "title": "用户仪表盘",
+        "highlight": "直观高效的工作台.",
+        "description": "直观的用户仪表盘界面，展示订阅状态、积分余额、推荐统计、账户设置等关键信息，让用户一目了然。",
+        "items": [
+          "实时订阅状态、按月用量与剩余积分额度",
+          "个人推广效果统计、推荐码管理与受邀用户记录",
+          "邮箱验证、已连接账号与会话安全状态"
+        ]
+      },
+      "subscriptions": {
+        "tabTitle": "多种订阅方案",
+        "title": "多种订阅方案",
+        "highlight": "自动化计费引擎.",
+        "description": "灵活的订阅管理系统，支持 Trial、Pro、Annual 等多种订阅方案，自动处理订阅续费、取消和到期提醒。",
+        "items": [
+          "支持 Trial 试用、Pro 月付、Annual 年付等模式",
+          "自动处理订阅续费、过期提醒与升降级逻辑",
+          "集成 Stripe Customer Portal，自助取消与开票"
+        ]
+      },
+      "affiliate": {
+        "tabTitle": "推广计划",
+        "title": "推广计划",
+        "highlight": "裂变增长返利系统.",
+        "description": "完整的推广返利系统，支持自定义推广码、佣金统计、提现管理等功能，通过推广获得 30% 首单佣金，帮助您实现收益增长。",
+        "items": [
+          "专属推广链接与自定义推广优惠码生成",
+          "30% 首单高额佣金实时计算与累计收益面板",
+          "佣金提现申请管理、明细流水与状态追踪"
+        ]
+      }
+    },
+    "previews": {
+      "admin": {
+        "title": "超级管理员面板 (Admin Console)",
+        "subtitle": "全站用户、权限、积分异动与财务汇总数据分析",
+        "badge": "SUPER_ADMIN",
+        "imageAlt": "后台管理中心预览",
+        "imageCaption": "数据看板 + 用户管理 + 角色权限"
+      },
+      "dashboard": {
+        "title": "用户个人中心 (User Workspace)",
+        "subtitle": "积分购买 · 推荐奖励 · 支付历史 · 订阅记录一站式查看",
+        "badge": "Pro 会员已激活",
+        "imageAlt": "用户仪表盘预览",
+        "imageCaption": "积分充值 · 推荐链接 · 支付记录 · 已连接账号"
+      },
+      "subscriptions": {
+        "title": "Stripe 订阅与计费管理",
+        "subtitle": "支持 Trial 试用、Pro 按月订阅与 Annual 优惠年付",
+        "badge": "Stripe 支付",
+        "imageAlt": "Stripe 订阅方案预览",
+        "imageCaption": "Trial / Pro / Annual 三档套餐对比"
+      },
+      "affiliate": {
+        "title": "推广返利系统 (Affiliate Program)",
+        "subtitle": "帮助创作者搭建分销网络，最高获得 30% 首单现金佣金",
+        "badge": "30% 首单佣金规则",
+        "imageAlt": "推广返利系统预览",
+        "imageCaption": "推广码 · 佣金统计 · 提现管理"
+      }
+    }
+  },
+  "pricing": {
+    "title": "选择适合您的FileMarkd 文档转换工具方案",
+    "recommended": "推荐",
+    "header": {
+      "badge": "100% 透明商业许可",
+      "titlePrefix": "灵活方案，",
+      "titleHighlight": "助力独立开发与团队成长",
+      "subtitle": "开源版本永久免费，提供专业商业授权与深度定制支持，加速您的 SaaS 项目上线变现。",
+      "fetchStatusError": "获取订阅状态失败:"
+    },
+    "trial": {
+      "name": "Trial",
+      "price": "$4.99",
+      "periodUnit": "/ 7 天体验",
+      "description": "短期体验完整功能的试用方案",
+      "features": {
+        "period": "订阅时长：7天",
+        "points": "赠送积分：1,000积分",
+        "template": "完整FileMarkd 文档转换工具 + 高级功能",
+        "auth": "完整用户认证系统"
+      },
+      "cta": "开始试用",
+      "trial_only_once": "仅限试用一次",
+      "not_available_for_pro": "Pro用户不可购买试用订阅",
+      "not_available_for_annual": "Annual用户不可购买试用订阅"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$15.9",
+      "periodUnit": "/ 月",
+      "originalPrice": "$19.9",
+      "discountPercent": "20",
+      "savings": "$4",
+      "discountBadge": "限时20%折扣",
+      "description": "适合初创公司和中小企业",
+      "features": {
+        "period": "订阅时长：30天",
+        "points": "赠送积分：1,000积分",
+        "template": "完整FileMarkd 文档转换工具 + 高级功能",
+        "payment": "Stripe支付集成",
+        "support": "1年技术支持"
+      },
+      "cta": "立即购买",
+      "renew": "续费Pro",
+      "cannot_downgrade": "Annual订阅不能降级"
+    },
+    "annual": {
+      "name": "Annual",
+      "price": "$159",
+      "periodUnit": "/ 年",
+      "originalPrice": "$240",
+      "discountPercent": "34",
+      "savings": "$81",
+      "discountBadge": "限时34%折扣",
+      "description": "年度订阅，最佳价值选择",
+      "features": {
+        "period": "订阅时长：365天",
+        "template": "完整FileMarkd 文档转换工具 + 高级功能",
+        "points": "赠送积分：15,000积分",
+        "payment": "Stripe支付集成",
+        "support": "1年技术支持",
+        "value": "最佳价值 - 节省34%"
+      },
+      "cta": "立即购买",
+      "upgrade": "升级到Annual",
+      "renew": "续费Annual",
+      "cannot_downgrade": "Annual订阅不能降级"
+    },
+    "discount": {
+      "was": "原价",
+      "now": "现价",
+      "save": "立省",
+      "off": "折扣"
+    },
+    "enterprise": {
+      "name": "企业版",
+      "price": "联系我们",
+      "description": "适合大型企业和定制化需求",
+      "features": {
+        "custom": "定制化开发服务",
+        "deployment": "私有化部署支持",
+        "support": "7×24小时技术支持",
+        "training": "团队培训与咨询"
+      },
+      "cta": "咨询方案"
+    }
+  },
+  "footer": {
+    "subscribeError": "订阅失败，请稍后重试。",
+    "subscribeSuccess": "感谢您的订阅！",
+    "networkError": "网络异常，请检查连接。",
+    "newsletterTitle": "订阅更新",
+    "newsletterDesc": "获取 FileMarkd 与 AI 文档转换的最新动态。",
+    "emailPlaceholder": "请输入您的邮箱",
+    "subscribing": "订阅中...",
+    "subscribed": "已订阅",
+    "subscribe": "订阅",
+    "products": "产品",
+    "features": "功能特性",
+    "pricing": "定价方案",
+    "conversionExamples": "转换示例",
+    "resources": "友情链接",
+    "allRightsReserved": "版权所有。",
+    "copyrightNote": "致力于为现代 Web 提供最高质量的文档与图像处理服务。",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie 政策",
+    "newsletter": {
+      "unsubscribe": {
+        "title": "取消订阅邮件列表",
+        "description": "我们很遗憾看到您离开，但我们尊重您的选择",
+        "emailLabel": "邮箱地址",
+        "emailPlaceholder": "请输入您的邮箱地址",
+        "button": "取消订阅",
+        "processing": "处理中...",
+        "loadingText": "正在处理...",
+        "successMessage": "如果您改变主意，随时可以重新订阅我们的邮件列表。",
+        "backToHome": "返回首页",
+        "networkError": "网络错误，请稍后重试",
+        "unsubscribeError": "取消订阅失败"
+      }
+    },
+    "home": {
+      "brand": {
+        "name": "FileMarkd",
+        "description": "基于 Next.js 16、Neon Postgres 与 Stripe 打造的全栈商业化 SaaS 开发模版，助您快速搭建产品、打通订阅并开始获客变现。",
+        "statusBadge": "系统与 API 运行正常"
+      },
+      "products": {
+        "title": "产品方案",
+        "items": {
+          "orchestration": "全栈架构",
+          "missionControl": "功能演示",
+          "pricing": "价格与许可"
+        }
+      },
+      "productsColumn": {
+        "title": "产品",
+        "items": {
+          "magiviz": "Magiviz",
+          "editf": "Editf",
+          "voiceCanvas": "VoiceCanvas"
+        }
+      },
+      "newsletter": {
+        "title": "订阅技术周刊 & 模版更新",
+        "heading": "获取最新的 Next.js & SaaS 变现指南",
+        "subtitle": "每周推送最新的全栈架构最佳实践、Stripe 支付配置技巧与 FileMarkd 模版更新动态。",
+        "emailPlaceholder": "输入您的电子邮箱地址...",
+        "subscribeButton": "订阅",
+        "loadingButton": "订阅中",
+        "subscribedBadge": "已订阅",
+        "successMessage": "✓ 感谢您的订阅！我们已将第一期指南推送到您的邮箱。",
+        "errorMessage": "订阅失败，请稍后重试",
+        "serverError": "服务器异常，请稍后再试",
+        "networkError": "网络错误，请检查连接后重试"
+      },
+      "bottomBar": {
+        "copyright": "© {year} FileMarkd. 基于 Next.js 16, Neon Postgres & Stripe 打造.",
+        "social": {
+          "github": "GitHub 仓库",
+          "twitter": "X / Twitter"
+        },
+        "legal": {
+          "terms": "服务条款",
+          "privacy": "隐私政策",
+          "cookies": "Cookie 政策"
+        }
+      }
+    },
+    "linkFileMarkd": "FileMarkd",
+    "linkGetMoneyWang": "GetMoney.Wang"
+  },
+  "verify": {
+    "title": "邮箱验证",
+    "description": "验证您的邮箱地址以完成账户注册",
+    "meta_title": "邮箱验证",
+    "meta_description": "验证您的 FileMarkd 账户邮箱，完成账户激活",
+    "verifying": "正在验证您的邮箱...",
+    "success": "邮箱验证成功！",
+    "failed": "邮箱验证失败",
+    "token_missing": "验证令牌缺失",
+    "token_invalid": "验证令牌无效或已过期",
+    "failed_retry": "验证失败，请稍后重试",
+    "please_wait": "请稍候，正在验证您的邮箱地址...",
+    "login_now": "立即登录",
+    "register_again": "重新注册",
+    "or": "或者",
+    "back_to_login": "返回登录"
+  },
+  "auth": {
+    "meta_title": "用户认证 - FileMarkd",
+    "signin_title": "登录",
+    "signin_description": "登录您的 FileMarkd 账户，开始使用现代化文档转换工具",
+    "signup_title": "注册",
+    "signup_description": "注册 FileMarkd 账户，开启AI 文档转换之旅",
+    "error_title": "认证错误",
+    "error_description": "认证过程中遇到问题，请重试或联系技术支持",
+    "error_page_title": "登录失败",
+    "error_page_description": "认证过程中遇到问题",
+    "error_back_to_signin": "返回登录",
+    "error_back_to_home": "返回首页",
+    "error_contact_support": "如果问题持续存在，请联系",
+    "error_technical_support": "技术支持",
+    "errors": {
+      "Configuration": "服务器配置错误，请联系管理员",
+      "AccessDenied": "访问被拒绝，您可能没有权限访问此应用",
+      "Verification": "验证失败，请重试",
+      "OAuthSignin": "第三方登录失败，请重试",
+      "OAuthCallback": "第三方登录回调失败",
+      "OAuthCreateAccount": "无法创建账户，该邮箱可能已被使用",
+      "EmailCreateAccount": "无法创建账户，请检查邮箱地址",
+      "Callback": "回调错误，请重试",
+      "OAuthAccountNotLinked": "该第三方账户未与现有账户关联，请使用其他登录方式",
+      "EmailSignin": "邮箱登录失败，请检查邮箱地址",
+      "CredentialsSignin": "登录凭据无效，请检查邮箱和密码",
+      "SessionRequired": "需要登录才能访问此页面",
+      "OAuthTokenError": "获取授权令牌失败，请重新尝试登录",
+      "OAuthUserInfoError": "获取用户信息失败，请检查授权权限",
+      "default": "认证过程中发生未知错误，请重试",
+      "contact_admin": "请联系管理员",
+      "error_type_label": "错误类型："
+    },
+    "welcome_back": "欢迎回来",
+    "login_description": "登录您的 FileMarkd 账户",
+    "email": "邮箱地址",
+    "password": "密码",
+    "email_placeholder": "请输入您的邮箱",
+    "or_continue_with_email": "或使用邮箱登录",
+    "password_placeholder": "请输入您的密码",
+    "login": "登录",
+    "logging_in": "登录中...",
+    "login_error": "邮箱或密码错误",
+    "login_failed": "登录失败，请稍后重试",
+    "no_account": "还没有账户？",
+    "signup_now": "立即注册",
+    "forgot_password": "忘记密码？",
+    "create_account": "创建账户",
+    "name": "用户名",
+    "name_placeholder": "请输入您的用户名",
+    "password_signup_placeholder": "请输入密码（至少6个字符）",
+    "confirm_password": "确认密码",
+    "confirm_password_placeholder": "请再次输入密码",
+    "password_mismatch": "两次输入的密码不一致",
+    "password_too_short": "密码至少需要6个字符",
+    "register_failed": "注册失败",
+    "register_retry": "注册失败，请稍后重试",
+    "registering": "注册中...",
+    "register_success": "注册成功",
+    "register_success_check_email": "注册成功！请检查邮箱并点击验证链接完成激活。",
+    "missing_fields": "请填写所有必填字段",
+    "email_exists": "该邮箱已被注册",
+    "invalid_referral_code": "无效的推荐码",
+    "verification_email_failed": "注册成功，但发送验证邮件失败，请稍后重试",
+    "rate_limit": "请求过于频繁，请稍后再试",
+    "has_account": "已有账户？",
+    "login_now": "立即登录",
+    "terms_agreement": "注册即表示您同意我们的",
+    "terms_of_service": "服务条款",
+    "and": "和",
+    "privacy_policy": "隐私政策",
+    "loginRequiredMessage": "请先登录后再使用音频总结功能。",
+    "loginNow": "立即登录",
+    "or_register_with_email": "或使用邮箱注册",
+    "referral_code": "推荐码（可选）",
+    "referral_code_placeholder": "请输入推荐码",
+    "affiliate_code": "推广码（可选）",
+    "affiliate_code_placeholder": "请输入推广码",
+    "signin_meta_title": "登录 - FileMarkd",
+    "signup_meta_title": "注册 - FileMarkd",
+    "error_meta_title": "认证错误 - FileMarkd",
+    "meta_description": "登录 FileMarkd 账户，把 PDF、图片、文档一键转为干净 Markdown。"
+  },
+  "common": {
+    "cancel": "取消",
+    "confirm": "确认",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "back": "返回",
+    "login": "立即登录"
+  },
+  "forgot_password": {
+    "title": "找回密码",
+    "description": "输入您的邮箱地址，我们将向您发送重置密码的链接",
+    "meta_title": "找回密码",
+    "meta_description": "找回您的 FileMarkd 账户密码，通过邮箱重置密码",
+    "email_label": "邮箱地址",
+    "email_placeholder": "请输入您的邮箱地址",
+    "send_reset_link": "发送重置链接",
+    "sending": "发送中...",
+    "success_message": "重置密码链接已发送到您的邮箱",
+    "check_email": "请检查您的邮箱并点击链接重置密码",
+    "back_to_login": "返回登录",
+    "email_required": "请输入邮箱地址",
+    "email_invalid": "请输入有效的邮箱地址",
+    "send_failed": "发送失败，请稍后重试",
+    "user_not_found": "该邮箱地址未注册",
+    "rate_limit": "请求过于频繁，请稍后再试"
+  },
+  "reset_password": {
+    "title": "重置密码",
+    "description": "请输入您的新密码",
+    "meta_title": "重置密码",
+    "meta_description": "重置您的 FileMarkd 账户密码，设置新的安全密码",
+    "password_label": "新密码",
+    "password_placeholder": "请输入新密码",
+    "confirm_password_label": "确认密码",
+    "confirm_password_placeholder": "请再次输入新密码",
+    "reset_password": "重置密码",
+    "resetting": "重置中...",
+    "success_message": "密码重置成功！",
+    "login_now": "立即登录",
+    "password_required": "请输入密码",
+    "password_min_length": "密码至少需要6个字符",
+    "password_mismatch": "两次输入的密码不一致",
+    "token_invalid": "重置链接无效或已过期",
+    "token_expired": "重置链接已过期，请重新申请",
+    "reset_failed": "重置失败，请稍后重试",
+    "back_to_forgot": "返回找回密码"
+  },
+  "profile": {
+    "title": "仪表盘",
+    "description": "查看和管理您的账户信息",
+    "menu": "功能菜单",
+    "please_login": "请先登录后查看个人中心",
+    "login_required": "请先登录",
+    "no_name_set": "未设置用户名",
+    "not_set": "未设置",
+    "verified": "已验证",
+    "unverified": "未验证",
+    "resend_verification": "重发验证邮件",
+    "sending": "发送中...",
+    "verification_email_sent": "验证邮件已发送，请检查您的邮箱",
+    "verification_email_failed": "发送验证邮件失败，请稍后重试",
+    "loading": "加载中...",
+    "points": "积分",
+    "points_history": "积分记录",
+    "points_history_description": "查看您的积分获取和使用记录",
+    "no_points_history": "暂无积分记录",
+    "register_bonus": "注册赠送积分",
+    "email_verify_bonus": "邮箱验证赠送积分",
+    "daily_login_bonus": "每日登录赠送积分",
+    "referral_bonus": "推荐好友赠送积分",
+    "manual_operation": "管理员操作",
+    "points_operation": "积分操作",
+    "pagination": {
+      "page_info": "第 {current} 页，共 {total} 页",
+      "total_records": "共 {total} 条记录",
+      "previous": "上一页",
+      "next": "下一页"
+    },
+    "points_actions": {
+      "register": "注册赠送积分",
+      "email_verify": "邮箱验证赠送积分",
+      "daily_login": "每日登录赠送积分",
+      "referral": "推荐好友赠送积分",
+      "manual": "管理员操作",
+      "purchase": "购买积分",
+      "subscription_gift": "{plan}赠送积分",
+      "subscription_renewal_gift": "续订{plan}赠送积分",
+      "subscription_upgrade_gift": "升级{plan}赠送积分",
+      "subscription_reward": "推荐好友订阅赠送积分",
+      "subscription_expired": "积分过期",
+      "ai_conversion": "AI 智能转换",
+      "deduct": "积分扣除",
+      "unknown": "未知操作",
+      "pay_amount": "支付 {amount}"
+    },
+    "account_info": "账户信息",
+    "registration_date": "注册时间",
+    "last_login": "最后登录",
+    "account_status": "账户状态",
+    "email_verified": "邮箱已验证",
+    "account_secure": "账户安全",
+    "profile_complete": "资料完整",
+    "personal_info": "个人信息",
+    "account_settings": "账户设置",
+    "connected_accounts": "关联账户",
+    "security": "安全设置",
+    "name": "用户名",
+    "name_placeholder": "请输入您的用户名",
+    "email": "邮箱地址",
+    "email_unverified": "未验证",
+    "verify_email": "验证邮箱",
+    "avatar": "头像",
+    "change_avatar": "更换头像",
+    "current_password": "当前密码",
+    "current_password_placeholder": "请输入当前密码",
+    "new_password": "新密码",
+    "new_password_placeholder": "请输入新密码",
+    "confirm_new_password": "确认新密码",
+    "confirm_new_password_placeholder": "请再次输入新密码",
+    "change_password": "修改密码",
+    "save_changes": "保存更改",
+    "saving": "保存中...",
+    "saved": "已保存",
+    "cancel": "取消",
+    "connect": "绑定",
+    "connecting": "连接中...",
+    "disconnect": "解绑",
+    "connected": "已绑定",
+    "not_connected": "未绑定",
+    "github_account": "GitHub账户",
+    "google_account": "Google账户",
+    "delete_account": "删除账户",
+    "delete_account_warning": "删除账户将永久删除您的所有数据，此操作不可恢复！",
+    "delete_account_confirm": "我确认要删除我的账户",
+    "delete_account_button": "永久删除账户",
+    "member_since": "注册时间",
+    "success_message": "更新成功！",
+    "error_message": "更新失败，请稍后重试",
+    "password_changed": "密码修改成功！",
+    "password_change_failed": "密码修改失败",
+    "account_connected": "账户绑定成功！",
+    "account_disconnected": "账户解绑成功！",
+    "account_connection_failed": "账户绑定失败",
+    "email_verification_sent": "验证邮件已发送",
+    "name_required": "请输入用户名",
+    "current_password_required": "请输入当前密码",
+    "new_password_required": "请输入新密码",
+    "password_min_length": "密码至少需要6个字符",
+    "password_mismatch": "两次输入的密码不一致",
+    "current_password_incorrect": "当前密码不正确",
+    "subscription_info": "订阅计划",
+    "subscription_info_description": "查看和管理您的订阅计划",
+    "subscription_status": "订阅状态",
+    "subscription_active": "已激活",
+    "subscription_cancelled": "已取消",
+    "subscription_past_due": "逾期未付",
+    "subscription_free": "免费用户",
+    "subscription_expires": "到期时间",
+    "points_purchase_success_toast": "积分购买成功！积分已添加到您的账户",
+    "payment_cancelled_toast": "支付已取消",
+    "stripe_load_failed": "Stripe 加载失败",
+    "subscription_expiring_soon": "即将到期",
+    "subscription_expired": "已过期",
+    "plan_free": "免费计划",
+    "plan_trial": "Trial",
+    "plan_pro": "Pro",
+    "plan_annual": "Annual",
+    "plan_enterprise": "企业版",
+    "plan_free_description": "基础模版，适合个人开发者",
+    "plan_trial_description": "7天试用，体验完整功能",
+    "plan_pro_description": "完整功能，适合专业开发",
+    "plan_annual_description": "年度订阅，最佳价值选择，包含15,000积分",
+    "plan_enterprise_description": "定制服务，适合企业团队",
+    "manage_subscription": "管理订阅",
+    "upgrade_to_pro": "升级到Pro",
+    "upgrade_benefits_title": "升级获得更多积分",
+    "upgrade_benefits_1": "完整FileMarkd 文档转换工具源码",
+    "upgrade_benefits_2": "优先技术支持",
+    "upgrade_benefits_3": "高级功能组件",
+    "upgrade_benefits_4": "定制化开发服务",
+    "upgrade_benefits_description": "升级到 Pro 可获得额外积分并解锁所有功能。",
+    "points_purchase": "积分购买",
+    "points_purchase_description": "需要更多积分？选择一个套餐，立即获取",
+    "points_package_starter": "入门套餐",
+    "points_package_popular": "热门套餐",
+    "points_package_premium": "高级套餐",
+    "points_usage_title": "积分用途",
+    "points_usage_ai_service": "FileMarkd 文档转换工具功能使用",
+    "points_usage_premium_features": "高级功能组件",
+    "points_usage_priority_support": "优先技术支持",
+    "purchase_now": "立即购买",
+    "processing_payment": "处理中...",
+    "payment_success": "支付成功",
+    "payment_failed": "支付失败",
+    "order_details": "订单详情",
+    "complete_payment": "完成支付",
+    "cancel_payment": "取消",
+    "card_info": "银行卡信息",
+    "pay_amount": "支付",
+    "purchase_success": "购买成功！",
+    "points_added": "积分已添加",
+    "current_points": "当前积分",
+    "view_pricing": "查看定价",
+    "purchased_points_label": "购买积分（永不过期）",
+    "gifted_points_label": "赠送积分（订阅到期清零）",
+    "subscription_gift_notice": "您当前已订阅，已获得1,000赠送积分",
+    "purchased_points": "购买积分",
+    "purchased_points_description": "通过支付购买的积分，永不过期，可长期使用",
+    "gifted_points": "赠送积分",
+    "gifted_points_description": "订阅赠送的积分，订阅到期时将被清零",
+    "usage_priority": "使用优先级",
+    "usage_priority_description": "系统会优先使用赠送积分，再使用购买积分",
+    "recommended": "推荐",
+    "processing": "处理中...",
+    "payment_history": "支付记录",
+    "payment_history_description": "查看所有支付记录和交易详情",
+    "referral": {
+      "title": "推荐好友",
+      "description": "邀请好友注册，双方都能获得奖励",
+      "total_referrals": "总推荐人数",
+      "subscribed_referrals": "已订阅人数",
+      "referral_code": "推荐码",
+      "referral_link": "推荐链接",
+      "history": "推荐历史",
+      "no_history": "暂无推荐记录",
+      "code_copied": "推荐码已复制",
+      "link_copied": "推荐链接已复制",
+      "copy_failed": "复制失败",
+      "action_register_bonus": "注册奖励",
+      "action_referrer_bonus": "推荐奖励",
+      "action_subscription_reward": "推荐好友订阅奖励",
+      "days": "天",
+      "records": "推荐记录",
+      "no_records": "暂无推荐记录",
+      "subscribed": "已订阅",
+      "not_subscribed": "未订阅",
+      "anonymous_user": "匿名用户"
+    },
+    "payment_history_details": {
+      "title": "支付记录",
+      "stats": {
+        "title": "支付统计",
+        "total_payments": "总支付次数",
+        "total_amount": "总支付金额",
+        "total_points_purchased": "总购买积分",
+        "total_points_gifted": "订阅赠送积分",
+        "successful_payments": "成功支付次数"
+      },
+      "payment_types": {
+        "subscription": "订阅",
+        "points_purchase": "积分购买",
+        "other": "其他"
+      },
+      "payment_statuses": {
+        "succeeded": "成功",
+        "failed": "失败",
+        "pending": "处理中",
+        "refunded": "已退款",
+        "cancelled": "已取消"
+      },
+      "table": {
+        "type": "类型",
+        "product": "产品",
+        "amount": "金额",
+        "points": "积分",
+        "status": "状态",
+        "time": "时间"
+      },
+      "filters": {
+        "type_placeholder": "筛选类型",
+        "status_placeholder": "筛选状态",
+        "all_types": "所有类型",
+        "all_statuses": "所有状态"
+      },
+      "empty_state": {
+        "title": "暂无支付记录"
+      },
+      "errors": {
+        "fetch_failed": "获取支付记录失败"
+      }
+    }
+  },
+  "referral_page": {
+    "title": "推荐计划",
+    "subtitle": "邀请好友注册，共享奖励",
+    "keywords": "推荐计划,邀请奖励,合作推广,SaaS 推荐,FileMarkd",
+    "custom_code": {
+      "title": "自定义推荐码",
+      "description": "设置一个专属的推荐码，让好友更容易记住",
+      "current_code": "当前推荐码",
+      "placeholder": "输入自定义推荐码（4-20个字符）",
+      "button": "设置推荐码",
+      "button_updating": "设置中...",
+      "success": "推荐码设置成功",
+      "error": "推荐码设置失败",
+      "already_set": "推荐码已设置，不可修改",
+      "invalid_format": "推荐码格式不正确（4-20个字符，仅支持字母和数字）",
+      "already_taken": "该推荐码已被使用",
+      "note": "注意：推荐码只能设置一次，设置后不可修改"
+    },
+    "stats": {
+      "title": "推荐统计",
+      "total_invites": "累计邀请",
+      "people": "人",
+      "total_rewards": "累计奖励",
+      "points": "积分",
+      "subscribed_users": "已订阅用户",
+      "pending_users": "待订阅用户"
+    },
+    "share": {
+      "title": "分享推荐",
+      "copy_code": "复制推荐码",
+      "copy_link": "复制推荐链接",
+      "share_text": "分享给好友"
+    },
+    "rules": {
+      "title": "奖励规则",
+      "rule1_title": "注册奖励",
+      "rule1_desc": "好友通过您的推荐码注册，双方各获得 100 积分（永久有效）",
+      "rule2_title": "订阅返利",
+      "rule2_desc": "好友订阅任意方案，您将获得同等时长的订阅延长 + 对应方案的赠送积分",
+      "rule3_title": "多次奖励",
+      "rule3_desc": "好友每次续费或升级订阅，您都会获得相应奖励（不限次数）",
+      "rule4_title": "时效限制",
+      "rule4_desc": "邀请关系建立后30天内有效，超过30天将不再发放订阅奖励",
+      "note": "注：所有奖励将在好友完成注册或订阅后自动发放，无需手动操作"
+    },
+    "recent_referrals": {
+      "title": "最近推荐",
+      "view_all": "查看全部",
+      "registered_at": "注册于"
+    },
+    "records": {
+      "title": "推荐记录",
+      "description": "查看通过您的推荐码注册的用户",
+      "loading": "加载中...",
+      "empty": "暂无推荐记录",
+      "unknown_user": "未知用户",
+      "subscribed": "已订阅",
+      "pending": "待订阅",
+      "filter_all": "全部",
+      "table": {
+        "user": "用户",
+        "email": "邮箱",
+        "register_time": "注册时间",
+        "status": "状态"
+      }
+    },
+    "rewards": {
+      "title": "赠送记录",
+      "description": "查看每笔订阅赠送的积分和订阅延长记录",
+      "loading": "加载中...",
+      "empty": "暂无赠送记录",
+      "unknown_user": "未知用户",
+      "points": "积分",
+      "days": "天",
+      "filter_all": "全部",
+      "action_register_bonus": "注册奖励",
+      "action_referrer_bonus": "推荐人奖励",
+      "action_subscription_reward": "订阅返利",
+      "table": {
+        "action": "操作类型",
+        "from": "来自",
+        "reward": "奖励",
+        "create_time": "创建时间"
+      }
+    }
+  },
+  "affiliate_page": {
+    "title": "推广返利系统",
+    "subtitle": "通过推广获得返利，每单30%佣金",
+    "keywords": "推广计划,推广返利,佣金奖励,合作推广,SaaS 推广,FileMarkd",
+    "loading": "加载中...",
+    "stats": {
+      "total_invites": "总邀请人数",
+      "converted": "已转化人数",
+      "available_balance": "可用余额",
+      "frozen_balance": "冻结余额"
+    },
+    "code_setting": {
+      "title": "推广码设置",
+      "description": "设置您的推广码，只能修改一次",
+      "current_code": "当前推广码",
+      "placeholder": "输入新推广码（8-20个字母或数字）",
+      "placeholder_set": "输入推广码（8-20个字母或数字）",
+      "button_update": "更新推广码",
+      "button_set": "设置推广码",
+      "updating": "更新中...",
+      "setting": "设置中...",
+      "note": "注意：推广码只能修改一次，请谨慎设置",
+      "already_changed": "推广码已修改过，无法再次修改",
+      "enter_code": "请输入推广码",
+      "invalid_format": "推广码格式无效，必须为8-20个字母或数字",
+      "update_success": "推广码更新成功",
+      "update_failed": "更新推广码失败",
+      "already_taken": "该推广码已被使用",
+      "code_copied": "推广码已复制",
+      "link_copied": "推广链接已复制",
+      "copy_failed": "复制失败",
+      "set_first": "请先设置推广码"
+    },
+    "share": {
+      "title": "分享推广",
+      "link_label": "推广链接",
+      "copy_code": "复制推广码",
+      "copy_link": "复制链接"
+    },
+    "relations": {
+      "title": "邀请数据",
+      "description": "查看通过您的推广码注册的用户",
+      "loading": "加载中...",
+      "empty": "暂无邀请数据",
+      "unknown_user": "未知用户",
+      "register_time": "注册时间",
+      "converted": "已转化",
+      "expired": "已过期",
+      "pending": "待转化",
+      "filter_all": "全部",
+      "table": {
+        "user": "用户",
+        "email": "邮箱",
+        "register_time": "注册时间",
+        "status": "状态"
+      }
+    },
+    "earnings": {
+      "title": "佣金记录",
+      "description": "查看您的佣金收入和状态",
+      "loading": "加载中...",
+      "empty": "暂无佣金记录",
+      "from": "来自",
+      "create_time": "创建时间",
+      "release_time": "解冻时间",
+      "frozen": "冻结中",
+      "released": "已解冻",
+      "cancelled": "已取消",
+      "unknown_user": "未知用户",
+      "filter_all": "全部",
+      "table": {
+        "amount": "金额",
+        "from": "来自",
+        "status": "状态",
+        "create_time": "创建时间",
+        "release_time": "解冻时间"
+      }
+    },
+    "withdraw": {
+      "title": "提现申请",
+      "description": "将可用余额提现到您的账户",
+      "button": "提现",
+      "amount": "提现金额",
+      "amount_placeholder": "请输入提现金额",
+      "min_amount": "最小提现金额",
+      "min_amount_error": "最小提现金额为$10",
+      "payment_method": "支付方式",
+      "alipay": "支付宝",
+      "paypal": "PayPal",
+      "account_name": "账户姓名",
+      "account_name_placeholder": "请输入账户姓名",
+      "alipay_account": "支付宝账号",
+      "alipay_placeholder": "请输入支付宝账号或手机号",
+      "paypal_email": "PayPal邮箱",
+      "paypal_placeholder": "请输入PayPal邮箱",
+      "available_balance": "可提现金额",
+      "exceeds_balance": "提现金额超过可用余额",
+      "submit": "提交申请",
+      "processing": "处理中...",
+      "success": "提现申请已提交",
+      "failed": "提现申请失败",
+      "invalid_amount": "提现金额无效",
+      "invalid_payment_method": "支付方式无效",
+      "invalid_account_info": "账户信息无效",
+      "insufficient_balance": "可用余额不足",
+      "account_info_required": "请输入账户信息"
+    },
+    "withdrawals": {
+      "title": "提现记录",
+      "description": "查看您的提现申请记录",
+      "loading": "加载中...",
+      "empty": "暂无提现记录",
+      "pending": "待处理",
+      "processing": "处理中",
+      "completed": "已完成",
+      "failed": "失败",
+      "cancelled": "已取消",
+      "failure_reason": "失败原因",
+      "create_time": "申请时间",
+      "processed_time": "处理时间",
+      "filter_all": "全部",
+      "table": {
+        "amount": "金额",
+        "payment_method": "支付方式",
+        "account": "账户信息",
+        "status": "状态",
+        "create_time": "申请时间",
+        "processed_time": "处理时间"
+      }
+    }
+  },
+  "dashboard": {
+    "payment_success": {
+      "title": "购买成功！",
+      "subtitle": "欢迎使用FileMarkd",
+      "subtitle_with_plan": "欢迎使用FileMarkd {plan}",
+      "processing_title": "处理支付结果",
+      "processing_description": "请稍候，我们正在确认您的购买状态...",
+      "verifying_title": "验证购买状态",
+      "verifying_description": "正在确认您的购买...",
+      "success_toast": "🎉 购买成功！您已获得完整的FileMarkd 文档转换工具和技术支持",
+      "success_toast_with_plan": "🎉 {plan}购买成功！您已获得完整的FileMarkd 文档转换工具和技术支持",
+      "no_session_toast": "💡 您已到达购买成功页面，请使用下方按钮导航"
+    },
+    "subscription_info": {
+      "title": "订阅信息",
+      "title_with_plan": "{plan}订阅",
+      "status_label": "订阅状态：",
+      "status_active": "已激活",
+      "status_processing": "处理中",
+      "plan_label": "订阅类型：",
+      "plan_pro": "Pro",
+      "expires_label": "支持到期："
+    },
+    "points_reward": {
+      "title": "积分奖励",
+      "total_points": "总积分",
+      "purchased_points": "购买积分",
+      "gifted_points": "赠送积分",
+      "gift_notice": "🎁 您已获得订阅赠送积分，可用于使用各项功能！"
+    },
+    "actions": {
+      "view_profile": "查看个人中心",
+      "back_home": "返回首页"
+    },
+    "loading": "加载中...",
+    "error": {
+      "fetch_failed": "获取订阅信息失败，请刷新页面重试",
+      "manage_subscription_failed": "无法打开订阅管理页面，请稍后重试"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "meta_title": "管理员控制台 - FileMarkd",
+      "meta_description": "管理员控制台，统一管理用户、邮件订阅、系统设置等功能。",
+      "title": "管理员控制台",
+      "sidebar": {
+        "title": "管理功能"
+      },
+      "menu": {
+        "overview": "概览",
+        "overview_desc": "实时查看系统核心数据统计和趋势分析",
+        "users": "用户管理",
+        "users_desc": "管理注册用户和权限",
+        "referral": "推荐管理",
+        "referral_desc": "管理所有用户的推荐记录和奖励",
+        "affiliate": "推广管理",
+        "affiliate_desc": "管理所有用户的推广记录和佣金",
+        "newsletter": "邮件订阅",
+        "newsletter_desc": "管理邮件订阅用户",
+        "traffic": "流量分析",
+        "traffic_desc": "查看网站流量统计和访客洞察",
+        "reminders": "提醒邮件",
+        "reminders_desc": "查询订阅到期提醒邮件的发送记录",
+        "reengagement": "沉睡用户",
+        "reengagement_desc": "查看和分析沉睡/流失用户,按沉睡天数分桶筛选",
+        "reengagement_campaigns": "召回活动",
+        "reengagement_campaigns_desc": "创建并发送针对沉睡用户的召回邮件活动"
+      },
+      "overview": {
+        "title": "系统概览",
+        "description": "实时查看系统核心数据统计和趋势分析",
+        "categories": {
+          "users_revenue": "用户与收入",
+          "referral_affiliate": "推荐与推广"
+        },
+        "cards": {
+          "users": {
+            "title": "用户管理",
+            "description": "管理注册用户、角色和权限"
+          },
+          "newsletter": {
+            "title": "邮件订阅",
+            "description": "管理邮件订阅和发送统计"
+          }
+        },
+        "quick_actions": {
+          "title": "快速操作",
+          "manage_users": "管理用户",
+          "manage_users_desc": "查看和管理所有注册用户",
+          "manage_newsletter": "管理订阅",
+          "manage_newsletter_desc": "查看和管理邮件订阅"
+        },
+        "stats": {
+          "total_users": "总用户数",
+          "subscribed_users": "订阅用户数",
+          "subscription_revenue": "订阅总收入",
+          "points_revenue": "积分总收入",
+          "total_points": "总积分",
+          "total_referrals": "总推荐数",
+          "referral_subscribed": "推荐订阅人数",
+          "referral_reward_points": "推荐奖励总积分",
+          "affiliate_count": "推广人数",
+          "affiliate_earnings": "推广总佣金",
+          "affiliate_withdrawals": "总提现佣金",
+          "newsletter_subscribers": "邮箱订阅人数"
+        },
+        "trends": {
+          "title": "趋势分析",
+          "days_7": "7天",
+          "days_30": "30天",
+          "days_90": "90天",
+          "registration": "注册人数趋势",
+          "registration_count": "注册人数",
+          "subscription": "订阅数和收入趋势",
+          "subscription_count": "订阅数",
+          "subscription_revenue": "订阅收入",
+          "total_revenue": "总收入趋势",
+          "revenue": "收入"
+        }
+      }
+    },
+    "traffic": {
+      "days_7": "7天",
+      "days_30": "30天",
+      "days_90": "90天",
+      "stats": {
+        "pageviews": "页面浏览量",
+        "visitors": "独立访客",
+        "visits": "访问次数",
+        "bounce_rate": "跳出率",
+        "avg_time": "平均时长"
+      },
+      "charts": {
+        "pageviews_trend": "页面浏览量趋势",
+        "top_pages": "热门页面",
+        "devices": "设备分布",
+        "browsers": "浏览器分布",
+        "countries": "访客国家/地区",
+        "referrers": "来源网站"
+      },
+      "not_configured": {
+        "title": "未接入 Umami 统计",
+        "description": "要启用流量分析功能，请在环境变量中配置 Umami：",
+        "frontend_tracking": "前端追踪配置（必需）",
+        "backend_api": "后端 API 配置（必需）",
+        "authentication": "认证配置（二选一）",
+        "umami_cloud": "方式一：Umami Cloud - 使用 API Key",
+        "self_hosted": "方式二：自部署 Umami - 使用用户名密码（推荐）",
+        "learn_more": "了解更多关于 Umami"
+      },
+      "error_title": "加载分析数据失败",
+      "error_message": "无法获取分析数据，请稍后重试。"
+    },
+    "newsletter": {
+      "meta_title": "邮件订阅统计 - FileMarkd",
+      "meta_description": "查看和管理邮件订阅统计数据，包括订阅用户数量、语言分布等信息。",
+      "title": "邮件订阅统计",
+      "stats": {
+        "total_subscriptions": "总订阅数",
+        "active_subscribers": "活跃订阅用户",
+        "chinese_subscriptions": "中文订阅",
+        "chinese_users": "中文用户",
+        "english_subscriptions": "英文订阅",
+        "english_users": "英文用户",
+        "total_registrations": "总注册数",
+        "including_unsubscribed": "包括已取消订阅",
+        "japanese_subscriptions": "日文订阅",
+        "japanese_users": "日文用户",
+        "korean_subscriptions": "韩文订阅",
+        "korean_users": "韩文用户",
+        "traditional_chinese_subscriptions": "繁体中文订阅",
+        "traditional_chinese_users": "繁体中文用户"
+      },
+      "subscription_list": {
+        "title": "订阅列表",
+        "description": "所有邮件订阅用户的详细信息",
+        "export": "导出",
+        "export_success": "导出成功",
+        "export_failed": "导出失败",
+        "active_tab": "活跃订阅",
+        "inactive_tab": "已取消订阅",
+        "no_data": "暂无数据",
+        "table": {
+          "email": "邮箱地址",
+          "language": "语言",
+          "status": "状态",
+          "subscribed_at": "订阅时间",
+          "unsubscribed_at": "取消订阅时间",
+          "chinese": "中文",
+          "english": "英文",
+          "active": "活跃",
+          "cancelled": "已取消"
+        },
+        "japanese": "日语",
+        "korean": "韩语",
+        "traditionalChinese": "繁体中文"
+      },
+      "actions": {
+        "retry": "重试",
+        "refresh": "刷新",
+        "export": "导出"
+      },
+      "error": {
+        "fetch_stats_failed": "获取统计数据失败",
+        "fetch_subscriptions_failed": "获取订阅列表失败"
+      },
+      "japanese_subscriptions": "日语订阅",
+      "japanese_users": "日语用户",
+      "korean_subscriptions": "韩语订阅",
+      "korean_users": "韩语用户",
+      "traditional_chinese_subscriptions": "繁体中文订阅",
+      "traditional_chinese_users": "繁体中文用户",
+      "page_size_10": "10 条/页",
+      "page_size_20": "20 条/页",
+      "page_size_50": "50 条/页",
+      "page_size_100": "100 条/页",
+      "pagination": {
+        "summary": "第 {from}-{to} 条,共 {total} 条",
+        "total": "共 {total} 条记录",
+        "prev": "上一页",
+        "next": "下一页"
+      }
+    },
+    "reminders": {
+      "meta_title": "提醒邮件日志 - FileMarkd",
+      "meta_description": "查询订阅到期提醒邮件的发送记录,支持按类型/语言筛选",
+      "title": "提醒邮件",
+      "description": "查询订阅到期提醒邮件的发送记录,可按类型、语言、用户搜索",
+      "stats": {
+        "total": "总发送数",
+        "7d": "7天前提醒",
+        "3d": "3天前提醒",
+        "today": "当天到期提醒"
+      },
+      "search_placeholder": "搜索邮箱或用户名",
+      "search_button": "搜索",
+      "reset": "重置",
+      "filter": {
+        "type": "提醒类型",
+        "all_types": "全部类型",
+        "type_7d": "7天前",
+        "type_3d": "3天前",
+        "type_today": "当天到期",
+        "language": "邮件语言",
+        "all_languages": "全部语言",
+        "lang_zh": "简体中文",
+        "lang_en": "英语",
+        "lang_ja": "日语",
+        "lang_ko": "韩语",
+        "lang_tw": "繁体中文",
+        "page_size_10": "10 条/页",
+        "page_size_20": "20 条/页",
+        "page_size_50": "50 条/页",
+        "page_size_100": "100 条/页"
+      },
+      "type": {
+        "7d": "7天前",
+        "3d": "3天前",
+        "today": "当天"
+      },
+      "lang": {
+        "chinese": "中文",
+        "english": "English",
+        "japanese": "日本語",
+        "korean": "한국어",
+        "traditionalChinese": "繁體中文"
+      },
+      "table": {
+        "sent_at": "发送时间",
+        "type": "类型",
+        "user": "用户",
+        "lang": "语言",
+        "period_end": "订阅到期",
+        "subject": "邮件主题",
+        "message_id": "Resend ID"
+      },
+      "labels": {
+        "email": "邮箱",
+        "subject": "主题",
+        "message_id": "消息ID"
+      },
+      "no_data": "暂无发送记录",
+      "copied": "已复制 {value}",
+      "pagination": {
+        "prev": "上一页",
+        "next": "下一页",
+        "summary": "第 {from}-{to} 条,共 {total} 条"
+      },
+      "error": {
+        "fetch_failed": "获取提醒邮件记录失败",
+        "copy_failed": "复制失败"
+      }
+    },
+    "reengagement": {
+      "meta_title": "沉睡用户查询 - FileMarkd",
+      "meta_description": "查看沉睡/流失用户,按沉睡天数分桶、订阅状态、语言筛选",
+      "title": "沉睡用户",
+      "description": "查询和分析沉睡与流失用户。按沉睡天数、订阅状态、邮件语言分桶统计,支持关键字搜索。",
+      "stats": {
+        "total_users": "总用户数",
+        "inactive_signups": "未激活账号",
+        "inactive_signups_hint": "邮箱未验证,从无活跃",
+        "active": "活跃(<7天)",
+        "active_hint": "近 7 天活跃",
+        "warm": "轻度沉睡(7-30天)",
+        "warm_hint": "可发温和提醒",
+        "dormant": "中度沉睡(31-90天)",
+        "inactive": "重度沉睡(91-180天)",
+        "churned": "已流失(>180天)",
+        "dormant_paid": "沉睡+曾付费",
+        "dormant_paid_hint": "高价值挽回对象"
+      },
+      "click_to_view": "点击查看 →",
+      "click_to_filter": "点击筛选 →",
+      "filter_applied": "已应用筛选:曾付费沉睡用户",
+      "export_csv": "导出CSV",
+      "exported": "已导出 {count} 条",
+      "export_empty": "当前筛选下无数据,无导出",
+      "export_preparing": "准备导出...",
+      "export_progress": "正在导出 {fetched}/{total} 条",
+      "search_placeholder": "搜索邮箱或用户名",
+      "search_button": "搜索",
+      "reset": "重置",
+      "filter": {
+        "bucket": "沉睡分桶",
+        "all_buckets": "全部沉睡",
+        "bucket_warm": "轻度沉睡 (7-30天)",
+        "bucket_dormant": "中度沉睡 (31-90天)",
+        "bucket_inactive": "重度沉睡 (91-180天)",
+        "bucket_churned": "已流失 (≥180天)",
+        "subscription": "订阅状态",
+        "all_subscriptions": "全部订阅",
+        "sub_active": "当前活跃订阅",
+        "sub_history": "有过付费",
+        "sub_never": "从未付费",
+        "language": "邮件语言",
+        "all_languages": "全部语言",
+        "lang_zh": "简体中文",
+        "lang_en": "英语",
+        "lang_ja": "日语",
+        "lang_ko": "韩语",
+        "lang_tw": "繁体中文",
+        "sort": "排序",
+        "sort_inactive_desc": "沉睡最久优先",
+        "sort_inactive_asc": "最近才沉默",
+        "sort_points_desc": "积分最多优先",
+        "sort_created_desc": "最近注册优先",
+        "page_size_10": "10 条/页",
+        "page_size_20": "20 条/页",
+        "page_size_50": "50 条/页",
+        "page_size_100": "100 条/页"
+      },
+      "bucket": {
+        "active": "活跃",
+        "warm": "轻度沉睡",
+        "dormant": "中度沉睡",
+        "inactive": "重度沉睡",
+        "churned": "已流失"
+      },
+      "table": {
+        "user": "用户",
+        "inactive_days": "沉睡天数",
+        "bucket": "分桶",
+        "subscription": "订阅",
+        "points": "积分",
+        "lang": "语言",
+        "last_active": "最后活跃",
+        "created": "注册时间"
+      },
+      "labels": {
+        "email": "邮箱",
+        "unverified": "邮箱未验证",
+        "expires": "到期:"
+      },
+      "no_data": "暂无符合条件的沉睡用户",
+      "copied": "已复制 {value}",
+      "pagination": {
+        "prev": "上一页",
+        "next": "下一页",
+        "summary": "第 {from}-{to} 条,共 {total} 条"
+      },
+      "dialog": {
+        "inactive_signups_title": "未激活账号",
+        "inactive_signups_desc": "邮箱未验证且注册后从未活跃(updatedAt 为空)的用户列表。这些账号不能发送召回邮件。",
+        "total_count": "共 {count} 人",
+        "no_inactive_signups": "暂无未激活账号"
+      },
+      "error": {
+        "fetch_failed": "获取沉睡用户列表失败",
+        "copy_failed": "复制失败",
+        "export_failed": "导出 CSV 失败"
+      },
+      "campaigns": {
+        "no_data": "暂无召回活动",
+        "create": {
+          "title": "创建召回活动",
+          "description": "创建针对特定沉睡用户分组的召回邮件活动"
+        },
+        "edit": {
+          "title": "编辑召回活动",
+          "template_note": "邮件模板使用代码内置默认模板，如需修改请联系开发"
+        },
+        "form": {
+          "name": "活动名称",
+          "name_placeholder": "例如：七月唤醒活动",
+          "bucket": "目标分组",
+          "template_note": "邮件模板使用代码内置默认模板，如需修改请联系开发"
+        },
+        "filter": {
+          "status": "状态",
+          "bucket": "分组",
+          "all_statuses": "全部状态",
+          "all_buckets": "全部分组",
+          "all_status": "全部状态"
+        },
+        "status": {
+          "draft": "草稿",
+          "ready": "待发送",
+          "sending": "发送中",
+          "completed": "已完成",
+          "cancelled": "已取消"
+        },
+        "bucket": {
+          "warm": "轻度沉睡 (7-30天)",
+          "dormant": "中度沉睡 (31-90天)",
+          "inactive": "重度沉睡 (91-180天)",
+          "churned": "流失用户 (180天+)",
+          "sleeping_paid": "沉睡+曾付费"
+        },
+        "table": {
+          "name": "活动",
+          "bucket": "分组",
+          "status": "状态",
+          "sent": "已发送",
+          "created": "创建时间",
+          "actions": "操作",
+          "empty": "暂无召回活动"
+        },
+        "actions": {
+          "send": "发送活动",
+          "delete": "删除",
+          "cancel": "取消",
+          "create": "创建活动",
+          "edit": "编辑",
+          "close": "关闭",
+          "logs": "查看日志"
+        },
+        "send": {
+          "title": "发送召回邮件",
+          "description": "选择此活动的收件人",
+          "mode_bucket": "按用户群自动筛选",
+          "mode_specific": "指定用户",
+          "bucket_count": "此用户群共 {count} 人",
+          "selected_users": "已选收件人",
+          "search_placeholder": "搜索用户...",
+          "confirm": "立即发送",
+          "select_all": "全选",
+          "clear_all": "清空",
+          "no_users": "未找到用户"
+        },
+        "logs": {
+          "title": "发送日志",
+          "description": "此活动的邮件发送记录"
+        },
+        "confirm": {
+          "send": "确认向所有符合条件的用户发送此召回邮件？此操作无法撤销。",
+          "delete": "确定要删除此召回活动吗？"
+        },
+        "success": {
+          "created": "召回活动创建成功",
+          "sent": "已发送 {sent}/{total} 封邮件（{failed} 封失败）",
+          "deleted": "召回活动已删除"
+        },
+        "error": {
+          "fetch_failed": "获取召回活动列表失败",
+          "create_failed": "创建召回活动失败",
+          "send_failed": "发送失败",
+          "delete_failed": "删除召回活动失败",
+          "fill_required": "请填写所有必填字段",
+          "select_users": "请至少选择一名用户"
+        }
+      },
+      "logs": {
+        "no_data": "暂无发送记录",
+        "search_placeholder": "按邮箱搜索...",
+        "filter": {
+          "type": "状态",
+          "all_types": "全部状态",
+          "bucket": "分组",
+          "all_buckets": "全部分组"
+        },
+        "bucket": {
+          "warm": "轻度沉睡",
+          "dormant": "中度沉睡",
+          "inactive": "重度沉睡",
+          "churned": "已流失",
+          "sleeping_paid": "沉睡+曾付费"
+        },
+        "status": {
+          "pending": "等待中",
+          "sent": "已发送",
+          "failed": "失败",
+          "bounced": "退回",
+          "unsubscribed": "已退订"
+        },
+        "table": {
+          "email": "邮箱",
+          "campaign": "活动",
+          "bucket": "分组",
+          "status": "状态",
+          "sent_at": "发送时间",
+          "error": "错误"
+        },
+        "copied": "已复制！",
+        "error": {
+          "fetch_failed": "获取发送记录失败"
+        }
+      }
+    },
+    "users": {
+      "meta_title": "用户管理 - FileMarkd",
+      "meta_description": "查看和管理所有注册用户的详细信息，包括用户统计、角色管理、积分调整等功能。",
+      "title": "用户管理",
+      "stats": {
+        "total_users": "总用户数",
+        "total_users_desc": "注册用户总数",
+        "verified_users": "已验证用户",
+        "verified_users_desc": "邮箱已验证",
+        "admin_users": "管理员",
+        "admin_users_desc": "管理员用户",
+        "subscribed_users": "订阅用户",
+        "subscribed_users_desc": "活跃订阅",
+        "total_points": "总积分",
+        "total_points_desc": "用户积分总和",
+        "total_payments": "总收入",
+        "total_payments_desc": "成功支付总额"
+      },
+      "user_list": {
+        "title": "用户列表",
+        "description": "管理所有注册用户的详细信息",
+        "search_placeholder": "搜索邮箱或用户名...",
+        "filter_role": "筛选角色",
+        "filter_email_status": "验证状态",
+        "all_roles": "所有角色",
+        "all_statuses": "全部邮箱状态",
+        "role_user": "普通用户",
+        "role_admin": "管理员",
+        "email_verified": "已验证",
+        "email_unverified": "未验证",
+        "filter_subscription_status": "订阅状态",
+        "all_subscription_statuses": "全部订阅状态",
+        "subscription_active": "活跃",
+        "subscription_cancelled": "已取消",
+        "subscription_past_due": "逾期",
+        "subscription_paused": "暂停",
+        "subscription_none": "无订阅",
+        "no_data": "暂无用户数据",
+        "table": {
+          "user_info": "用户信息",
+          "role": "角色",
+          "email_status": "邮箱状态",
+          "points": "积分",
+          "subscription": "订阅状态",
+          "subscription_expiry": "订阅到期",
+          "created_at": "注册时间",
+          "actions": "操作",
+          "edit_role": "编辑角色",
+          "adjust_points": "调整积分",
+          "manage_subscription": "管理订阅",
+          "no_name": "未设置",
+          "role_admin": "管理员",
+          "role_user": "用户",
+          "email_verified": "已验证",
+          "email_unverified": "未验证",
+          "points_total": "总计",
+          "points_purchased": "购买",
+          "points_gifted": "赠送",
+          "no_subscription": "无订阅",
+          "plan_trial": "Trial",
+          "plan_pro": "Pro",
+          "plan_annual": "Annual",
+          "status_active": "活跃",
+          "status_cancelled": "已取消",
+          "status_past_due": "逾期未付",
+          "status_paused": "暂停",
+          "status_expired": "已过期",
+          "expired": "已过期",
+          "expiring_soon": "即将到期"
+        },
+        "pagination": {
+          "summary": "第 {from}-{to} 条,共 {total} 条",
+          "prev": "上一页",
+          "next": "下一页"
+        },
+        "page_size_10": "10 条/页",
+        "page_size_20": "20 条/页",
+        "page_size_50": "50 条/页",
+        "page_size_100": "100 条/页"
+      },
+      "actions": {
+        "refresh": "刷新",
+        "retry": "重试",
+        "edit_role": "修改角色",
+        "adjust_points": "调整积分",
+        "manage_subscription": "管理订阅",
+        "view_details": "查看详情"
+      },
+      "dialogs": {
+        "user_info": "用户: {name} ({email})",
+        "no_name": "未设置",
+        "cancel": "取消",
+        "confirm": "确认",
+        "edit_role": {
+          "title": "修改用户角色",
+          "description": "修改用户的系统角色权限",
+          "role_label": "用户角色",
+          "role_placeholder": "选择角色",
+          "role_user": "普通用户",
+          "role_admin": "管理员"
+        },
+        "adjust_points": {
+          "title": "调整用户积分",
+          "description": "增加或扣除用户积分",
+          "points_label": "积分变动",
+          "points_placeholder": "输入积分数量（正数增加，负数扣除）",
+          "points_type_label": "积分类型",
+          "points_type_purchased": "购买积分",
+          "points_type_gifted": "赠送积分",
+          "description_label": "操作说明",
+          "description_placeholder": "请输入操作说明（可选）",
+          "purchased_points_info": "购买积分永不过期，可以随时使用",
+          "gifted_points_expiry_label": "关联订阅到期时间",
+          "gifted_points_expiry_info": "赠送积分将在订阅到期时自动清零，到期时间与用户订阅到期时间一致",
+          "gifted_points_requires_subscription": "⚠️ 赠送积分需要订阅到期时间",
+          "gifted_points_no_subscription": "该用户尚未设置订阅，无法添加赠送积分。请先为用户设置订阅后再添加赠送积分",
+          "subscription_expired_error": "用户订阅已过期，无法添加赠送积分。请先更新订阅到期时间"
+        },
+        "manage_subscription": {
+          "title": "管理用户订阅",
+          "description": "修改用户的订阅状态和计划",
+          "status_label": "订阅状态",
+          "status_placeholder": "选择订阅状态",
+          "status_active": "活跃",
+          "status_cancelled": "已取消",
+          "status_past_due": "逾期未付",
+          "status_paused": "暂停",
+          "plan_label": "订阅计划",
+          "plan_placeholder": "选择订阅计划",
+          "plan_trial": "Trial",
+          "plan_pro": "Pro",
+          "plan_annual": "Annual",
+          "end_date_label": "订阅到期日期",
+          "end_date_placeholder": "选择到期日期",
+          "auto_calculated": "到期时间根据订阅计划自动计算",
+          "cumulative_calculated": "在现有订阅基础上累计增加时间",
+          "select_plan_first": "请选择订阅计划"
+        }
+      },
+      "pagination": {
+        "page_info": "第 {page} 页，共 {totalPages} 页",
+        "total_records": "总共 {total} 条记录",
+        "previous": "上一页",
+        "next": "下一页",
+        "page_size_10": "10 条/页",
+        "page_size_20": "20 条/页",
+        "page_size_50": "50 条/页",
+        "page_size_100": "100 条/页"
+      },
+      "messages": {
+        "role_updated": "用户角色更新成功",
+        "points_updated": "用户积分调整成功",
+        "subscription_updated": "用户订阅更新成功",
+        "update_failed": "更新失败",
+        "fetch_stats_failed": "获取统计数据失败",
+        "fetch_users_failed": "获取用户列表失败"
+      }
+    },
+    "referral": {
+      "stats": {
+        "total_referrals": "总推荐数",
+        "subscribed_referrals": "已订阅推荐",
+        "total_points": "总奖励积分"
+      },
+      "tabs": {
+        "records": "推荐记录",
+        "rewards": "赠送记录"
+      },
+      "page_size_10": "10 条/页",
+      "page_size_20": "20 条/页",
+      "page_size_50": "50 条/页",
+      "page_size_100": "100 条/页",
+      "pagination": {
+        "summary": "第 {from}-{to} 条,共 {total} 条",
+        "prev": "上一页",
+        "next": "下一页"
+      },
+      "records": {
+        "title": "推荐记录",
+        "description": "查看所有用户的推荐关系",
+        "empty": "暂无推荐记录",
+        "subscribed": "已订阅",
+        "pending": "待订阅",
+        "table": {
+          "referrer": "推荐人",
+          "referred": "被推荐人",
+          "code": "推荐码",
+          "status": "状态",
+          "created_at": "创建时间"
+        }
+      },
+      "rewards": {
+        "title": "赠送记录",
+        "description": "查看所有推荐奖励记录",
+        "empty": "暂无赠送记录",
+        "days": "天",
+        "table": {
+          "user": "用户",
+          "from": "来自",
+          "action": "操作类型",
+          "reward": "奖励",
+          "created_at": "创建时间"
+        },
+        "actions": {
+          "register_bonus": "注册奖励",
+          "referrer_bonus": "推荐人奖励",
+          "subscription_reward": "订阅奖励",
+          "unknown": "其他（{action}）"
+        },
+        "pagination": {
+          "summary": "第 {from}-{to} 条,共 {total} 条",
+          "prev": "上一页",
+          "next": "下一页"
+        },
+        "page_size_10": "10 条/页",
+        "page_size_20": "20 条/页",
+        "page_size_50": "50 条/页",
+        "page_size_100": "100 条/页"
+      }
+    },
+    "affiliate": {
+      "stats": {
+        "total_profiles": "推广人数",
+        "total_relations": "推广关系",
+        "converted_relations": "已转化",
+        "total_earnings": "总佣金",
+        "total_withdrawals": "总提现"
+      },
+      "tabs": {
+        "profiles": "推广人",
+        "relations": "推广关系",
+        "earnings": "佣金记录",
+        "withdrawals": "提现记录"
+      },
+      "profiles": {
+        "title": "推广人列表",
+        "description": "查看所有推广人资料",
+        "loading": "加载中...",
+        "empty": "暂无推广人",
+        "table": {
+          "user": "用户",
+          "code": "推广码",
+          "balance": "可用余额",
+          "frozen_balance": "冻结余额",
+          "created_at": "创建时间"
+        }
+      },
+      "relations": {
+        "title": "推广关系",
+        "description": "查看所有推广关系",
+        "loading": "加载中...",
+        "empty": "暂无推广关系",
+        "converted": "已转化",
+        "expired": "已过期",
+        "pending": "待转化",
+        "table": {
+          "referrer": "推广人",
+          "invitee": "被推广人",
+          "status": "状态",
+          "expires_at": "过期时间",
+          "created_at": "创建时间"
+        }
+      },
+      "earnings": {
+        "title": "佣金记录",
+        "description": "查看所有佣金记录",
+        "loading": "加载中...",
+        "empty": "暂无佣金记录",
+        "frozen": "冻结中",
+        "released": "已解冻",
+        "cancelled": "已取消",
+        "table": {
+          "affiliate": "推广人",
+          "invitee": "被推广人",
+          "amount": "金额",
+          "status": "状态",
+          "created_at": "创建时间"
+        }
+      },
+      "withdrawals": {
+        "title": "提现记录",
+        "description": "查看所有提现记录",
+        "loading": "加载中...",
+        "empty": "暂无提现记录",
+        "pending": "待处理",
+        "processing": "处理中",
+        "completed": "已完成",
+        "failed": "失败",
+        "cancelled": "已取消",
+        "table": {
+          "user": "用户",
+          "amount": "金额",
+          "payment_method": "支付方式",
+          "account": "账户信息",
+          "status": "状态",
+          "created_at": "创建时间",
+          "actions": "操作"
+        },
+        "process": {
+          "title": "处理提现申请",
+          "description": "更新提现申请的状态",
+          "button": "处理",
+          "update": "更新",
+          "user": "用户",
+          "amount": "金额",
+          "payment_method": "支付方式",
+          "account_info": "账户信息",
+          "status": "状态",
+          "select_status": "选择状态",
+          "transaction_id": "交易ID",
+          "transaction_id_placeholder": "请输入第三方交易ID",
+          "failure_reason": "失败原因",
+          "failure_reason_placeholder": "请输入失败原因",
+          "status_required": "请选择状态",
+          "transaction_id_required": "完成提现需要填写交易ID",
+          "failure_reason_required": "标记为失败需要填写失败原因",
+          "success": "提现处理成功",
+          "failed": "处理失败",
+          "processing": "处理中...",
+          "submit": "提交",
+          "cancel": "取消"
+        }
+      },
+      "pagination": {
+        "summary": "第 {from}-{to} 条,共 {total} 条",
+        "prev": "上一页",
+        "next": "下一页"
+      },
+      "page_size_10": "10 条/页",
+      "page_size_20": "20 条/页",
+      "page_size_50": "50 条/页",
+      "page_size_100": "100 条/页"
+    }
+  },
+  "legal": {
+    "title": "法律条款",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "cookies": "Cookie政策"
+  },
+  "unauthorized": {
+    "title": "访问被拒绝",
+    "description": "您没有权限访问此页面。此页面仅限管理员访问。",
+    "errorMessage": "如果您认为这是一个错误，请联系系统管理员。",
+    "backToHome": "返回首页",
+    "signInAgain": "重新登录"
+  },
+  "apiErrors": {
+    "unauthorized": "未授权访问",
+    "unauthorized_short": "未授权",
+    "not_logged_in": "未登录",
+    "not_logged_in_alt": "用户未登录",
+    "user_not_found": "用户不存在",
+    "user_not_found_or_no_password": "用户不存在或未设置密码",
+    "verify": {
+      "success": "邮箱验证成功，现在可以登录了",
+      "token_missing": "验证链接无效，缺少验证令牌",
+      "token_invalid": "验证链接无效或已过期，请重新注册或重新发送验证邮件",
+      "token_expired": "验证链接已过期，请重新发送验证邮件",
+      "already_verified": "邮箱已验证，无需重复验证",
+      "failed": "邮箱验证失败，请稍后重试",
+      "failed_retry": "邮箱验证失败，请稍后重试"
+    },
+    "register": {
+      "success_check_email": "注册成功！请前往邮箱查收验证邮件，点击邮件中的链接完成邮箱验证。",
+      "missing_fields": "请填写所有必填字段",
+      "password_too_short": "密码至少需要6个字符",
+      "email_exists": "该邮箱已被注册，请直接登录或使用其他邮箱",
+      "invalid_referral_code": "推荐码无效或已过期",
+      "verification_email_failed": "发送验证邮件失败，请稍后重试",
+      "rate_limit": "操作过于频繁，请稍后再试",
+      "retry": "注册失败，请稍后重试"
+    },
+    "forgot_password": {
+      "success_message": "重置密码链接已发送到您的邮箱",
+      "email_required": "请输入邮箱地址",
+      "send_failed": "发送失败，请稍后重试"
+    },
+    "reset_password": {
+      "success_message": "密码重置成功！",
+      "password_min_length": "密码至少需要6个字符",
+      "token_invalid": "重置链接无效或已过期",
+      "reset_failed": "重置失败，请稍后重试"
+    },
+    "email_already_verified": "邮箱已验证，无需重复验证",
+    "resend_verification_failed": "发送验证邮件失败，请稍后重试",
+    "name_required": "姓名不能为空",
+    "current_and_new_password_required": "请提供当前密码和新密码",
+    "new_password_min_length": "新密码至少需要6个字符",
+    "current_password_incorrect": "当前密码不正确",
+    "points_invalid_amount": "积分数量无效",
+    "points_missing_params": "缺少必要参数",
+    "points_insufficient": "积分不足",
+    "points_deduct_insufficient": "扣除的赠送积分不能超过当前赠送积分数量",
+    "points_grant_needs_subscription": "赠送积分必须关联订阅到期时间，请先为用户设置订阅",
+    "points_grant_subscription_expired": "用户订阅已过期，无法添加赠送积分。请先更新订阅到期时间",
+    "fetch_points_failed": "获取积分失败",
+    "fetch_points_history_failed": "获取积分历史失败",
+    "fetch_points_detail_failed": "获取积分详情失败",
+    "admin_required": "需要管理员权限",
+    "user_id_required": "用户ID是必需的",
+    "invalid_role": "无效的用户角色",
+    "invalid_subscription_status": "无效的订阅状态",
+    "invalid_subscription_plan": "无效的订阅计划",
+    "invalid_operation_type": "无效的操作类型",
+    "invalid_type_param": "无效的类型参数",
+    "fetch_statistics_failed": "获取统计数据失败",
+    "set_admin_email_required_query": "请在URL中提供邮箱参数，例如：?email=your@email.com",
+    "set_admin_email_required_body": "邮箱地址是必需的",
+    "set_admin_failed": "设置管理员失败",
+    "server_error": "服务器错误",
+    "server_internal_error": "服务器内部错误",
+    "webhook_failed": "Webhook处理失败",
+    "resend_verification_email_sent": "验证邮件已发送，请检查您的邮箱",
+    "profile_updated": "个人信息更新成功",
+    "user_promoted_to_admin": "用户 {email} 已设置为管理员",
+    "role_updated": "用户角色更新成功",
+    "points_adjusted": "积分调整成功",
+    "subscription_updated": "订阅信息更新成功",
+    "points_operation_success": "积分操作成功",
+    "points_operation_failed": "积分操作失败",
+    "points_deducted_successfully": "积分扣除成功",
+    "password_changed": "密码修改成功",
+    "referral_code_required": "推荐码无效",
+    "referral_code_length": "推荐码长度需为 4-20 个字符",
+    "referral_code_invalid_chars": "推荐码只能包含字母和数字",
+    "referral_code_already_changed": "推荐码只能修改一次",
+    "referral_code_already_taken": "该推荐码已被使用",
+    "CODE_EMPTY": "请输入推广码",
+    "INVALID_FORMAT": "推广码格式无效",
+    "CODE_ALREADY_TAKEN": "该推广码已被使用",
+    "CODE_ALREADY_CHANGED": "推广码只能修改一次",
+    "UPDATE_FAILED": "更新失败",
+    "WITHDRAWAL_FAILED": "提现失败",
+    "INVALID_AMOUNT": "提现金额无效",
+    "INVALID_PAYMENT_METHOD": "支付方式无效",
+    "INVALID_ACCOUNT_NAME": "请输入收款人姓名",
+    "INVALID_ACCOUNT_INFO": "请输入收款账户信息",
+    "MIN_AMOUNT_NOT_MET": "提现金额低于最低提现额度",
+    "INSUFFICIENT_BALANCE": "可提现余额不足",
+    "affiliate_code_required": "请输入推广码",
+    "affiliate_code_invalid": "推广码无效",
+    "affiliate_code_self": "不能使用自己的推广码",
+    "affiliate_new_user_only": "推广码仅适用于新注册用户",
+    "affiliate_relation_exists": "推广关系已存在",
+    "affiliate_relation_created": "推广关系已创建",
+    "referral_new_user_only": "推荐码仅适用于新注册用户",
+    "referral_already_referred": "该用户已被邀请",
+    "referral_code_invalid": "推荐码无效",
+    "referral_code_self": "不能使用自己的推荐码",
+    "referral_relation_created": "已成功建立推荐关系",
+    "unknown_error": "未知错误",
+    "stripe_not_configured": "Stripe 未配置",
+    "enterprise_contact_sales": "企业版需要联系销售",
+    "missing_price_id_for_plan": "缺少该计划的价格 ID",
+    "price_id_not_configured": "未配置该计划的价格 ID",
+    "no_stripe_customer_found": "未找到 Stripe 客户",
+    "failed_to_create_checkout_session": "创建结账会话失败",
+    "failed_to_create_customer_portal_session": "创建客户门户会话失败",
+    "failed_to_fetch_payment_history": "获取支付历史失败",
+    "failed_to_get_affiliate_earnings": "获取推广收益失败",
+    "failed_to_get_affiliate_relations": "获取推广关系失败",
+    "failed_to_get_affiliate_stats": "获取推广统计失败",
+    "failed_to_get_withdrawals": "获取提现记录失败",
+    "failed_to_get_referral_records": "获取推荐记录失败",
+    "failed_to_get_referral_rewards": "获取推荐奖励失败",
+    "failed_to_get_referral_stats": "获取推荐统计失败",
+    "affiliate_profile_not_found": "推广资料不存在",
+    "affiliate_stats_not_found": "推广统计不存在",
+    "missing_required_fields": "缺少必填字段"
+  },
+  "newsletter": {
+    "invalid_email": "请输入有效的邮箱地址",
+    "already_subscribed": "您已经订阅了我们的邮件列表",
+    "resubscribed": "欢迎回来！您已重新订阅成功",
+    "subscribed": "订阅成功！感谢您的关注",
+    "missing_input": "请提供邮箱地址或取消订阅令牌",
+    "not_found": "未找到订阅记录",
+    "already_unsubscribed": "您已经取消了订阅",
+    "unsubscribed": "取消订阅成功",
+    "invalid_link": "无效的取消订阅链接"
+  },
+  "subscription": {
+    "reminder": {
+      "unsubscribe": {
+        "title": "取消订阅提醒",
+        "description": "您将不再收到订阅到期的提醒邮件。交易类邮件(订单、验证码、积分变动)不受影响。",
+        "loadingText": "正在处理...",
+        "successMessage": "如果您改变主意,可以随时恢复订阅提醒。",
+        "backToHome": "返回首页",
+        "networkError": "网络错误,请稍后重试",
+        "unsubscribeError": "取消订阅失败,请稍后重试",
+        "successFromEmail": "已成功取消订阅提醒",
+        "resubscribeButton": "恢复订阅提醒",
+        "api": {
+          "invalid_link": "无效的退订链接",
+          "not_found": "未找到订阅记录",
+          "already_unsubscribed": "您已经取消订阅提醒",
+          "unsubscribed": "已成功取消订阅提醒",
+          "resubscribed": "已恢复订阅提醒"
+        }
+      }
+    }
+  },
+  "stripe_checkout": {
+    "trial_already_used": "您已订阅过试用计划，每个用户只能订阅一次",
+    "trial_blocked_for_paid": "您已有有效订阅，Pro/年度用户不可使用试用订阅",
+    "annual_no_downgrade": "无法从年度订阅降级到 Pro 订阅"
+  },
+  "homeClient": {
+    "planSelectedToast": "您选择了「{plan}」套餐。当前体验版本已开放全部转换功能，您可直接上传文件使用！",
+    "formatFilterToast": "已选择格式「{fmt}」，可在下方上传对应文件。",
+    "supportContactToast": "技术支持邮箱：support@filemarkd.com · 在线客服时间 9:00–22:00"
+  }
+}

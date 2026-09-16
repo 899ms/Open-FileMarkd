@@ -1,37 +1,69 @@
 {
-  "name": "PDF to Markdown Converter",
-  "short_name": "PDF2MD",
-  "description": "Convert PDF files to Markdown format with perfect formatting preservation",
+  "name": "FileMarkd - AI 文档转 Markdown 工具",
+  "short_name": "FileMarkd",
+  "description": "FileMarkd 是 AI 驱动的文档转换工具，把 PDF、图片、Word、PPT、Excel 等 40+ 种格式精准转换为 Markdown，支持表格、公式与多语言 OCR。",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#ffffff",
   "theme_color": "#000000",
+  "scope": "/",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "categories": ["productivity", "business", "utilities"],
   "icons": [
     {
-      "src": "/logo-192x192.png",
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo-512x512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "orientation": "any",
-  "id": "pdf2md-app",
-  "lang": "en-US",
-  "categories": ["productivity", "utilities", "tools"],
   "screenshots": [
     {
-      "src": "/screenshots/app-screenshot.png",
+      "src": "/logo.png",
       "sizes": "1280x720",
       "type": "image/png",
-      "label": "PDF2MD Converter Tool"
+      "form_factor": "wide",
+      "label": "FileMarkd 文档转换工作台"
     }
   ],
-  "related_applications": [],
-  "prefer_related_applications": false
-} 
+  "shortcuts": [
+    {
+      "name": "功能特性",
+      "short_name": "功能",
+      "description": "查看 FileMarkd 的核心功能与转换能力",
+      "url": "/zh-CN#features",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "定价方案",
+      "short_name": "定价",
+      "description": "查看 FileMarkd 订阅套餐与积分",
+      "url": "/zh-CN#pricing",
+      "icons": [
+        {
+          "src": "/favicon.ico",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

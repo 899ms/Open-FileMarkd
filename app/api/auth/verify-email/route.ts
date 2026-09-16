@@ -1,56 +1,57 @@
-import { prisma } from "@/lib/prisma"
-import { NextRequest, NextResponse } from "next/server"
+import { NextRequest, NextResponse } from 'next/server'
+import { db } from '@/lib/db'
+import { users, emailVerificationTokens } from '@/lib/schema'
+import { eq, and, gt } from 'drizzle-orm'
 
 export async function GET(request: NextRequest) {
   try {
-    // 从URL获取验证令牌
-    const searchParams = request.nextUrl.searchParams
-    const token = searchParams.get("token")
+    const { searchParams } = new URL(request.url)
+    const token = searchParams.get('token')
 
     if (!token) {
       return NextResponse.json(
-        { error: "缺少验证令牌" },
+        { errorKey: 'verify.token_missing' },
         { status: 400 }
       )
     }
 
-    // 查找具有此令牌的用户
-    const user = await prisma.user.findFirst({
-      where: {
-        verificationToken: token,
-        verificationTokenExpires: {
-          gt: new Date() // 确保令牌未过期
-        }
-      }
+    // 查找验证令牌
+    const verificationToken = await db.query.emailVerificationTokens.findFirst({
+      where: and(
+        eq(emailVerificationTokens.token, token),
+        gt(emailVerificationTokens.expires, new Date())
+      )
     })
 
-    if (!user) {
+    if (!verificationToken) {
       return NextResponse.json(
-        { error: "无效或已过期的验证令牌" },
+        { errorKey: 'verify.token_invalid' },
         { status: 400 }
       )
     }
 
-    // 更新用户为已验证状态
-    await prisma.user.update({
-      where: { id: user.id },
-      data: {
+    // 更新用户邮箱验证状态
+    await db.update(users)
+      .set({ 
         emailVerified: new Date(),
-        verificationToken: null,
-        verificationTokenExpires: null
-      }
+        updatedAt: new Date()
+      })
+      .where(eq(users.email, verificationToken.email))
+
+    // 删除验证令牌
+    await db.delete(emailVerificationTokens)
+      .where(eq(emailVerificationTokens.token, token))
+
+    return NextResponse.json({
+      messageKey: 'verify.success',
+      success: true
     })
 
-    // 返回成功响应
-    return NextResponse.json({
-      success: true,
-      message: "邮箱验证成功"
-    })
   } catch (error) {
-    console.error("邮箱验证失败:", error)
+    console.error('邮箱验证错误:', error)
     return NextResponse.json(
-      { error: "验证过程中出现错误" },
+      { errorKey: 'verify.failed_retry' },
       { status: 500 }
     )
   }
-} 
+}

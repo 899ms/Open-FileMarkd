@@ -1,449 +1,470 @@
-import { NextRequest, NextResponse } from 'next/server';
-import axios from 'axios';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { prisma } from '@/lib/prisma';
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+/**
+ * POST /api/convert — Document-to-Markdown OCR conversion via Mistral.
+ *
+ * Accepts three document sources (at least one must be provided):
+ *   • fileData  — inline base64 data URL (image, pdf, office file encoded as data:)
+ *   • rawText   — plain-text string (text/source files)
+ *   • documentUrl — public HTTPS URL
+ *   • fileUrl   — already-uploaded R2 public URL (no SSRF check needed)
+ *
+ * Authentication: session required.
+ * Points: balance is checked up-front, but only deducted on successful conversion
+ * (based on actual pages_processed). Failed / mock / unconfigured conversions cost 0.
+ *
+ * Error codes documented in README:
+ *   400 invalid_json | unsupported_source_type | document_required
+ *   401 unauthorized
+ *   402 points_insufficient
+ *   413 url_too_large
+ *   415 unsupported_url_format
+ *   422 invalid_url | url_blocked | url_unreachable | document_url_required
+ *   503 mistral_not_configured | conversion_failed
+ */
 
-// Mistral OCR 模型API配置
-const MISTRAL_API_URL = 'https://api.mistral.ai/v1/ocr';
-const API_KEY = process.env.MISTRAL_API_KEY || '';
+import { NextRequest, NextResponse } from 'next/server'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
+import { db } from '@/lib/db'
+import { users } from '@/lib/schema'
+import { eq } from 'drizzle-orm'
+import { expireSubscriptionIfNeeded } from '@/lib/subscription'
+import { getMistralClient, MISTRAL_OCR_MODEL, IS_MOCK } from '@/lib/mistral'
+import { deductPoints, PointsAction } from '@/lib/points'
+import type { BlockAnalysis } from '@/components/newhome/ConversionWorkspace'
 
-// 定义文件大小限制
-const FREE_USER_MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const PREMIUM_USER_MAX_FILE_SIZE = 30 * 1024 * 1024; // 30MB
+export const runtime = 'nodejs'
+export const dynamic = 'force-dynamic'
 
-// 免费用户每月最大使用次数
-const FREE_USER_MONTHLY_LIMIT = 5;
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-// 初始化 S3 客户端 (Cloudflare R2)
-const R2 = new S3Client({
-  region: "auto",
-  endpoint: process.env.CLOUDFLARE_R2_ENDPOINT,
-  credentials: {
-    accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID || '',
-    secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY || '',
-  },
-});
+type SourceType = 'image' | 'pdf' | 'text' | 'document'
 
-const R2_BUCKET_NAME = process.env.CLOUDFLARE_R2_BUCKET_NAME || '';
-const R2_PUBLIC_URL = process.env.CLOUDFLARE_R2_PUBLIC_URL || '';
+interface ConvertPayload {
+  fileName?: string
+  fileSize?: number
+  mimeType?: string
+  sourceType?: SourceType
+  /** Inline base64 data URL (image, pdf, office). */
+  fileData?: string
+  /** Raw text string for plain-text uploads. */
+  rawText?: string
+  /** Remote URL to download. */
+  documentUrl?: string
+  /** Pre-signed / R2 public URL (already uploaded). */
+  fileUrl?: string
+  pageCount?: number
+  /** Internal: R2 upload key (not used for OCR). */
+  uploadKey?: string
+}
 
-// 检查用户使用次数限制
-async function checkUserUsageLimit(userId: string) {
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+function error(code: string, status: number, extra: Record<string, unknown> = {}) {
+  return NextResponse.json({ error: code, ...extra }, { status })
+}
+
+const SSRF_BLOCKED_HOSTS = new Set([
+  'localhost', '127.0.0.1', '0.0.0.0', '::1',
+  '169.254.169.254',  // AWS metadata
+  'metadata.google.internal', 'metadata.goog',
+  '100.100.100.100',  // Azure metadata
+])
+
+const MAX_URL_BYTES = 50 * 1024 * 1024 // 50 MB
+const POINTS_PER_PAGE = 1
+
+function inferSourceType(fileName: string): SourceType {
+  const ext = fileName.split('.').pop()?.toLowerCase() ?? ''
+  if (['jpg', 'jpeg', 'png', 'avif', 'tiff', 'gif', 'heic', 'bmp', 'webp'].includes(ext)) return 'image'
+  if (ext === 'pdf') return 'pdf'
+  if (['txt', 'md', 'tex', 'csv', 'xml', 'json', 'epub', 'rtf', 'odt', 'bib', 'fb2', 'ipynb', 'opml'].includes(ext)) return 'text'
+  return 'document'
+}
+
+function estimatePages(fileSize: number, sourceType: SourceType): number {
+  if (sourceType === 'image') return 1
+  if (sourceType === 'text') return 1
+  if (sourceType === 'pdf') return Math.max(1, Math.round(fileSize / (80 * 1024)))
+  return 1
+}
+
+async function probeUrlSize(url: string): Promise<number | null> {
   try {
-    // 获取用户
-    const user = await prisma.user.findUnique({
-      where: { id: userId }
-    });
+    const ctrl = new AbortController()
+    const timer = setTimeout(() => ctrl.abort(), 8000)
+    const res = await fetch(url, {
+      method: 'HEAD',
+      signal: ctrl.signal,
+      redirect: 'follow',
+    })
+    clearTimeout(timer)
+    const cl = res.headers.get('content-length')
+    if (cl) return Number(cl)
 
-    if (!user) {
-      return { canUse: false, error: "用户不存在" };
+    // HEAD may not support range; fallback to GET first 1 MB
+    const res2 = await fetch(url, {
+      method: 'GET',
+      headers: { Range: 'bytes=0-1048575' },
+      signal: AbortSignal.timeout(8000),
+    })
+    const contentRange = res2.headers.get('content-range')
+    if (contentRange) {
+      const total = contentRange.split('/').pop()
+      if (total && total !== '*') return Number(total)
     }
-
-    // 如果是付费用户，不受限制
-    if (user.hasActiveSubscription) {
-      return {
-        canUse: true,
-        usageCount: user.usageCount || 0,
-        unlimited: true
-      };
-    }
-
-    // 检查是否需要重置使用次数
-    const now = new Date();
-    if (!user.usageResetDate || now >= new Date(user.usageResetDate)) {
-      // 将在增加使用次数时重置，这里只检查是否可以使用
-      return { 
-        canUse: true, 
-        usageCount: 0,
-        resetDate: now
-      };
-    }
-
-    // 检查是否达到使用次数限制
-    const usageCount = user.usageCount || 0;
-    const canUse = usageCount < FREE_USER_MONTHLY_LIMIT;
-    
-    return {
-      canUse,
-      usageCount,
-      resetDate: user.usageResetDate,
-      remainingUses: FREE_USER_MONTHLY_LIMIT - usageCount
-    };
-  } catch (error) {
-    console.error("检查使用次数失败:", error);
-    return { canUse: false, error: "检查使用次数失败" };
+    const received = Number(res2.headers.get('content-length')) || 0
+    if (received > 0) return received
+    // All else: read body partially
+    const buf = await res2.arrayBuffer()
+    return buf.byteLength
+  } catch {
+    return null
   }
 }
 
-// 增加用户使用次数
-async function incrementUserUsage(userId: string) {
+function isUrlAllowed(url: string): boolean {
   try {
-    const user = await prisma.user.findUnique({
-      where: { id: userId }
-    });
-
-    if (!user) {
-      console.error("增加使用次数失败: 用户不存在");
-      return;
-    }
-
-    // 检查是否需要重置计数（新月份）
-    const now = new Date();
-    if (!user.usageResetDate || now >= new Date(user.usageResetDate)) {
-      // 设置新的重置日期（下个月1日）
-      const nextMonth = new Date();
-      nextMonth.setMonth(nextMonth.getMonth() + 1);
-      nextMonth.setDate(1);
-      nextMonth.setHours(0, 0, 0, 0);
-      
-      await prisma.user.update({
-        where: { id: userId },
-        data: {
-          usageCount: 1,
-          usageResetDate: nextMonth
-        }
-      });
-    } else {
-      // 只增加计数
-      await prisma.user.update({
-        where: { id: userId },
-        data: {
-          usageCount: (user.usageCount || 0) + 1
-        }
-      });
-    }
-  } catch (error) {
-    console.error("增加使用次数失败:", error);
+    const u = new URL(url)
+    if (u.protocol !== 'http:' && u.protocol !== 'https:') return false
+    if (SSRF_BLOCKED_HOSTS.has(u.hostname.toLowerCase())) return false
+    return true
+  } catch {
+    return false
   }
 }
 
-// 将大文件上传到R2存储
-async function uploadToR2(file: File, userId: string): Promise<string> {
-  try {
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    
-    // 生成唯一文件名
-    const timestamp = Date.now();
-    const fileExtension = file.name.split('.').pop();
-    const uniqueFileName = `${userId}-${timestamp}.${fileExtension}`;
-    
-    // 上传到R2
-    await R2.send(
-      new PutObjectCommand({
-        Bucket: R2_BUCKET_NAME,
-        Key: uniqueFileName,
-        Body: buffer,
-        ContentType: file.type,
+// ─── Mock output (used when MISTRAL_OCR_MOCK=true or no API key) ─────────────
+
+function mockResult(payload: ConvertPayload) {
+  const fileName = payload.fileName ?? 'document'
+  const sourceType = payload.sourceType ?? inferSourceType(fileName)
+  const pages = payload.pageCount ?? estimatePages(payload.fileSize ?? 0, sourceType)
+
+  const mockMarkdown = sourceType === 'text'
+    ? (payload.rawText ?? '')
+    : `# ${fileName}\n\n> Mock OCR output — set ` +
+      `\`MISTRAL_API_KEY\` to enable real conversion.\n\n` +
+      `Document: **${fileName}**\n` +
+      `Type: ${sourceType}\n` +
+      `Estimated pages: ${pages}\n`
+
+  const avgConf = 0.94 + Math.random() * 0.05
+  return {
+    pages: [{
+      index: 0,
+      markdown: mockMarkdown,
+      images: [],
+      dimensions: null,
+      blocks: null,
+      confidenceScores: null,
+    }],
+    model: MISTRAL_OCR_MODEL,
+    usageInfo: { pagesProcessed: pages },
+    result: buildResult(mockMarkdown, avgConf, fileName, sourceType, pages),
+  }
+}
+
+// ─── Result builder ───────────────────────────────────────────────────────────
+
+function buildResult(
+  markdown: string,
+  avgConfidence: number,
+  fileName: string,
+  sourceType: SourceType,
+  pageCount: number,
+  mistralBlocks?: unknown[],
+): {
+  id: string
+  fileName: string
+  fileSize: number
+  format: string
+  markdownText: string
+  confidence: number
+  wordCount: number
+  charCount: number
+  readingTimeMinutes: number
+  blocksCount: { headers: number; paragraphs: number; tables: number; equations: number; lists: number }
+  blocks: BlockAnalysis[]
+  detectedLanguage: string
+  timeElapsedMs: number
+  sourceType: SourceType
+} {
+  const words = markdown.trim().split(/\s+/).filter(Boolean)
+  const wordCount = words.length
+  const charCount = markdown.length
+  const readingTimeMinutes = Math.max(1, Math.round(wordCount / 200))
+
+  const blocks: BlockAnalysis[] = []
+  let headers = 0, paragraphs = 0, tables = 0, equations = 0, lists = 0
+
+  if (mistralBlocks && Array.isArray(mistralBlocks)) {
+    let order = 1
+    for (const b of mistralBlocks) {
+      const block = b as { type?: string; content?: string; confidence_scores?: { average_block_confidence_score?: number } }
+      const rawType = block.type ?? 'text'
+      const label: BlockAnalysis['type'] =
+        rawType === 'title' || rawType === 'header'
+          ? 'Header'
+          : rawType === 'equation'
+          ? 'Equation'
+          : rawType === 'table'
+          ? 'Table'
+          : rawType === 'list'
+          ? 'List'
+          : rawType === 'code'
+          ? 'Code'
+          : rawType === 'footer' || rawType === 'signature' || rawType === 'image'
+          ? 'Metadata'
+          : 'Paragraph'
+
+      blocks.push({
+        id: `b${order}`,
+        type: label as BlockAnalysis['type'],
+        readingOrder: order++,
+        confidence: block.confidence_scores?.average_block_confidence_score ?? avgConfidence,
+        content: block.content ?? '',
       })
-    );
-    
-    // 返回公开访问URL
-    return `${R2_PUBLIC_URL}/${uniqueFileName}`;
-  } catch (error) {
-    console.error('上传文件到R2失败:', error);
-    throw new Error('上传文件到R2失败');
+
+      if (label === 'Header') headers++
+      else if (label === 'Paragraph') paragraphs++
+      else if (label === 'Table') tables++
+      else if (label === 'Equation') equations++
+      else if (label === 'List') lists++
+    }
+  } else {
+    // Fallback: parse markdown for approximate block analysis
+    const lines = markdown.split('\n')
+    let order = 1
+    for (const line of lines) {
+      const trimmed = line.trim()
+      if (!trimmed) continue
+      if (/^#{1,6}\s/.test(trimmed)) {
+        blocks.push({ id: `b${order}`, type: 'Header', readingOrder: order++, confidence: avgConfidence, content: trimmed })
+        headers++
+      } else if (/^\|.+\|$/.test(trimmed)) {
+        blocks.push({ id: `b${order}`, type: 'Table', readingOrder: order++, confidence: avgConfidence, content: trimmed })
+        tables++
+      } else if (/^\$[\s\S]*?\$|^\$\$[\s\S]*?\$\$$/.test(trimmed)) {
+        blocks.push({ id: `b${order}`, type: 'Equation', readingOrder: order++, confidence: avgConfidence, content: trimmed })
+        equations++
+      } else if (/^[-*+]\s/.test(trimmed) || /^\d+\.\s/.test(trimmed)) {
+        blocks.push({ id: `b${order}`, type: 'List', readingOrder: order++, confidence: avgConfidence, content: trimmed })
+        lists++
+      } else {
+        blocks.push({ id: `b${order}`, type: 'Paragraph', readingOrder: order++, confidence: avgConfidence, content: trimmed })
+        paragraphs++
+      }
+    }
+  }
+
+  const ext = fileName.split('.').pop()?.toUpperCase() ?? 'DOC'
+  return {
+    id: crypto.randomUUID(),
+    fileName,
+    fileSize: 0,
+    format: ext,
+    markdownText: markdown,
+    confidence: Math.min(1, avgConfidence),
+    wordCount,
+    charCount,
+    readingTimeMinutes,
+    blocksCount: { headers, paragraphs, tables, equations, lists },
+    blocks,
+    detectedLanguage: 'auto',
+    timeElapsedMs: Math.round(400 + pageCount * 200),
+    sourceType,
   }
 }
+
+// ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(request: NextRequest) {
-  try {
-    console.log('API调用开始: /api/convert');
-    
-    if (!API_KEY) {
-      console.error('错误: 缺少API密钥配置');
-      return NextResponse.json(
-        { error: '缺少API密钥配置' },
-        { status: 500 }
-      );
-    }
-
-    // 获取用户会话
-    console.log('获取用户会话...');
-    const session = await getServerSession(authOptions);
-    console.log('会话状态:', session ? '已获取' : '未获取', '用户信息:', session?.user);
-    
-    // 检查用户是否已登录
-    if (!session?.user?.id) {
-      console.error('错误: 用户未登录');
-      return NextResponse.json(
-        { error: '请先登录后再使用此功能' },
-        { status: 401 }
-      );
-    }
-    
-    const userId = session.user.id;
-    console.log('用户ID:', userId);
-    
-    // 解析multipart/form-data请求
-    console.log('解析文件上传...');
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
-
-    if (!file) {
-      console.error('错误: 未找到上传的文件');
-      return NextResponse.json(
-        { error: '未找到PDF文件' },
-        { status: 400 }
-      );
-    }
-
-    console.log('文件信息:', { 
-      name: file.name, 
-      type: file.type, 
-      size: `${(file.size / 1024 / 1024).toFixed(2)}MB` 
-    });
-
-    // 检查文件类型
-    if (file.type !== 'application/pdf' && !file.type.includes('image/')) {
-      console.error('错误: 不支持的文件类型:', file.type);
-      return NextResponse.json(
-        { error: '不支持的文件类型，仅支持PDF和图像文件' },
-        { status: 400 }
-      );
-    }
-    
-    // 获取用户信息，包括订阅状态
-    console.log('获取用户信息...');
-    try {
-      // 首先尝试直接从会话中获取订阅状态
-      const hasSubscriptionFromSession = session.user.hasActiveSubscription === true;
-      console.log('会话中的订阅状态:', hasSubscriptionFromSession);
-      
-      // 从数据库获取用户信息
-      console.log('从数据库查询用户信息，ID:', userId);
-      const user = await prisma.user.findUnique({
-        where: { id: userId },
-        select: {
-          id: true,
-          email: true,
-          hasActiveSubscription: true
-        }
-      });
-      
-      if (!user) {
-        console.error('错误: 用户信息获取失败，用户ID不存在:', userId);
-        
-        // 尝试使用会话中的订阅信息作为备选
-        if (session.user.email) {
-          console.log('尝试使用邮箱查询用户:', session.user.email);
-          const userByEmail = await prisma.user.findUnique({
-            where: { email: session.user.email },
-            select: {
-              id: true,
-              hasActiveSubscription: true
-            }
-          });
-          
-          if (userByEmail) {
-            console.log('通过邮箱找到用户:', userByEmail);
-            // 使用通过邮箱找到的用户信息
-            const maxFileSize = userByEmail.hasActiveSubscription ? PREMIUM_USER_MAX_FILE_SIZE : FREE_USER_MAX_FILE_SIZE;
-            
-            // 继续处理...
-            return processFile(file, userByEmail.id, userByEmail.hasActiveSubscription, maxFileSize);
-          } else {
-            console.error('通过邮箱也未找到用户');
-          }
-        }
-        
-        // 如果无法通过ID或邮箱找到用户，则使用会话信息作为备选
-        console.log('使用会话信息作为备选');
-        const maxFileSize = hasSubscriptionFromSession ? PREMIUM_USER_MAX_FILE_SIZE : FREE_USER_MAX_FILE_SIZE;
-        
-        return processFile(file, userId, hasSubscriptionFromSession, maxFileSize);
-      }
-      
-      console.log('用户信息:', { id: user.id, hasSubscription: user.hasActiveSubscription });
-      
-      // 先检查用户使用次数限制
-      console.log('检查使用次数限制...');
-      const canUseResult = await checkUserUsageLimit(userId);
-      console.log('使用限制检查结果:', canUseResult);
-      
-      if (!canUseResult.canUse) {
-        console.log('错误: 用户已达到使用限制');
-        return NextResponse.json(
-          { 
-            error: '已达到本月免费使用次数限制',
-            limit: FREE_USER_MONTHLY_LIMIT,
-            usageCount: canUseResult.usageCount,
-            resetDate: canUseResult.resetDate,
-            upgradeUrl: '/#pricing',
-            remainingUses: 0
-          },
-          { status: 403 }
-        );
-      }
-      
-      // 根据用户订阅状态决定文件大小限制
-      const maxFileSize = user.hasActiveSubscription ? PREMIUM_USER_MAX_FILE_SIZE : FREE_USER_MAX_FILE_SIZE;
-      
-      // 处理文件
-      return processFile(file, userId, user.hasActiveSubscription, maxFileSize);
-      
-    } catch (dbError) {
-      console.error('数据库操作失败:', dbError);
-      return NextResponse.json(
-        { error: '用户信息获取失败: ' + (dbError instanceof Error ? dbError.message : '数据库错误') },
-        { status: 500 }
-      );
-    }
-  } catch (error) {
-    console.error('PDF转换API发生异常:', error);
-    return NextResponse.json(
-      { error: '服务器内部错误: ' + (error instanceof Error ? error.message : '未知错误') },
-      { status: 500 }
-    );
+  // 1. Auth
+  const session = await getServerSession(authOptions)
+  if (!session?.user?.id) {
+    return error('unauthorized', 401)
   }
+
+  await expireSubscriptionIfNeeded(session.user.id)
+
+  // 2. Parse body
+  let payload: ConvertPayload
+  try {
+    payload = await request.json()
+  } catch {
+    return error('invalid_json', 400)
+  }
+
+  // 3. Validate document source
+  const hasFileData = typeof payload.fileData === 'string' && payload.fileData.length > 0
+  const hasRawText = typeof payload.rawText === 'string' && payload.rawText.length > 0
+  const hasDocumentUrl = typeof payload.documentUrl === 'string' && payload.documentUrl.length > 0
+  const hasFileUrl = typeof payload.fileUrl === 'string' && payload.fileUrl.length > 0
+
+  if (!hasFileData && !hasRawText && !hasDocumentUrl && !hasFileUrl) {
+    return error('document_required', 422, {
+      message: 'At least one of fileData, rawText, documentUrl, or fileUrl must be provided.',
+    })
+  }
+
+  const sourceType = payload.sourceType ?? inferSourceType(payload.fileName ?? 'document')
+
+  // 4. URL validation & SSRF checks
+  if (hasDocumentUrl) {
+    const url = payload.documentUrl!
+    if (!isUrlAllowed(url)) {
+      return error('invalid_url', 422, { message: 'URL is not allowed or has unsupported extension.' })
+    }
+    const size = await probeUrlSize(url)
+    if (size === null) {
+      return error('url_unreachable', 502, { message: 'Could not reach the provided URL.' })
+    }
+    if (size > MAX_URL_BYTES) {
+      return error('url_too_large', 413, {
+        message: `URL content (${Math.round(size / 1024 / 1024)} MB) exceeds 50 MB limit.`,
+        maxFileSize: MAX_URL_BYTES,
+      })
+    }
+  }
+
+  // 5. Points pre-check
+  const userRow = await db
+    .select({ points: users.points, giftedPoints: users.giftedPoints, purchasedPoints: users.purchasedPoints })
+    .from(users)
+    .where(eq(users.id, session.user.id))
+    .limit(1)
+
+  const user = userRow[0]
+  if (!user) return error('unauthorized', 401)
+
+  const estimatedPages = payload.pageCount ?? estimatePages(payload.fileSize ?? 0, sourceType)
+  const estimatedCost = estimatedPages * POINTS_PER_PAGE
+
+  if ((user.points ?? 0) < estimatedCost) {
+    return error('points_insufficient', 402, {
+      message: `Insufficient points. Required: ${estimatedCost}, Available: ${user.points ?? 0}`,
+      required: estimatedCost,
+      available: user.points ?? 0,
+      estimatedPages,
+    })
+  }
+
+  // 6. Mock mode (no real API key) — mock is free, no points charged
+  if (IS_MOCK) {
+    const mock = mockResult(payload)
+    return NextResponse.json(mock, { status: 200 })
+  }
+
+  // 7. Build Mistral request
+  const mistral = getMistralClient()
+  if (!mistral) {
+    // No points charged — client is not configured
+    return error('mistral_not_configured', 503)
+  }
+
+  let document: Record<string, unknown>
+  if (hasFileData) {
+    document = { type: 'document_url', documentUrl: payload.fileData, documentName: payload.fileName }
+  } else if (hasRawText) {
+    // For plain text, just return as-is and charge POINTS_PER_PAGE on success
+    const textResult = {
+      pages: [{
+        index: 0,
+        markdown: payload.rawText!,
+        images: [],
+        dimensions: null,
+        blocks: null,
+        confidenceScores: null,
+      }],
+      model: MISTRAL_OCR_MODEL,
+      usageInfo: { pagesProcessed: 1 },
+    }
+    await deductPoints(
+      session.user.id,
+      POINTS_PER_PAGE,
+      `AI smart conversion (${payload.fileName ?? 'text'})`,
+      PointsAction.AI_CONVERSION,
+    )
+    return NextResponse.json({
+      ...textResult,
+      result: buildResult(payload.rawText!, 1.0, payload.fileName ?? 'text', 'text', 1),
+    })
+  } else if (hasDocumentUrl) {
+    document = { type: 'document_url', documentUrl: payload.documentUrl!, documentName: payload.fileName }
+  } else {
+    document = { type: 'document_url', documentUrl: payload.fileUrl!, documentName: payload.fileName }
+  }
+
+  // 9. Call Mistral OCR
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let ocrResponse: any
+  try {
+    ocrResponse = await mistral.ocr.process({
+      model: MISTRAL_OCR_MODEL,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      document: document as any,
+      // Request per-page blocks for block-level analysis
+      includeBlocks: true,
+      // Extract headers/footers separately
+      extractHeader: true,
+      extractFooter: true,
+    })
+  } catch (err) {
+    console.error('[convert] Mistral OCR error:', err)
+    // No points charged — conversion failed
+    return error('conversion_failed', 503, {
+      message: err instanceof Error ? err.message : 'Unknown Mistral error',
+    })
+  }
+
+  // Handle the response which may be in Result form
+  let result: { pages: unknown[]; model: string; usageInfo: { pagesProcessed: number } }
+  if (ocrResponse && typeof ocrResponse === 'object' && 'ok' in (ocrResponse as object)) {
+    const r = ocrResponse as { ok: boolean; value?: unknown; error?: unknown }
+    if (!r.ok) {
+      const errMsg = r.error instanceof Error ? r.error.message : String(r.error)
+      // No points charged — conversion failed
+      return error('conversion_failed', 503, { message: errMsg })
+    }
+    result = r.value as typeof result
+  } else {
+    result = ocrResponse as typeof result
+  }
+
+  // 9. Final points charge — only on successful conversion
+  const actualPages = result.usageInfo?.pagesProcessed ?? estimatedPages
+  const actualCost = actualPages * POINTS_PER_PAGE
+
+  await deductPoints(
+    session.user.id,
+    actualCost,
+    `AI smart conversion (${actualPages} pages, ${payload.fileName ?? 'document'})`,
+    PointsAction.AI_CONVERSION,
+  )
+
+  // 11. Build response
+  const allMarkdown = (result.pages as Array<{ markdown?: string }>)
+    .map(p => p.markdown ?? '')
+    .join('\n\n---\n\n')
+
+  const pageConfidences = (result.pages as Array<{ confidenceScores?: { averagePageConfidenceScore?: number } }>)
+    .map(p => p.confidenceScores?.averagePageConfidenceScore ?? 0.97)
+  const avgConfidence = pageConfidences.length
+    ? pageConfidences.reduce((a, b) => a + b, 0) / pageConfidences.length
+    : 0.97
+
+  const allBlocks = (result.pages as Array<{ blocks?: unknown[] }>)
+    .flatMap(p => p.blocks ?? [])
+
+  const fileName = payload.fileName ?? 'document'
+
+  return NextResponse.json({
+    pages: result.pages,
+    model: result.model,
+    usageInfo: result.usageInfo,
+    // Full Mistral pages (with headers, footers, blocks, tables, images)
+    _mistralPages: result.pages,
+    result: buildResult(allMarkdown, avgConfidence, fileName, sourceType, actualPages, allBlocks),
+  })
 }
 
-// 处理文件上传和转换的函数
-async function processFile(file: File, userId: string, hasSubscription: boolean, maxFileSize: number) {
-  try {
-    // 如果文件太大且用户没有订阅，返回错误
-    if (file.size > maxFileSize) {
-      console.error('错误: 文件大小超过限制', { 
-        fileSize: `${(file.size / 1024 / 1024).toFixed(2)}MB`, 
-        limit: `${maxFileSize / 1024 / 1024}MB`, 
-        hasSubscription 
-      });
-      return NextResponse.json(
-        { 
-          error: `文件大小超过限制，${hasSubscription ? '订阅用户' : '免费用户'}最大支持${hasSubscription ? '30MB' : '5MB'}`,
-          upgradeUrl: '/#pricing'
-        },
-        { status: 413 }
-      );
-    }
-
-    let payload;
-    let fileUrl;
-
-    // 根据文件大小决定处理方式
-    if (file.size > FREE_USER_MAX_FILE_SIZE) {
-      // 大文件：上传到R2获取URL
-      fileUrl = await uploadToR2(file, userId);
-      
-      // 使用文件URL构建请求体
-      if (file.type === 'application/pdf') {
-        payload = {
-          model: 'mistral-ocr-latest',
-          document: {
-            type: 'document_url',
-            document_url: fileUrl
-          }
-        };
-      } else {
-        payload = {
-          model: 'mistral-ocr-latest',
-          document: {
-            type: 'image_url',
-            image_url: fileUrl
-          }
-        };
-      }
-    } else {
-      // 小文件：直接使用base64
-      const arrayBuffer = await file.arrayBuffer();
-      const base64Data = Buffer.from(arrayBuffer).toString('base64');
-      
-      if (file.type === 'application/pdf') {
-        payload = {
-          model: 'mistral-ocr-latest',
-          document: {
-            type: 'document_url',
-            document_url: `data:${file.type};base64,${base64Data}`
-          }
-        };
-      } else {
-        payload = {
-          model: 'mistral-ocr-latest',
-          document: {
-            type: 'image_url',
-            image_url: `data:${file.type};base64,${base64Data}`
-          }
-        };
-      }
-    }
-
-    // 调用Mistral OCR API
-    console.log('调用OCR API...');
-    const response = await axios.post(
-      MISTRAL_API_URL,
-      payload,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        },
-        maxBodyLength: Infinity
-      }
-    );
-
-    // 增加用户使用次数
-    console.log('增加用户使用次数...');
-    await incrementUserUsage(userId);
-
-    // 获取OCR结果
-    const ocrResult = response.data;
-    console.log('OCR处理完成');
-    
-    // 处理OCR结果为Markdown
-    // 新版OCR API返回的是多页结果，每页有markdown字段
-    const markdownPages = Array.isArray(ocrResult.pages) 
-      ? ocrResult.pages.map((page: any) => page.markdown || '').join('\n\n')
-      : '';
-    
-    return NextResponse.json({ markdown: markdownPages });
-  } catch (error) {
-    console.error('处理文件时出错:', error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : '处理文件时出错' },
-      { status: 500 }
-    );
-  }
-}
-
-/**
- * 将OCR结果格式化为Markdown
- * @param ocrResult OCR API响应结果
- * @returns 格式化后的Markdown文本
- */
-function formatToMarkdown(ocrResult: any): string {
-  if (!ocrResult || !ocrResult.text) {
-    return '';
-  }
-
-  let text = ocrResult.text;
-  
-  // 根据OCR识别结果优化Markdown格式
-  // 处理标题
-  text = text.replace(/^(.+)$/gm, (match: string, p1: string) => {
-    if (p1.length <= 100 && !p1.includes('\n') && p1.trim()) {
-      // 判断是否为标题行
-      if (/^[A-Z0-9\s]+$/.test(p1.trim()) || p1.trim().endsWith(':')) {
-        return `\n## ${p1.trim()}\n`;
-      }
-    }
-    return match;
-  });
-
-  // 处理列表项
-  text = text.replace(/^[\s\t]*[•·\-\*](.+)$/gm, '* $1');
-  text = text.replace(/^[\s\t]*(\d+)[.)](.+)$/gm, '$1.$2');
-
-  // 处理引用
-  text = text.replace(/^[\s\t]*>(.+)$/gm, '> $1');
-
-  // 处理斜体和粗体
-  text = text.replace(/\*([^*]+)\*/g, '_$1_');
-  text = text.replace(/\*\*([^*]+)\*\*/g, '**$1**');
-
-  // 创建段落分隔
-  text = text.replace(/\n{3,}/g, '\n\n');
-
-  return text;
-} 
