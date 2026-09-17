@@ -44,23 +44,15 @@ The system optimization metric $\\mathcal{L}_{total}$ combines spatial boundary 
 
 $$\\mathcal{L}_{total} = \\alpha \\mathcal{L}_{spatial}(\\hat{B}, B) + \\beta \\sum_{t=1}^{T} -\\log P(y_t | y_{<t}, X_{vis})$$
 
-Where spatial parameter efficiency $\\eta$ is given by:
-
-$$\\eta = \sum_{i=1}^{n} \\frac{\\text{Precision}_i}{\\text{Latency}_i} \\times \left( 1 - e^{-\lambda \cdot \kappa_i} \right)$$
-
-For higher-order tensor contractions over multimodal embeddings:
-
-$$\\mathbf{M}_{ij} = \\begin{pmatrix} \omega_{11} & \omega_{12} & \cdots & \omega_{1k} \\ \omega_{21} & \omega_{22} & \cdots & \omega_{2k} \\ \vdots & \vdots & \ddots & \vdots \\ \omega_{n1} & \omega_{n2} & \cdots & \omega_{nk} \end{pmatrix} \\times \\nabla_\\theta f(x)$$
-
 ## 3. Benchmark Evaluation Results
 
 The performance was evaluated across 40 distinct document classes against top-tier OCR baselines:
 
-| Model Architecture | OCR Precision (%) | Table Fidelity (IoU) | Math Equation Acc (%) | Mean Latency (ms) | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Traditional OCR Baseline** | 87.4% | 0.62 | 64.2% | 840ms | \`[Legacy]\` |
-| **LayoutLM-v3 Enhanced** | 94.1% | 0.81 | 82.5% | 420ms | \`[Outdated]\` |
-| **FileMarkd AI** | **99.3%** | **0.97** | **98.8%** | **95ms** | \`[State-of-Art]\` |
+| Model Architecture | OCR Precision (%) | Table Fidelity (IoU) | Math Equation Acc (%) | Mean Latency (ms) | 
+| :--- | :--- | :--- | :--- | :--- | 
+| **Traditional OCR Baseline** | 87.4% | 0.62 | 64.2% | 840ms | 
+| **LayoutLM-v3 Enhanced** | 94.1% | 0.81 | 82.5% | 420ms |
+| **FileMarkd AI** | **99.3%** | **0.97** | **98.8%** | **95ms** | 
 
 ### Key Architectural Highlights:
 - **Zero-loss Reading Order:** Reconstructs multi-column and floating sidebars seamlessly.
